@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            padding-top: 10px;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+	<div class="top" id="topPart">
+	    <img src="images/top.png" alt="">
+	</div>
+	<div class="nav" id="navBar">
+	    <img src="images/nav.png" alt="">
+	</div>
+	<div class="main" id="mainPart">
+	    <img src="images/main.png" alt="">
+	</div>
+
+
+</body>
+<script type="text/javascript" src="../jQ.js"></script>
+<script type="text/javascript">
+
+	// 获取 top盒子的高度
+	var iH =  $('#topPart').outerHeight();
+
+	 // 在滚动的时候判断 scrollTop 的值 是否大于等于   top盒子的高度  让nav导航div 固定定位   小于的 取消固定定位
+	 // console.log(iH);
+
+	 $(document).scroll(function () {
+	 	
+	 	// console.log( $(this).scrollTop() );
+
+	 	if($(this).scrollTop() >= iH) {
+	 		$('#navBar').addClass('fixed');
+	 		// 让 top盒子和 下面的主体盒子之间 留一部分空间 这个高度正好 nav高度
+	 		// 
+	 		$('#mainPart').css('marginTop', $('#navBar').outerHeight() );
+	 	}else {
+	 		$('#navBar').removeClass('fixed');
+// 
+	 		$('#mainPart').css('marginTop', '' );
+
+	 	}
+
+	 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

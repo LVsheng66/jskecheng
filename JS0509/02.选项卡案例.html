@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			input {
+				outline: none;
+				border:none;
+				background-color: orange;
+				margin-right: 10px;
+				height: 30px;
+				font:14px/30px '微软雅黑';
+				cursor: pointer;
+			}
+			div {
+				width: 280px;
+				height: 250px;
+				border: 1px solid black;
+				display: none;
+			}
+			.active {
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<input class='active'  type="button" value="iPhoneX手机">
+		<input type="button"  value="OPPO R9">
+		<input type="button"  value="小米8">
+		<div style="display: block;">苹果手机专区</div>
+		<div>OPPO专卖店</div>
+		<div>小米之家</div>
+	</body>
+	<script type="text/javascript">
+		// 布局 + 样式
+		// 功能:
+		// 思路: 给每一个按钮添加单击事件 
+// 		单击任何一个按钮 
+// 			让对应的div显示  让其他div们隐藏
+// 			让按钮自己本身添加类active (变红色) 让其他按钮 去掉类acitve  变为orange
+		// 找事件 ==> 单击 ==> 给按钮添加单击
+		
+		var aInp = document.getElementsByTagName('input');// 这是一个集合 类似于数组 length 下标(索引)
+		var aDiv = document.getElementsByTagName('div');
+		// [‘input’， ‘input' ,....]
+		// 循环给按钮标签元素添加单击事件
+		for(var i = 0,len=aInp.length; i < len; i++){
+			// 通过自定义索引值的方式 去解决下面i问题
+			
+			aInp[i].index = i; // aInp[0].index = 0; aInp[1].index = 1 ....
+			
+			aInp[i].onmouseover = function() {
+				// 让对应的div显示  让其他div们隐藏
+				
+				console.log(this.index);
+				// 暴力清除 循环让所有的div全部隐藏
+				for(var j = 0; j < len; j++){
+					aDiv[j].style.display = 'none';
+					aInp[j].className = '';
+				}
+				
+				aDiv[this.index].style.display = 'block';
+				
+				//让按钮自己本身添加类active (变红色) 让其他按钮 去掉类acitve  变为orange
+				
+				// js中 不能直接添加class 是保留字 (es6中作为类来使用)  ==> className 
+				this.className = 'active';
+			}
+		}
+		
+	</script>
+</html>

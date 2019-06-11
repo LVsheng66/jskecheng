@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+/* 		将一个字符串数组[’刘备’, ’关羽’,’张飞’]
+		输出为|分割的形式，比如“刘备|张飞|关羽” */
+		
+		var hero = ['刘备','关羽','张飞'];
+		
+		var ret = hero.join('|')
+		console.log(ret); // “刘备|张飞|关羽”
+		
+		// 工资的数组[1500, 1200, 2000, 2100, 1800], 把工资超过2000的删除
+		var  money = [1500, 1200,  2100, 1800];
+		
+		for(var i = 0; i < money.length; i++){
+			if(money[i] >= 2000){
+				money.splice(i,1);
+				i--;
+			}
+		}
+		
+		console.log(money);
+		
+	</script>
+</html>

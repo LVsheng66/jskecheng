@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		// while 打印正方形 &&打印直角三角形 ⭐️ * ❤️  document.write('⭐️')
+		// 		⭐️⭐️⭐️⭐️⭐️⭐️
+		// 		⭐️⭐️⭐️⭐️⭐️⭐️
+		// 		⭐️⭐️⭐️⭐️⭐️⭐️
+		// 		⭐️⭐️⭐️⭐️⭐️⭐️
+		// 		⭐️⭐️⭐️⭐️⭐️⭐️
+		
+		// 一排的五角星  6个 通过循环打印的		
+		/* var i = 1;
+		while(i <=6) {
+			document.write('⭐️');
+			i++;
+		} */
+		
+		var j = 1;
+		while(j<=5) {
+			//循环做事情
+			// ===================
+			var i = 1;
+			while(i <=6) {
+				document.write('⭐️');
+				i++;
+			}
+			//===============
+			document.write('<br />')
+			j++;
+		}
+		
+		document.write('<br />');
+		document.write('<br />');
+		
+		
+		//		⭐️           第1排    1个      
+		// 		⭐️⭐️         第2排     2个
+		// 		⭐️⭐️⭐️		第3排     3个
+		// 		⭐️⭐️⭐️⭐️		第4排     4个
+		// 		⭐️⭐️⭐️⭐️⭐️	第5排     5个
+		
+		
+		var i = 1;
+		// 来一个外层循环 控制排数
+		while(i<=9) {
+			// i=>1  i=>2  i=>3
+			//做事情 
+			// 里面的这个循环是控制每一排打印的个数
+			var j = 1;
+			while(j <=i) {
+				document.write('⭐️');
+				j++;
+			}
+			document.write('<br />');
+			i++;
+		}
+			
+	</script>
+</html>

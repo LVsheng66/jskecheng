@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>第一页</h1>
+		<input type="button" value="向后">
+		<input type="button" value="向前">
+		<a href="./index.html">首页</a>
+		<a href="./login.html">登陆页</a>
+	</body>
+	<script type="text/javascript">
+		
+		var aInp = document.getElementsByTagName('input');
+		
+		aInp[0].onclick = function() {
+			
+			window.history.back();  // go(-1)
+			
+		}
+		
+		aInp[1].onclick = function() {
+			
+			window.history.forward();  // go(1)
+			// window.history.go(0);//
+		}
+		
+	</script>
+</html>

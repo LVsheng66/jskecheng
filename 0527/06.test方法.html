@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+	
+// 	正则表达式.test(str) 
+// 	test方法 用来匹配字符 会返回一个布尔值 如果匹配成功 则返回true 否则不成功 false
+		
+	var str = 'abfe9x';
+	var str = '2426288';
+	var str = '2426!288';
+	var str = 'fdsf23 fsdfw';
+	var str = 'fds fw';
+	
+	//   转义字符
+	// \D 匹配任意非数字
+	
+	/* 转义字符
+	\d 匹配任意数字
+	\D 匹配任意非数字
+	
+	\w 匹配任意字符 (字母 数字 下划线)
+	\W 匹配任意 非字符
+	
+	\s 匹配空格
+	\S 匹配非空格
+	
+	\b 匹配独立部分 (稍后讲)
+	\B 匹配非独立部分 */
+
+	
+	var re = /S/		
+	
+	
+	if(re.test(str)) {
+		alert('匹配成功')
+	}else {
+		alert('匹配不成功');
+	}
+	
+	// 正则表达式 严格区分大小写
+	</script>
+</html>

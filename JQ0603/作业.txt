@@ -1,0 +1,21 @@
+作业：
+
+
+1 美女相册
+
+2 表格全选案例
+
+3 搜索提示框
+
+4 仿腾讯固定菜单栏案例
+
+5 拖拽jq
+
+6 按键变色
+
+
+7 总共三天 所有的学的jquery方法 总结一下啊   xmind  mindNode  mindManager   markdown  (typra)
+
+
+
+

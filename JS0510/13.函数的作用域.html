@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	/* 
+	1 预解析：
+		var  a；
+		 function fn1(){
+			
+			alert(a); // 
+			a = 2;
+		 }
+	2 代码执行
+		
+	 */
+	
+	
+/* 	var  a  = 1; // a:1
+	
+	function fn1(){  //
+		/* 
+		1 预解析
+		  空
+		2 代码执行
+		  
+		 
+		
+		alert(a); //  1
+		a = 2; //  a:2
+	}
+	fn1(); // fn1
+	alert(a); */// 2
+		
+		
+/* 	
+	var  a  = 1; // a:1
+	
+	function fn1(a){     // 形参 相当于 局部变量
+	  //var a;
+		/* 
+		1 预解析
+		  var a;
+		 2 代码执行
+			
+		 
+		alert(a);  // undefined
+		a = 2; // 局部 a:2
+	}
+	fn1();
+	
+	alert(a); // 1 
+	 */
+	
+	
+	
+	var  a  = 1;
+	
+	function fn1(a){
+		/* 
+		 1 预解析
+		 var a;
+		 2 代码执行
+		 一执行 形参就接收到了一个值 外界传入的一个值 1
+		 a =1 ;
+		 */
+		alert(a);  // 1 
+		a = 2;  // 局部的a : 2
+	}
+	
+	fn1(a); // 执行fn1函数的同时 传入了一个值 a 1
+	alert(a); // 1  
+
+	
+		
+	</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		var a = '100px';
+		
+		console.log(Number(a)); // NaN 
+		
+		// parseInt() // 尝试将字符串转换为数字
+		
+		var b = '12.34亿元';
+		
+		// var c = '一元';
+		
+		// var arr = [];
+		
+		console.log(parseInt(b)); // 12
+		
+		console.log(parseFloat(b)); // 12.34
+		
+		//扩展： parseInt() 还有另一个作用 它里面放第二个参数 可以写进制 2  8  16  默认10进制
+		
+		// 0-9 abcdef 16
+		// 0-7   8
+		// 010101111  2 
+		
+		console.log( parseInt('ad', 16) ); // 10*16 + 13 ==> 173
+		console.log(parseInt('ad', 10)); // NaN 
+		
+		console.log(parseInt('25',8)); // 2*8 + 5 ==>21
+		
+		console.log(parseInt('101011',2)); //  32+ 8+ 2+1==> 43
+	</script>
+</html>

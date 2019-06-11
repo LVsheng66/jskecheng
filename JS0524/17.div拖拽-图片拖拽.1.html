@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		body {
+			background-color: #000;
+		}
+		#box,#box2  {
+			width: 150px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			border: 2px solid white;
+		}
+		#box2 {
+			left: 300px;
+		}
+		
+	</style>
+	<body>
+		<img src="../img/1.jpg"  id="box">
+		<img src="../img/2.jpg"  id="box2">
+	</body>
+	
+	<script type="text/javascript">
+
+	var oBox = document.getElementById('box');
+	var oBox2 = document.getElementById('box2');
+	
+	
+	drag(oBox);
+	drag(oBox2);
+	
+	function drag(obj) {
+		
+		var disX,disY;
+		
+		obj.onmousedown = function(e) {
+			e = e || event;
+			// 获取固定距离
+			disX = e.clientX - obj.offsetLeft;
+			disY = e.clientY - obj.offsetTop;
+			// 阻止图片拖拽的默认行为
+			e.preventDefault && e.preventDefault(); //  标准浏览器中
+			e.returnValue = false; // IE 6 7 8
+			
+			/* 在IE 6 7 8中 虽然写了阻止默认行为 但是还是无法拖拽图片
+			需要设置一个全局捕获 让全局的焦点 聚焦到当前拖拽的图片身上 */
+			obj.setCapture&&obj.setCapture()
+			
+			document.onmousemove = function (e) {
+				e = e || event;
+				//让 div 跟着鼠标坐标走
+				var l = e.clientX - disX;
+				var t = e.clientY - disY;
+				
+				/* 范围的限制: 可视区域内 随便拖拽  
+				l 的范围  0    可视区域的宽度 - obj自身的宽度
+				t 的范围  0     可视区域的高度 - obj自身的高度 */
+				if(l < 0) {
+					l = 0;
+				}
+				if(l> document.documentElement.clientWidth - obj.offsetWidth) {
+					l = document.documentElement.clientWidth - obj.offsetWidth
+				}
+				if(t < 0) {
+					t = 0;
+				}
+				if(t > document.documentElement.clientHeight - obj.offsetHeight) {
+					t = document.documentElement.clientHeight - obj.offsetHeight
+				}
+				
+				
+				obj.style.left = l + 'px';
+				obj.style.top = t+ 'px';
+				
+				
+				
+			}
+			document.onmouseup = function() {
+				// 取消移动事件 停止拖拽
+				document.onmousemove = null;
+				
+				//设置全局捕获之后  弹起鼠标 要释放全局捕获 
+				obj.releaseCapture && obj.releaseCapture();
+			}
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+			
+		
+	</script>
+</html>

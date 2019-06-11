@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" id="btn" value="按钮">
+</body>
+<script>
+
+var oBtn = document.getElementById('btn');
+
+
+oBtn.onclick = function(){
+
+	
+	var xhr = null;
+
+	try {
+		xhr = new XMLHttpRequest()
+	}catch(e) {
+		xhr  = new ActiveXObject('Microsoft.XMLHTTP')
+	}
+
+	alert(xhr.readyState);
+
+	// 第二步 输入地址     2 调用 open方法	
+	
+	xhr.open('get','aa.txt',true);
+
+	// 第三步 按下回车      3 调用send方法
+	// 
+	xhr.send();
+	// 第四步 等待页面数据返回  4 监听ajax状态发生改变 一旦状态变为4 获取响应的数据
+	
+	xhr.onreadystatechange = function () {
+		
+		if(xhr.readystate == 4) { 
+			/*虽然这个ajax状态码发生改变 变为4 我们可以获取数据
+			但是 如果一旦资源或路径出问题 回来的数据也不对 
+			所以我们要 进一步做判断处理
+			判断服务器的状态码（http状态码）
+			如果http状态码 是 200 才能获取真正的数据
+			如果是其他代号的状态码 则代表相应 的信息
+			200 成功返回 
+			404 资源找不到
+			301 网站永久重定向
+			302 网站临时重定向
+
+			500 服务器内部错误*/
+
+
+			if(xhr.status == 200) {
+				alert( xhr.responseText );
+			}else {
+
+				alert('错了，错误码是'+ xhr.status)
+			}
+
+			// alert( xhr.responseText );
+		}
+
+	}
+
+}
+
+</script>
+	
+</html>

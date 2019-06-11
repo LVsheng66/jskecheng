@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		body {
+			background-color: #000;
+		}
+		img {
+			width: 150px;
+			height: 120px;
+			position: absolute;
+			left: 0;
+			top: 100px;
+			border: 2px solid white;
+		}
+		
+		
+	</style>
+	<body>
+		<img src="../img/1.jpg" >
+		<img src="../img/2.jpg" >
+		<img src="../img/3.jpg" >
+		<img src="../img/1.jpg" >
+		<img src="../img/2.jpg" >
+		<img src="../img/3.jpg" >
+		<img src="../img/1.jpg" >
+		<img src="../img/2.jpg" >
+		<img src="../img/3.jpg" >
+	</body>
+	
+	<script type="text/javascript">
+	
+	var aImg = document.getElementsByTagName('img');
+	
+	// 排列一下
+	
+	for(var i = 0; i < aImg.length; i++){
+		
+		aImg[i].style.left = i%3*190+50 +'px';
+		aImg[i].style.top =  parseInt(i/3)*170+50 + 'px';
+		
+		drag(aImg[i]);
+		
+	}
+	
+	
+	
+	function drag(obj) {
+		
+		var disX,disY;
+		
+		obj.onmousedown = function(e) {
+			// 设置一个数组 用于记录碰撞上的元素
+			var arr = [];
+			// 设置一个变量 min 为最大值
+			var min = Infinity;
+			// 设置一个变量 用来获取碰上的图片里面 距离我最近的那个图片
+			var newObj = null;
+			
+			var firstL = obj.offsetLeft;
+			var firstT = obj.offsetTop;
+			
+			// 清除 所有transition
+			for(var i = 0; i < aImg.length; i++){
+				aImg[i].style.transition  = '';
+				aImg[i].style.zIndex = 1;
+			}
+			
+			obj.style.zIndex = 999;
+			e = e || event;
+			// 获取固定距离
+			disX = e.clientX - obj.offsetLeft;
+			disY = e.clientY - obj.offsetTop;
+			// 阻止图片拖拽的默认行为
+			e.preventDefault && e.preventDefault(); //  标准浏览器中
+			e.returnValue = false; // IE 6 7 8
+			
+			/* 在IE 6 7 8中 虽然写了阻止默认行为 但是还是无法拖拽图片
+			需要设置一个全局捕获 让全局的焦点 聚焦到当前拖拽的图片身上 */
+			obj.setCapture&&obj.setCapture()
+			
+			document.onmousemove = function (e) {
+				e = e || event;
+				//让 div 跟着鼠标坐标走
+				var l = e.clientX - disX;
+				var t = e.clientY - disY;
+				
+				l = l < 0 ? 0 : l;
+				l = l > limit().l - obj.offsetWidth? limit().l - obj.offsetWidth:l;
+				t = t<0?0:t;
+				t = t> limit().t - obj.offsetHeight? limit().t-obj.offsetHeight : t;
+				
+				obj.style.left = l + 'px';
+				obj.style.top = t+ 'px';
+				//================================
+				
+				arr = [];
+				min = Infinity;
+				newObj = null;
+				
+				//循环所有的图片
+				for(var i = 0; i < aImg.length; i++){
+					
+					aImg[i].style.border = '2px solid white';
+					
+					//拿当前正在拖动的图片去和别的其他图片 去进行碰撞检测
+					if(obj != aImg[i]) {
+						var result = hitTest(obj,aImg[i]);
+						if(result) {
+						// 如果返回的是tru 说明碰上了 碰上了 就存起来
+							arr.push(aImg[i]);
+						}
+					}
+					
+					
+				}
+				
+				console.log(arr);
+				
+				for(var i = 0; i < arr.length; i++){
+					var l = arr[i].offsetLeft - obj.offsetLeft;
+					var t = arr[i].offsetTop - obj.offsetTop;
+					// 计算出来当前的这个碰上的图片和我obj之间的距离 (平方的值）)
+					var val = Math.pow(l, 2) + Math.pow(t, 2);
+					
+					if(min > val) {
+						min = val;
+						newObj = arr[i];
+					}
+					
+				}
+				
+				console.log(newObj);
+				
+				if(newObj) {
+					newObj.style.border = '3px solid red';
+				}
+				
+				//===============================
+				
+				
+			}
+			document.onmouseup = function() {
+				
+				// 弹起鼠标之后 如果拿到了碰上的最短距离的图片拉,交换位置
+				if(newObj) {
+					obj.style.transition = '0.5s';
+					newObj.style.transition = '0.5s';
+					obj.style.left = newObj.offsetLeft + 'px';
+					obj.style.top = newObj.offsetTop + 'px';
+					newObj.style.left = firstL + 'px';
+					newObj.style.top = firstT + 'px';
+					
+					newObj.style.border = '2px solid white';
+					
+				}else {
+					//自己回到当初自己的位置
+					obj.style.transition = '0.5s';
+					obj.style.left = firstL + 'px';
+					obj.style.top = firstT + 'px';
+					
+				}
+				
+				
+				// 取消移动事件 停止拖拽
+				document.onmousemove = null;
+				
+				//设置全局捕获之后  弹起鼠标 要释放全局捕获 
+				obj.releaseCapture && obj.releaseCapture();
+			}
+			
+		}
+		
+	}
+	
+	function limit() {
+		return {
+			l:document.documentElement.clientWidth,
+			t:document.documentElement.clientHeight
+		};
+	}
+	
+	
+
+	
+	function hitTest(obj,obj2) {
+		var objW = obj.offsetWidth;
+		var objH = obj.offsetHeight;
+		var objT = obj.offsetTop;
+		var objL = obj.offsetLeft;
+		
+		var obj2W = obj2.offsetWidth;
+		var obj2H = obj2.offsetHeight;
+		var obj2T = obj2.offsetTop;
+		var obj2L = obj2.offsetLeft;
+		
+		if(objL+objW < obj2L || objT+objH < obj2T || objL > obj2L+obj2W || objT > obj2T+obj2H) {
+			
+			return false;
+		}else {
+			return true;
+		}
+		
+	}
+	
+	
+			
+		
+	</script>
+</html>

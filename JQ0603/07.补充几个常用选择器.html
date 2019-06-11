@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			/*样式重置*/
+		}
+	</style>
+	<!-- <link rel="stylesheet" type="text/css" href="base.css">  -->
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body style="height: 2000px;">
+	<ul>
+		<li>这是第1个li</li>
+		<li>这是第2个li</li>
+		<li>这是第3个li</li>
+		<li>这是第4个li</li>
+		<li>这是第5个li</li>
+		<li>这是第6个li</li>
+		<li>这是第7个li</li>
+		<li>这是第8个li</li>
+		<li>这是第9个li</li>
+		<li>这是第10个li</li>
+	</ul>
+</body>
+<script type="text/javascript" src="jQ.js">
+</script>
+<script type="text/javascript">
+		
+	// next()  first()   last()  prev()
+
+	// contains();
+
+	// prevALl()
+	// nextAll()
+
+	// gt()
+	// lt()
+
+	// :not 取反
+
+	// $('ul li:eq(2)').prev().css('backgroundColor', 'red');
+	// $('ul li:eq(2)').next().css('backgroundColor', 'blue');
+
+	// $('ul li:eq(5)').prevAll().css('border', '3px solid green');
+	// $('ul li:eq(5)').nextAll().css('border', '3px solid red');
+
+
+	// $('ul li:lt(4)').css('backgroundColor',"purple");
+
+	// $('ul li:contains(li)').css('backgroundColor',"pink");
+	// 
+	
+	// $('ul li:not(li:eq(4))').css('backgroundColor','gray');
+	// $('ul li').not(":eq(4)").css('backgroundColor','yellowgreen');
+
+
+	// js: 可视区域宽高 document.documentElement.clientWidth/clientHeight;
+	//    document.documetnElement.scrollHeight/scrollWidth
+				// 获取可视区域宽高
+	// console.log( $(window).height() );
+	// console.log($(window).outerHeight())
+	// console.log($(window).innerHeight())
+	// console.log($(window).outerHeight(true))
+				// 页面总的宽高  
+	console.log($(document).height());
+	console.log($(document).innerHeight());
+	console.log($(document).outerHeight());
+	console.log($(document).outerHeight(true));
+
+
+
+</script>
+
+</html>

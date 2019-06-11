@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 30px;
+				top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button" value="单击走一圈">
+		<div id="box"></div>
+	</body>
+	<script src="./myTool.js"></script>
+	<script type="text/javascript">
+		var aInp = $('input');
+		var oBox = $('#box');
+		// 设置一个变量 初始化为空对象 后期用来存定时器s
+		
+		
+		// 向上
+		aInp[0].onclick = function() {
+			
+			move(oBox,'left',17,800,function(){
+				move(oBox,'top',17,500,function(){
+					move(oBox,'left',20,30,function(){
+						move(oBox,'top',10,50);
+					})
+				});
+				
+				
+			/* 	move(oBox,'left',17,800,function(){
+					move(oBox,'top',17,500,function(){
+						move(oBox,'left',20,30,function(){
+							move(oBox,'top',10,50);
+						})
+					});
+					
+					
+					move(oBox,'left',17,800,function(){
+						move(oBox,'top',17,500,function(){
+							move(oBox,'left',20,30,function(){
+								move(oBox,'top',10,50);
+							})
+						}); */
+			});
+			
+			/* move(oBox,'left',17,30);
+			move(oBox,'top',17,50); */
+			
+		}
+		
+		
+		// var timer = null;
+		
+		// 尝试合并两个运动函数
+		// obj:运动的元素是谁
+		// attr:让什么属性运动 'left' 'top'
+		// rate: 速率
+		// target: 目标点
+		function move(obj,attr,rate,target,callback) {
+			// 先清除定时器 再开新的定时器 确保当前页面上只有一个定时器
+			//clearInterval(timer);
+			
+			if(obj.timer) {
+				return;
+			}
+			
+			// 初始位置 > 目标位置 -rate   rate
+			rate = parseInt(getStyle(obj,attr))> target ? -rate : rate;
+			
+			obj.timer = setInterval(function(){
+				
+				var speed = parseInt(getStyle(obj,attr)) + rate;
+				              
+				if(speed>=target && rate>0 || speed<=target && rate < 0){
+					speed = target;
+				}
+// 				if(speed<=target && rate < 0){
+// 					speed = target;
+// 				}
+				obj.style[attr] = speed + 'px';
+				
+				if(speed == target){
+					//清除定时器 停止运动 往前走
+					clearInterval(obj.timer);
+					obj.timer = null;
+					console.log(timer); // 17
+					if(callback){
+						callback();
+					}
+					
+					
+				}
+				
+				
+			},30);
+			
+			
+		}
+		
+		
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<button id="btn">单击抖起来</button>
+		<div id="box"></div>
+	</body>
+	<script src="./myTool.js"></script>
+	<script type="text/javascript">
+	
+		var oBtn = $('#btn');
+		var oBox = $('#box');
+		
+	
+		
+		oBtn.onclick = function() {
+			
+			shake(oBox,'left',20,2);
+			
+			
+		}
+		
+		/* 
+		obj:哪个元素抖动
+		attr: 'left' 'top' 
+		range: 抖动的幅度
+		rate : 抖动的频率
+		回调函数： function(){}
+		 */
+		function shake(obj,attr,range,rate,callback) {
+			
+			// 如果当前的timer里面有定时器存在  则是一个真的 进入if语句 return返回 后面代码不执行
+			
+			if(obj.timer){
+				return;
+			}
+			
+			var arr = [];
+			for(var i = range; i >0; i-=rate){
+				
+				arr.push(-i,i);
+			}
+			
+			arr.push(0);
+			
+			var pos = parseInt( getStyle(obj,attr) );
+			var n = 0;
+			obj.timer = setInterval(function(){
+				obj.style[attr] = pos + arr[n++] + 'px';
+				
+				if(n > arr.length-1) {
+					clearInterval(obj.timer); // 3 12
+					obj.timer =null;
+					// 这里是抖完了
+					// 回调在这里执行
+					/* if(callback){
+						callback()
+					} */
+					// 短路写法
+					callback&&callback();
+					
+				}
+			},30)
+			
+		}
+		
+	</script>
+</html>

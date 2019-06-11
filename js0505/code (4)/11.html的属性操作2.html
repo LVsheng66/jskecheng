@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮1" id="btn1" >
+		<input type="text" id="oText" >
+		<select id="oSel">
+			<option value="北京">北京</option>
+			<option value="杭州">杭州</option>
+			<option value="深圳">深圳</option>
+		</select>
+		<img src="../img/1.jpg" id="oImg">
+	</body>
+	<script type="text/javascript">
+		
+		// js操作 html属性
+		
+		// 读操作 读取 获取
+		
+		// 先获取第一个按钮
+		var oBtn = document.getElementById('btn1');
+		var oText = document.getElementById('oText');
+		var oSel = document.getElementById('oSel');
+		var oImg = document.getElementById('oImg');
+		
+		// 思路: 单击按钮1  将文本框中的文字 和下拉列表中的选中的文字 拼接 +   3+5
+		oBtn.onclick = function() {  //包一个 壳  
+			// 获取文本框中的文字
+			var text1 = oText.value;
+			// 下拉列表中的选中的文字
+			var text2 = oSel.value;
+			
+			alert( text1+ "在" + text2 );
+		}
+		
+		
+	</script>
+</html>

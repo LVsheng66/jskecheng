@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+var arr = '[123,45,"你好"]';
+
+var obj = '{"name":"zs","age":23}'  // 这里必须是json字符串才可以解析 格式不对无法解析
+
+console.log(typeof arr);
+
+var result =  JSON.parse(obj)
+
+console.log(result, typeof result);
+
+var obj2 = {"name":"zs","age":23}
+
+var str = JSON.stringify(obj2)
+console.log(str,typeof str);
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮1" index=0>
+		<input type="button" value="按钮2" index=1>
+		<input type="button" value="按钮3" index=2>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		
+	</body>
+	<script type="text/javascript">
+		// 分别 单击每一个 按钮  分别对应 控制每一个li 让他们的背景变颜色
+		var aInp = document.getElementsByTagName('input');
+		var oUl = document.getElementsByTagName('ul')[0];
+		var aLi = oUl.getElementsByTagName('li');  //集合 一堆li
+		
+		// 设置数组 里面存三个颜色 实现不同的变化
+		var arrColor = ['red','orange','blue'];
+			
+		// 循环给每一个按钮 添加一个单击事件
+		for(var i = 0,len=aInp.length; i < len; i++){
+			// console.log("这是循环里面的i值：" +i);
+			aInp[i].index = i; // aInp[0].abc = 0;  aInp[1].abc = 1; aInp[2].abc = 2;
+			// 添加自定义索引(下标 位置)
+			aInp[i].onclick = function() {
+// 				alert(i); // 3
+// 				aLi[i] // aLi[3]
+				// this.abc = 0
+				//this.index
+				aLi[this.index].style.backgroundColor = arrColor[this.index];
+				
+			}
+		}
+		
+		console.log("这是循环结束之后的i值："+i);
+	</script>
+</html>

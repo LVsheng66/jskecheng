@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		/* 给元素 添加(绑定) 事件 的第一种方式
+		
+		元素.on+事件名称= 事件处理函数 */
+		
+		/* oBox.onmouseover = function(){this}
+		oBtn.onclick  = function(){this}
+		 */
+		function fn1() {
+			
+			console.log(123);
+			
+		}
+		
+		function fn2() {
+			console.log(456);
+		}
+		
+		function fn3() {
+			console.log(789);
+		}
+		
+		//给同一个元素 的同一个事件 添加不同的事件处理函数
+		
+		// 团队成员之间 协作开发 按照这种 同一个元素同一事件添加不同的事件处理函数 后者会覆盖前者
+		
+		/* document.onclick = fn1;
+		document.onclick = fn2;
+		
+		document.onclick = fn3; */ // 发生了事件的覆盖
+		
+		
+		/* 事件绑定的 第二种方式 有兼容问题
+		
+		标准浏览器下 (谷歌 火狐 IE9以及以上): 
+			addEventListener 参数:
+				1 事件名称  "click"  "mouseover"
+				2 事件处理函数 要执行的函数
+				3 是否捕获 默认 false 不捕获(意味着冒泡)
+			
+				
+			元素.addEventListener(事件名称,事件处理函数,是否捕获);
+			
+		IE浏览器(IE6 7 8 9以及以上) 支持另一种写法:
+			元素.attachEvent("on"+事件名称,事件处理函数) */
+			
+		/* document.addEventListener('click',fn1,false);
+		document.addEventListener('click',fn2,false);
+		document.addEventListener('click',fn3,false); */
+		
+		
+		document.attachEvent('onclick',fn1);
+		document.attachEvent('onclick',fn2);
+		document.attachEvent('onclick',fn3);
+		
+		
+	/* 	元素.addEventListener()
+			1 事件名称 不用加 on
+			2 这种写法 支持冒泡 也支持捕获
+			3 事件执行的顺序 由上到下 正序执行
+			4 绑定的事件处理函数的内部的 this 指向 当前的元素
+		
+		attachEvent()
+			1 事件名称要加 on
+			2 这种写法 只支持冒泡 不支持捕获
+			3 事件执行的顺序
+				IE9以及以上 正序
+				IE 6 7 8: 从后往前依次执行 倒序
+			4 这种绑定方式 绑定的事件处理函数 内部的this 指向 window */
+	</script>
+</html>

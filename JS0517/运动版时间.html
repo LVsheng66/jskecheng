@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#list {
+				margin: 20px auto 0;
+				width: calc(122px*8); 
+			}
+			#list>li {
+				list-style: none;
+				float: left;
+				width: 122px;
+				height: 172px;
+				overflow: hidden;
+			}
+			p {
+				height: 344px;
+				position: relative;
+				left: 0;
+				top: 0;
+			}
+			p img {
+				display: block;
+			}
+		</style>
+		<script src="./myTool.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				
+				var oList = $('#list');
+				var aP = $('p',oList);
+				
+				var timer = null;
+				// 设置一个空字符串 用来存前一个字符串时间
+				var prevStr = '';
+				
+				timer = setInterval(picTime,1000);
+				
+				function picTime() {
+					
+					// 小时 分钟 秒钟
+					var mydate = new Date();
+					var h = mydate.getHours();
+					var m = mydate.getMinutes();
+					var s = mydate.getSeconds();
+					
+					var str = zero(h) + ':' + zero(m) + ':'+ zero(s);
+					
+					console.log(str);  // '15:52:33'  length 8
+					
+				/* 	aP[0] ======>str[0]
+					aP[1] ====>str[1]
+					aP[2] ===>str[2] ===> ":"
+					aP[3] ===>str[3]
+					aP[4] ===>str[4]
+					aP[5] ===>str[5] ===> ":"
+					aP[6] ===>str[6]
+					aP[7] ===>str[7]
+					 */
+					
+					for(var i = 0; i < aP.length; i++){
+						
+						//aP[i]==>( 内部有两个图片 内部还要处理运动 和其他细节) 要封装函数
+						fn(aP[i],i);
+					}
+					/* fn(aP[0])
+					fn(aP[1])
+					fn(aP[2]) */
+					function fn(parentEle,n){
+						// 内部有两个图片 内部还要处理运动 和其他细节
+						var aImg = $('img',parentEle);
+						//str '15:52:33'  length 8
+						// 处理冒号
+						if(str[n]==":"){
+							aImg[0].src = './img/colon.gif';
+						}else {
+							// 这里就是具体时间
+							aImg[1].src = './img/'+str[n] +'.JPG';
+							// prevStr "15:52:32" 
+							// str     '15:52:33'
+							if(prevStr[n] != str[n]){
+								move(parentEle,'top',20,-172,function(){
+									
+									parentEle.style.top = '0';
+									
+									aImg[0].src = aImg[1].src
+									
+								})
+							}
+						}
+						
+						
+					}
+					// 每一个时间产生变化 并且调用函数运动完毕之后 再去赋值
+					// 将当前的时间字符串 赋给 prevStr
+					prevStr = str;
+					
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+		</ul>
+	</body>
+	
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 全国
+		
+		//function f1() {  // 深圳
+	/* 		
+			var num = 123;
+
+			function f2() {  // 南山区
+				
+				console.log(num);  // 
+				
+			}
+			
+			f2();
+		}
+		
+		var num = 456;
+		
+		f1();
+		
+		 */
+		
+		// 变量直接参与表达式  此时程序会把这个a当成一个全局的a去声明   隐式全局变量
+//      	a = 10;
+// 		alert(a);  // 报错 
+
+		
+
+		function fn(){
+			
+			//alert(a);  // 报错  
+			a = 3;
+			alert(a);
+		}
+		fn();
+		alert(a); // 2
+		
+	</script>
+</html>

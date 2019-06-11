@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			input {
+				outline: none;
+				width: 60px;
+				height: 30px;
+				font: 14px/30px '微软雅黑';
+				text-align: center;
+				background-color: orange;
+				margin-right: 10px;
+				border: none;
+				cursor: pointer;
+			}
+			div {
+				width: 300px;
+				height: 280px;
+				border: 1px solid black;
+				text-align: center;
+				line-height: 280px;
+				font-size: 30px;
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<input  style="background-color: red;" type="button" value="衣服">
+		<input type="button" value="男鞋">
+		<input type="button" value="裙子">
+		<div style="display: block;">衣服专区</div>
+		<div>男鞋专柜</div>
+		<div>女装裙子</div>
+	</body>
+	<script type="text/javascript">
+	
+	// 选项卡功能: 给每一个按钮 添加一个单击事件 单击任何一个按钮 让对应的div的内容显示
+	// 要想玩 先获取
+	var aBtn = document.getElementsByTagName('input');
+	var aDiv = document.getElementsByTagName('div');
+	
+	//循环给每一个按钮 添加 单击事件
+	for(var i = 0,len=aBtn.length; i < len; i++){
+		//给每一个按钮 添加自定义索引值
+		aBtn[i].index = i;
+		aBtn[i].onclick = function() {
+			
+			
+			
+			// 采用暴力的方式去 让所有的div都隐藏
+			for(var j = 0; j < aDiv.length; j++){
+				aDiv[j].style.display = 'none';
+				aBtn[j].style.backgroundColor = 'orange';
+			}
+			// 让对应的div的内容显示
+			aDiv[this.index].style.display = 'block';
+			//让单击的当前的这个按钮 背景颜色变为红色
+			this.style.backgroundColor = 'red';
+		}
+		
+	}
+		
+	</script>
+</html>

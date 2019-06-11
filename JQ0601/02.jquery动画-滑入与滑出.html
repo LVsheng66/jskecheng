@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	#box {
+		width: 400px;
+		height: 400px;
+		background-color: green;
+		position: absolute;
+		left: 100px;
+		top: 100px;
+		display: none;
+	}
+</style>
+<body>
+	<input type="button" value="滑入">
+	<input type="button" value="滑出">
+	<input type="button" value='切换'>
+	<div id="box"></div>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+	
+	// slideDown() 滑入  第一个参数 运动的过渡时间  单位毫秒 支持写那几个固定的字符串  默认'normal' 'slow' 'fast'
+	// slideUp() 滑出    第二参数  写回调函数
+	// slideToggle()
+	$('input:eq(0)').click(function(event) {
+		$('#box').slideDown(1000, function() {
+			alert('滑入进来啦')
+		});
+	});
+
+	$('input:eq(1)').click(function(event) {
+		$('#box').slideUp(2000, function() {
+			alert('滑出去啦')
+		});
+	});
+
+	$('input:eq(2)').click(function(event) {
+		$('#box').slideToggle(2000, function() {
+			alert('运动完啦');
+		});
+	});
+
+	// 这组动画改变的是物体的高度变化
+	// 
+	// 下拉菜单--修改版
+
+</script>
+</html>

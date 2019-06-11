@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body style="height: 2000px">
+	
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+
+ // document.documentElement.scrollTop 垂直方向上 滚动条 滚动过的距离  
+ // document.body.scrollTop
+ // 
+ // jq:   scrollTop() 可以读取 也可以设置
+ // 
+ 		// onscroll 滚动事件  当滚动条滚动的时候触发
+
+ 	$(document).scroll(function () {
+ 		//console.log(123);
+ 		console.log( $(document).scrollTop() );  // 2000-1227
+ 		console.log( $(window).height() );
+ 	})
+
+
+ 	$(document).click(function(){
+
+ 		$(document).scrollTop(500);
+
+ 	})
+
+ 	// 返回顶部效果
+
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		#box {
+			width: 100px;
+			height: 200px;
+			background-color: yellowgreen;
+			padding: 10px 20px;
+			border: 10px solid pink;
+			margin: 50px;
+		}
+	</style>
+	<body style="height: 2000px;">
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+	
+	var oBox = document.getElementById('box');
+		
+		/* clientWidth = 100 + 20*2 =140
+		clientHeight = 200 + 10*2 = 220
+		 */
+		console.log(oBox.clientWidth); // 140
+		console.log(oBox.clientHeight); // 220
+		
+		/* 整个文档的可视区域宽度 和高度 */
+		console.log(  document.documentElement.clientWidth );
+		console.log(  document.documentElement.clientHeight );
+		
+	</script>
+</html>

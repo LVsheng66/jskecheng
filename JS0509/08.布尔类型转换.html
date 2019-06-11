@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+	var a = 123;
+	var b = 0;
+	var c = -13.6
+	
+	console.log(Boolean(a)); //true
+	console.log(Boolean(b)); //false
+	console.log(Boolean(c)); //true
+	
+	var str = '';
+	console.log(Boolean(str)); // false
+	
+	console.log(Boolean(false)); // true 
+	
+	var arr = ['hi', 'hello', '你好', '萨瓦迪卡', '靠你起哇'];
+	
+	var arr = [];
+	console.log(Boolean(arr)); // true
+	
+	var obj = {}
+	
+	console.log(Boolean(obj)); // true
+	
+	var abc = null;
+	console.log(Boolean(abc)); // false
+	
+	var dd;
+	
+	console.log(Boolean(dd));
+	
+	var ee = function() {}
+	
+	console.log(Boolean(ee)); // true
+	
+	
+	console.log(Boolean(NaN)); // false
+	
+	// console.log(Boolean);
+	/*  数字类型  字符串类型  布尔类型    
+	真   非0数字  非空字符串   true     数组[]  {}      function(){}
+	假    0       空字符串''  false    null   undefined   NaN 
+	*/		
+   
+   显式类型转换:
+   Number()  parseInt() parseFloat()  toString()  String()  Boolean()
+   
+   显式类型转换:很明显 你在调用这些方法 主动去尝试转换数据类型
+
+   隐式类型转换: 不知不觉当中 悄悄的(背后帮你转数据类型啦)
+		
+	</script>
+</html>

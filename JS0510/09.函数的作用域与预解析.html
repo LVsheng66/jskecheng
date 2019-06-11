@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		/* 
+		浏览器程序：渲染引擎（html+css） 谷歌浏览器（渲染引擎--webkit ） 火狐浏览器渲染引擎 gekco  IE 渲染引擎(Trident)
+		  js引擎   谷歌的js引擎（V8--->nodeJs）
+		 
+		 js引擎：负责解释执行js代码
+			工作过程：
+			   第一步： 先解析 ---》预解析
+			     预解析环境：
+					走一走 看一看  里面有没有   声明的变量  和  声明的函数
+					如果预解析的时候 遇到函数名和变量名一样 则函数把变量 给干掉 函数级别比变量高
+					如果 同级别 后者覆盖前者
+					
+					function a(){alert(’fn’)}
+					function a() { alert('123') }
+					
+			   第二步：执行代码 从上到下 依次执行
+					执行 表达式
+				
+			 
+		 
+		 */
+		
+		
+		/* alert(a); // undefined
+		
+		var a = 5;
+		console.log(a); // 5 */
+		
+		
+		/* alert(a);  // function a() {alert(’fn’)}
+		var  a = 3; // a:3
+		
+		function a(){alert('fn')}
+		
+		function a() { alert('123') }
+		
+		console.log(a);
+		 */
+		
+	</script>
+</html>

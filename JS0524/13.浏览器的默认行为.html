@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body style="height: 2000px;">
+		<img src="../img/1.jpg" alt=""> <br/>
+		<img src="../img/1.jpg" alt=""> <br/>
+		<img src="../img/1.jpg" alt=""> <br/>
+		<img src="../img/1.jpg" alt=""> <br/>
+		<img src="../img/1.jpg" alt=""> <br/>
+		<img src="../img/1.jpg" alt=""> <br/>
+		<img src="../img/1.jpg" alt=""> <br/>
+		<img src="../img/1.jpg" alt=""> <br/>
+		<img src="../img/1.jpg" alt=""> <br/>
+		<img src="../img/1.jpg" alt=""> <br/>
+		
+		<a href="http://www.baidu.com">打开百度</a>
+	</body>
+	<script type="text/javascript">
+		/* 右击: 环境菜单
+		contextmenu
+		
+		默认行为:浏览器默认会自动做的事 自动完成某种行为,
+		比如:
+			按下 空格键 可以浏览器的滚动条 滚动一下
+			拖拽图片 会在新窗口打开图片
+			右击文档区域 会打开一个菜单
+			a链接 点击 会自动跳转  
+		
+		阻止默认行为
+			 */
+			//标准浏览器中         e.preventDefault()
+			// IE低版本 6 7 8     e.returnValue = false; 
+			
+			// 这个方法 可以 阻止默认行为 return false; 如果一旦使用了它,在函数内部就无法return别的值了
+			
+		
+		var oA = document.getElementsByTagName('a')[0];
+		
+		oA.onclick = function(e) {
+			e = e || event;
+			console.log(e);
+			// e.preventDefault()
+			e.preventDefault&&e.preventDefault();
+			
+			e.returnValue = false;
+			console.log(123);
+		}
+		
+		
+		// 右击 on + contextmenu
+		
+		
+		document.oncontextmenu = function() {
+			
+			
+			return false;
+		}
+		
+		
+	</script>
+</html>

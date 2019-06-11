@@ -1,0 +1,150 @@
+一、 作业讲解 祝愿墙
+
+	综合案例：
+		需求1:随机生成 对应的条数的小帖子 tip,
+		
+		需求2: 单击哪个帖子 提高对应的层级
+		
+		需求3: 双击上面区域 可以删除这个帖子,
+		
+		需求4: 单击 x div元素  可以删除这个帖子,
+		
+		需求5: 按下鼠标 可以移动帖子  (拖拽效果)
+		
+二、BOM:
+
+	setInterval()
+	clearInterval()
+	setTimeout()
+	clearTimeout()
+	
+	
+	window 对象  for in 遍历
+	
+	confirm()确认框
+	alert()
+	prompt()
+	
+	open()  重点
+	close()
+	
+	location
+		href 重点
+		reload() 重点
+		hash 了解
+		search 了解
+		 
+	window.navigator.userAgent 浏览器版本信息和系统信息  了解
+	
+	当浏览器程序 全部加载完毕（dom结构 css样式 js脚本 图片以及外部资源全部加载完毕）之后在去 执行里面的代码
+	window.onload = function(){}
+	
+	
+	history 历史对象
+		length属性
+		
+		back()
+		forward()
+		go(数字-1 / 2)
+		
+		小练习 模拟浏览器的前进后退
+		
+	screen:屏幕对象
+		height width 
+		
+	BOM中的常用尺寸：
+			元素.offsetParent : 距离元素最近的具有定位属性的父级 如果父级们都没有定位 则指向body
+			
+			元素.offsetLeft  元素的外边框距离 它的offsetParent 的内边框 之间 左侧距离 左侧偏移量
+			元素.offsetTop   元素的外边框距离 它的offsetParent 的内边框 之间 顶部距离 顶部偏移量
+			
+			
+			在dom结构中 元素所占用的实际空间大小
+			元素.offsetWidth = 元素的css里面 定义的 width  + 左右padding  + 左右borderWidth 
+			元素.offsetHeight= 元素的css里面 定义的 height  + 上下padding  + 上下borderWidth 
+				
+			元素.clientWidth = 元素的css里面 定义的 width  + 左右padding   
+			元素.clientHeight = 元素的css里面 定义的 height  + 上下padding   
+				
+			
+			浏览器可视区域:
+				document.documentElement.clientWidth
+				document.documentElement.clientHeight
+				
+			浏览器的实际内容高度:
+				document.documentElement.scrollHeight;
+				document.documentElement.scrollWidth;
+				
+			浏览器 垂直方向上 距离顶部 滚动过的(卷曲过的) 距离	
+				document.documentElement.scrollTop        // document.body.scrollTop 旧谷歌支持的是这个
+			
+			浏览器 水平方向上 距离左侧 滚动过的(卷曲过的) 距离	
+				document.documentElement.scrollWidth
+		
+	window/元素.onscroll 当滚动条滚动的时候 
+	
+	返回顶部小练习（运动）
+	
+	window.onresize   当浏览器窗口调整大小的时候触发
+	window/图片/元素.onload  当window/图片/元素加载完毕之后触发
+三、事件详解：
+
+	焦点事件：
+		元素.focus() 让该元素获取焦点
+		 
+		两个事件
+			onfocus 当某元素 获取焦点的时候触发
+			onblur 当某元素 失去焦点的时候触发
+		
+		练习：输入框提示文字
+
+	event对象：
+		当一个事件发生的时候 记录该事件的详细信息的存储 地方----->事件对象event 
+		
+		1. 直接从window对象下面找到event这个属性 它里面有事件详细信息
+		2 事件处理函数中的第一个参数 里面存着事件对象
+		
+		不同浏览器获取事件对象的方式不同：
+			
+			谷歌 两种方式都支持
+			
+			新的火狐 两种都支持  旧的火狐 只支持第二种
+			
+			IE9以及以上 都支持
+			
+			IE6 78只支持第一种
+			
+			兼容处理： ev = ev || window.event;
+			
+		小练习：小方块跟着鼠标移动 mousemove  鼠标坐标 从事件对象里面获取的clientX  clientY
+	
+	事件冒泡: 当一个元素 接收到了一个事件 ,它会把当前事件 继续向上传递 给父级们,层层传递 直到window顶级对象为止 这是一个事件传递机制
+	
+	下拉菜单案例： 需要阻止事件冒泡
+		从事件对象里面获取一个属性
+		e.cancelBubble = true
+		
+		
+作业：
+	1 祝愿墙 补充完成
+	2 记忆一下BOM的一些常用尺寸
+	3 把课件过一遍
+	4 下拉菜单  
+	5 div跟着鼠标移动
+	6 输入框提示文字
+
+
+
+			
+事件捕获
+事件流
+事件绑定与解绑
+键盘事件 --- 
+阻止默认行为
+
+拖拽特效 --- 拖拽函数 碰撞检测的函数 （勾股定理）
+
+
+
+		
+			

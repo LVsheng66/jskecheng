@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#box  {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+	</body>
+	
+	<script type="text/javascript">
+	
+	/* 事件角度: 拖拽这个功能 需要几个事件 按下  拖动移动   弹起,
+	
+	onmousedown   
+		获取固定距离(鼠标的按下的坐标点距离 盒子便于相对距离 不变的) 水平  垂直
+		disX   disY
+	onmousemove
+		  盒子应该跟着鼠标一起移动
+		  left  top 跟着鼠标坐标变化
+	
+	onmouseup
+			停止拖拽
+			取消移动过程中的事情 */
+			
+	var oBox = document.getElementById('box');
+	
+	
+	//1 在box身上按下鼠标
+	
+	var disX,disY;
+	
+	oBox.onmousedown = function(e) {
+		e = e || event;
+		// 获取固定距离
+		disX = e.clientX - oBox.offsetLeft;
+		disY = e.clientY - oBox.offsetTop;
+		
+		document.onmousemove = function (e) {
+			e = e || event;
+			//让 div 跟着鼠标坐标走
+			oBox.style.left = e.clientX - disX + 'px';
+			oBox.style.top = e.clientY - disY + 'px';
+			
+		}
+		document.onmouseup = function() {
+			// 取消移动事件 停止拖拽
+			document.onmousemove = null;
+		}
+		
+	}
+	
+	
+	
+			
+		
+	</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+
+#box {
+	width: 100px;
+	height: 100px;
+	background-color: red;
+}
+</style>
+<body>
+	<div id="box"></div>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+	
+	$('#box').bind("click mouseover mouseout",function (e) {
+		
+		//console.log(e);
+
+		//console.log(e.type);
+
+	})
+
+
+	$('#box').bind({
+		'click':function () {
+			console.log('单击事件');
+		},
+		'mouseover':function () {
+			console.log('鼠标移上');
+		}
+
+	})
+
+	// 缺点：不支持动态绑定元素 （不支持事件代理）
+
+
+</script>
+
+</html>

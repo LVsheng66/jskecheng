@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="单击获取新闻列表">
+</body>
+<script type="text/javascript">
+
+	
+var oBtn = document.getElementsByTagName('input')[0];
+
+oBtn.onclick = function () {
+	
+	var xhr = null;
+
+	try{
+
+		xhr = new XMLHttpRequest();
+
+
+	}catch(e) {
+		xhr = new ActiveXObject('Microsoft.XMLHTTP');
+
+	}
+
+	xhr.open('get','04.getNews.php', true);
+
+	xhr.send();
+
+	xhr.onreadystatechange = function () {
+		if(xhr.readyState == 4) {
+
+			if(xhr.status == 200) {
+
+				var data = JSON.parse(xhr.responseText)
+
+				console.log(data);
+			}
+		}
+	}
+
+
+}
+
+
+</script>
+</html>

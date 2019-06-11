@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<strong id="userName">李四</strong>
+		<input type="text"  id="oText">
+		<input type="button" value="发送" id="send">
+	</body>
+	<script type="text/javascript">
+		
+		// 思路: 单击发送按钮 将文本框中的文字内容 放置到div中
+		// 按钮 添加 单击事件 ==> 将文本框中的文字内容 放置到div中
+		var oSend = document.getElementById('send');
+		var oText = document.getElementById('oText');
+		var oBox = document.getElementById('box');
+		var userName = document.getElementById('userName');
+		
+		oSend.onclick = function() {
+			// 将文本框中的文字内容 放置到div
+			//  
+			console.log(userName.innerHTML);
+			oBox.innerHTML  = oBox.innerHTML + '<p style="color:red;">'+userName.innerHTML+"：" +oText.value+'</p>'; // 你好 + 哈哈
+		}
+		
+	</script>
+</html>

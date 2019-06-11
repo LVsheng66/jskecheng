@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+			
+		// 函数: 定义 分类 调用
+		// 参数: 形参 实参   ==> 实际应用 传参 案例
+		// 作用域与预解析  全局变量和局部变量的概念
+		// 作用域链的概念
+		// arguments  this   return
+		
+		
+		// 补充 递归函数: 函数调用自身的编程技巧:无限调用
+		// 要给递归一个终止条件,当满足某个条件的时候停止递归
+		
+		
+		
+		var num = 0;
+		
+		
+		function tellStory() {
+			num++;
+			console.log('从前有座山，山里有个庙，庙里有个老和尚在给小和尚讲故事，讲的故事是:');
+			if(num < 10){
+				tellStory();
+			}
+			
+		}
+		
+		tellStory();
+		
+		// 递归 求阶乘  3! = 1*2*3   n!=1*2*3..*n;  12!
+		
+		/* 5!=5*4*3*2*1
+		
+		n!=n*(n-1)*(n-2)* ....*3*2*1 */
+		
+		function jiecheng(n){
+			if(n < 2){
+				return 1
+			}
+			
+			return n * jiecheng(n-1);
+			
+// 			5*4!
+// 			  4! = 4*3!
+// 					 3!=3*2!
+// 						  2!= 2*1
+						  
+// 			n *  jiecheng(n-1)	
+// 			// 5 *   jiecheng(4)
+// 						function jiecheng(4){
+// 							
+// 							4 * jiecheng(3)
+// 									
+// 									function jiecheng(3){
+// 											
+// 											3 * jiecheng(2)
+// 													
+// 													function(2){
+// 														
+// 														2*jiecheng(1)
+															return 1
+	
+// 													}
+// 									}
+// 									
+// 						}
+		}
+		
+		var result = jiecheng(5); // 5  8   1*2*3*4*5
+		console.log(result);
+		
+		var result = jiecheng(10);
+		console.log(result);
+	</script>
+</html>

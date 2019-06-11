@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text">
+	</body>
+	<script type="text/javascript">
+	
+	// alert( '123' + 3 ); // 有必要将'123'==>123
+	// Number() 方法 可以用来将别的类型尝试转换为数字类型
+	
+	
+	var a = 18;
+	var b = '-124.56';
+	
+	var c = '35px'; // NaN 内流满面
+	
+	var c = 'hi'; // NaN 内流满面
+	
+	var c = ''; // 0 
+	
+	
+	var c = null; //  0
+	var d; // NaN 
+	
+	
+	var c = []; //  0
+	
+	var c = ['23']; //  23
+	
+	var c = ['3', 4, 1,2,6]; // NaN 
+	
+	var c = ['hello']; //NaN 
+		
+	var c = function(){} // NaN 
+
+	var c = {}; // NaN 
+	
+	console.log(Number(c)); //  NaN 
+	console.log(typeof Number(c)); // number
+	
+	
+	
+		
+	</script>
+</html>

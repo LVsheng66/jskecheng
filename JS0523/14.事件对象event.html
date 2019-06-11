@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn">
+	</body>
+	<script type="text/javascript">
+	
+		var oBtn = document.getElementById('btn');
+		
+		/* event: 事件对象 当一个事件发生的时候  有关该事件的详细信息 都会被记录下来 保存到了一个地方 ----event事件对象中
+		
+		飞机 --- 黑匣子 */
+		
+		/* 一个函数被一个事件所触发 该函数可以称之为 事件处理函数
+		事件处理函数中就有事件对象  我们通过事件对象 就可以分析和获取当前事件的一些详细信息 */
+		
+		oBtn.onclick = function(e) {
+			
+			//e = e || window.event;
+			
+			e = e || event;
+			
+			console.log(e);
+			/* console.log( window.event ); // 鼠标事件
+			
+			console.log(abc); */
+			
+		}
+		
+		/* 事件对象 在哪儿里 取决于浏览器不同而不同
+		 
+		 1 通过全局window 对象下面的event对象 获取到事件详细信息  window.event
+		 2 通过事件处理函数的 第一个参数 传入到函数内部  从这里获取事件详细信息 形参的形式
+		 
+		 谷歌 两种方式都支持
+		 
+		 火狐 (只支持第二种方式) 更新后的火狐 两种都支持
+		 
+		 IE 9 以上都支持
+		 IE 6 7 8 只支持 从全局window 对象下面获取event事件对象
+		 
+		 从所有用户角度考虑 进行事件对象的兼容性处理
+		 */
+		 
+	</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+#oUl {
+	width: 300px;
+	height: 280px;
+	border: 1px solid black;
+}
+</style>
+<body>
+	<ul id="oUl">
+		<li>今天天气不错 <a href="javascript:;">删除</a></li> 
+		<li>哈哈哈哈哈哈 <a href="javascript:;">删除</a></li> 
+		<li>嘻嘻嘻嘻嘻 <a href="javascript:;">删除</a></li> 
+		<li>嘿嘿嘿嘿嘿嘿 <a href="javascript:;">删除</a></li> 
+		<li>呵呵呵呵呵 <a href="javascript:;">删除</a></li> 
+		<li>呜呜呜呜呜 <a href="javascript:;">删除</a></li> 
+	</ul>
+	<input type="text"  /> <input type="button" value="发送">
+</body>
+<script type="text/javascript" src="../jQ.js"></script>
+<script type="text/javascript">
+
+	// var oUl = document.getElementById('oUl');
+
+	// oUl.onclick = function (e) {
+	// 	e = e || event;
+
+	// 	//找到事件源
+	// 	var target = e.srcElement || e.target
+
+	// 	if(target.nodeName =='A') {
+	// 		target.parentNode.parentNode.removeChild(target.parentNode);
+	// 	}
+	// }
+	// 
+	$('#oUl').delegate('a', 'click', function(event) {
+		// console.log( $(this) ); // a元素
+		$(this).parent().remove();
+	});
+
+</script>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/* push  pop  unshift shift	 */
+		
+		/* 
+		
+		数组.splice()
+		
+		定义：删除方法===>(删除 修改  添加)
+		参数：
+		 1.开始删除的位置（如果这个参数不写，没有删除任何元素） 
+		 2 删除的个数（第二个参数不写 默认删除到最后） 
+		 3 需要添加的元素(删除的位置开始放置)  从第三个参数位置开始 后面可以写多个参数 都是添加的元素
+		返回值：删除的元素组成的新的数组
+		原数组是否发生改变：原数组会发生改变
+		
+		
+		
+		数组.slice()  
+		
+		定义：截取方法
+		参数：1 开始截取的位置 （不写这个参数 从开始位置截取到最后位置 所有的元素组成一个新的数组）
+			 2 结束截取的位置 （不包含结束位置）默认截取到最后
+		返回值：截取后的元素组成新的数组
+		原数组是否发生改变：原数组不会发生改变
+		 
+		 
+		数组.concat()
+		定义：合并连接数组获取元素
+		参数：需要合并的数组或者元素
+		返回值：合并后组成新的数组
+		原数组是否发生改变：原数组不会发生改变
+		
+		
+		数组.indexOf()
+		定义：查找方法 查找元素在数组中对应的位置
+		参数：1 需要查找的元素 2 开始查找的位置 默认是从0的位置查找
+		返回值：元素对应的位置（下标） 如果找不到元素 返回-1
+		原数组是否发生改变：原数组不会发生改变
+		
+		
+		数组.lastIndexOf()
+		定义：查找方法 从最后位置开始找 
+		参数：1 需要查找的元素 2 开始查找的位置 默认是从最后的位置查找
+		返回值：元素对应的位置（下标） 如果找不到元素 返回-1
+		原数组是否发生改变：原数组不会发生改变
+		 
+		数组.reverse()
+		定义： 翻转数组
+		参数 无
+		返回值 翻转后的数组
+		原数组 会发生改变
+		
+		
+		数组.sort()
+		定义： 对数组进行排序的  它排序的规则 是按照字符串的规则进行排序的（逐位比较 比较它们的字符编码）
+		参数：函数（匿名函数）可以写两个参数 a,b  升序a-b   降序b-as
+		返回值；排好的数组
+		原数组 会发生改变 排好后的
+		 */
+		
+		//var star = ['陈毅','刘欢','许文强','韩雪','周杰','刘欢'];
+		
+		
+		var arr=[1,6,5,7,39,3,15];
+		var ret = arr.sort(function(a,b){  // sort()   native code
+			return b-a;  // >0  
+		})
+		console.log(arr);
+		console.log(ret);
+		
+		
+		
+		// var ret = star.lastIndexOf('刘欢'); 
+		// var ret = star.lastIndexOf('宋祖英'); 
+		
+		// arr.reverse();
+		/* var result = bubbleSort(arr)
+		console.log(result); */
+		
+		
+		// console.log(ret == star);
+		
+		
+		
+		function bubbleSort(arr){
+			// 实现排序的功能 冒泡排序的算法
+			for(var i = 0; i < arr.length-1; i++){
+				var onOff = true;
+				for(var j = 0; j < arr.length-1-i; j++){
+					
+					if(arr[j] < arr[j+1]){ // 从大到小
+						var temp = arr[j];
+						arr[j] = arr[j+1];
+						arr[j+1] = temp;
+						onOff = false
+					}
+					
+				}
+				if(onOff) {
+					break;
+				}
+			}
+			
+			return arr
+			
+		}
+		
+		
+	</script>
+</html>

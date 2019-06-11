@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var timer = setInterval(fn,1000);
+		
+		
+		function fn(){
+			
+			// 实际有需求 这种应用随处可见
+			
+			// 倒计时
+			
+			// 设定一个未来的时间  6.1 固定
+			
+			// 数字形式的设定
+			var newTime = new Date(2019,4,14,12,40,40);
+			
+			// 当前的时间可以获取 靠近未来时间  差值越来越小
+			var nowTime = new Date();
+			// 未来的时间 - 当前的时间 差值
+			var t = Math.floor( (newTime - nowTime)/1000 ); // 秒
+			// t ==-1
+			if(t>=0) {
+				console.log(t); // 毫秒  0
+				
+				// 60*60*24 = 86400
+				var tian = Math.floor(t/86400);
+				
+				var hour = Math.floor(t%86400/3600);
+				
+				var min = Math.floor(t%86400%3600/60);
+				
+				var sec = t%60
+				
+				var str = zero(tian) + '天' + zero(hour) +'时' + zero(min) + '分' + zero(sec) + '秒'
+				console.log(str);
+				document.body.innerHTML = str;
+			}else {
+				// 到时间了
+				// 清除定时器
+				clearInterval(timer)
+				alert('恭喜，时间到了！');
+			}
+			
+			
+		
+		}
+		
+		// 补零函数
+		function zero(m){
+			if(m<10){
+				return '0'+m;
+			}else {
+				return m;
+			}
+		}
+		
+		
+		
+		
+		
+	</script>
+</html>

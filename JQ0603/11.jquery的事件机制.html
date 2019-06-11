@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="box">盒子</div>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+
+	/*js:  两种方式实现事件绑定  
+	1 传统方式  同一个对象的同一个事件 绑定不同的事件处理函数 后者会覆盖前者
+		元素.on+事件名称 = 事件处理函数
+		oDiv.onclick = function(){}
+
+	2 DOM2级事件 addEventListener()  attachEvent()
+
+			元素.addEventListener(事件名称,事件处理函数,是否捕获(false))    [事件流三个阶段：事件捕获==》事件目标==〉事件冒泡]
+
+			元素.attachEvent('on'+事件名称,事件处理函数)
+
+		封装了一个bind() 处理一些兼容问题
+
+			removeEventListener(事件名称,事件处理函数,是否捕获(false))
+
+			detachEvent('on'+事件名称,事件处理函数)
+
+		封装了一个unbind() 处理一些兼容问题*/
+
+
+	//jq:
+		/*onclick = function(){}
+		onmouseover = function(){}*/
+		// 第一种：简单的事件绑定：
+		//
+		// JavaScript是一个事件驱动 的脚本语言
+
+			$('#box').click(function(){
+				console.log(123);
+			})
+
+			$('#box').mouseover(function () {
+				console.log(456);
+			})
+
+	 	// 缺点：无法同时绑定多个事件
+
+</script>
+
+</html>

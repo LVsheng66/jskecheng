@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#main {
+				width: 280px;
+				height: 500px;
+				background-color: pink; 
+				margin-left: 30px;
+				margin-top: 30px;
+				float: left;
+			}
+			#touxiang {
+				width: 100px;
+				height: 100px;
+				float: right;
+				background-color: red;
+				cursor: pointer;
+			}
+			#msg {
+				margin-left: 10px;
+				margin-top: 30px;
+				float: left;
+				background-color: purple;
+				width: 200px;
+				height: 350px;
+				color: white;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">qq面板
+			<div id="touxiang">头像</div>
+		</div>
+		<div id="msg">信息面板</div>
+	</body>
+	<script type="text/javascript">
+		
+		// 思路;
+		/* 
+		  1 鼠标移到头像上 让信息面板显示
+		  2 鼠标移出头像时 让信息面板隐藏
+		  
+		  3 当鼠标移到信息面板上时 让信息面板显示
+		  4 当鼠标移出信息面板时 让信息面板隐藏
+		 */
+		
+		// 获取元素
+		var touxiang = document.getElementById('touxiang');
+		var msg = document.getElementById('msg');
+		
+		var timer = null;
+		
+		/* touxiang.onmouseover = show;
+		touxiang.onmouseout = hide;
+		
+		msg.onmouseover = show;
+		msg.onmouseout = hide; */
+		
+		touxiang.onmouseover = msg.onmouseover = show;
+		touxiang.onmouseout = msg.onmouseout = hide;
+		
+		
+		
+		function show() {
+			// 清除定时器
+			clearTimeout(timer);
+			msg.style.display = 'block';
+			
+		}
+		
+		function hide() {
+			timer = setTimeout(function(){
+				msg.style.display = 'none';
+			},500);
+		}
+		
+		
+	</script>
+</html>

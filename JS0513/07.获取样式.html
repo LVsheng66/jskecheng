@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 100px;
+				
+				background-color: red;
+				color: white;
+				text-align: center;
+			}
+			input {
+				background-color: blue;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box" style="height: 200px; ">盒子盒子</div>
+		<input type="button" value="按钮">
+	</body>
+	<script type="text/javascript">
+			
+		var oBox = document.getElementById('box');
+		var oBtn = document.getElementsByTagName('input')[0];
+		// js设置盒子宽度 为200px  当时用js设置样式的时候 会设置到行间
+		
+		// oBox.style.width = '200px';
+		
+		// console.log(oBox.style.height);  // js不能直接获取样式表中的样式 但可以获取行间样式
+		
+		// 当然我们不能将所有的样式都写到行间去 不太现实
+		
+		// w3c标准浏览器下  的方法 getComputedStyle()   谷歌  火狐  IE9 10 11    IE6-8非标准浏览器
+		
+		// getComputedStyle(元素).属性名
+	/* 	console.log(getComputedStyle(oBox).width); 
+		console.log(getComputedStyle(oBox).color); */
+		
+		
+		// 元素.currentStyle.属性名 IE都支持 IE6-8非标准浏览器
+		// console.log( oBox.currentStyle.backgroundColor );
+		
+		// 兼容性问题的解决
+		
+		// 如果这个元素身上的这个属性不存在不认识 值undefined =>false
+		/* if(oBox.currentStyle){
+			console.log(oBox.currentStyle.backgroundColor);
+		}else {
+			console.log(getComputedStyle(oBox).color);
+		}
+		
+		if(oBox.currentStyle){
+			console.log(oBox.currentStyle.width);
+		}else {
+			console.log(getComputedStyle(oBox).width);
+		}
+		
+		if(oBtn.currentStyle){
+			console.log(oBtn.currentStyle.backgroundColor);
+		}else {
+			console.log(getComputedStyle(oBtn).backgroundColor);
+		} */
+		
+		
+		var result1 = getStyle(oBox,'width'); // '100px';
+		
+		var result2 = getStyle(oBtn,'backgroundColor');
+		console.log(result1);
+		console.log(result2);
+		// 函数封装 一下  实现一个解决兼容性样式的函数
+		function getStyle(obj,attr){
+			if(obj.currentStyle){
+				return obj.currentStyle[attr]; // attribute
+			}else {
+				return getComputedStyle(obj)[attr];
+			}
+			
+		}
+	</script>
+</html>

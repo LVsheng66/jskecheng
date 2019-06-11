@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="单击获取数据">
+</body>
+<script>
+
+document.getElementsByTagName('input')[0].onclick = function(){
+
+    var xhr = null;
+
+    try{
+        xhr = new XMLHttpRequest();
+    }catch(e) {
+        xhr = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+
+    xhr.open('get','03.json.php',true);
+
+    xhr.send();
+
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState == 4) {
+
+            if(xhr.status == 200) {
+                // '["xiaomei"....] 字符串类型的数据===》对象'
+                // JSON  浏览器内置一个对象 下面有两个方法 
+                
+                // JSON.parse()  将后端返回的json字符串 转换为前端可以识别的json对象
+
+                // JSON.stringify() json对象 转换为 json字符串
+
+                //alert(typeof xhr.responseText );  //  xml  responseXML
+                
+                var data = JSON.parse(xhr.responseText)
+                console.log(data);
+            }else {
+                alert('错了，错误是'+xhr.status);
+            }
+        }
+    }
+
+
+}
+
+</script>
+</html>

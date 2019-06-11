@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+// 	  全局变量  局部变量(函数内部声明的变量)
+// 	  域:区域 --> 作用域: 起作用的区域  变量或者函数起作用的区域
+// 	  js(es5):
+// 		全局作用域
+// 		局部作用域:(函数内部)
+
+//  每一个作用域里面都会有 预解析过程
+	  
+	
+	/* 
+	全局作用域下：2步走
+	 1 预解析
+		var  a；
+		function fn1(){  // 深圳
+			
+			alert(a); // undefined
+			var a = 2;
+		}
+		function fn2() { // 上海
+			
+		}
+	 2 代码执行
+	    从上到下
+	 
+	 */
+	
+			
+		var  a  = 1;  // a:1
+		
+		function fn1(){  // 深圳 局部作用域: 世外桃源
+			/* 
+			局部
+			 1 预解析
+			 var a；
+			 2 代码执行
+			 
+			 */
+			
+			
+			alert(a); // undefined
+			var a = 2; // a:2
+			console.log(a); // a:2
+		}
+		
+		
+		function fn2() { // 上海
+			
+		}
+		
+		fn1(); //fn1
+		
+		alert(a); // 1
+		
+	</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">按钮</button>
+</body>
+<script type="text/javascript">
+
+document.getElementById('btn').onclick = function () {
+	
+	var xhr = null;
+
+	try{
+		xhr = new XMLHttpRequest();
+	}catch(e) {
+		xhr = new ActiveXObject('Microsoft.XMLHTTP');
+	}
+
+	xhr.open('post','02.post.php',true);
+
+	// post请求 需要设置一个请求头 声明一下数据类型
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	
+	xhr.send('username=lisi&age=22&job=FullStack');
+
+	xhr.onreadystatechange = function () {
+		if(xhr.readyState == 4) {
+
+			if(xhr.status == 200) {
+				alert( xhr.responseText );  //  xml  responseXML
+			}else {
+				alert('错了，错误是'+xhr.status);
+			}
+		}
+	}
+
+}
+
+
+
+
+</script>
+</html>

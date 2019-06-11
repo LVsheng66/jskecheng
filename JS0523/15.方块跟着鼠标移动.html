@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#box {
+			width: 100px;
+			background-color: red;
+			height: 100px;
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			cursor: none;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+		
+		// onmousemove 鼠标移动抚摸事件
+		
+		// 这个鼠标移动事件 它的触发频率是多少 触发快慢和什么关系
+		var num = 0;
+		var oBox = document.getElementById('box');
+		document.onmousemove = function(e) {
+			// 做一次事件对象的兼容性处理
+			e = e || window.event;
+			
+			console.log(e);
+			console.log(e.clientX, e.clientY);
+			
+			oBox.style.left = e.clientX - oBox.clientWidth/2 + 'px';
+			
+			oBox.style.top = e.clientY - oBox.clientHeight/2 + 'px';
+			
+			/* document.title = num;
+			num++; */
+		}
+		
+		/* 触发频率 和 时间有关  在系统规定的一个很短的时间内,它判断 如果这一次坐标和上一次坐标 不一样 发生变化了.
+		则触发一次 onmousemove 事件 */
+		
+	</script>
+</html>

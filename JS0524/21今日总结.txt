@@ -1,0 +1,134 @@
+一、事件冒泡：
+	
+	事件冒泡：下拉菜单  有弊端 阻止事件冒泡 e.cancelBubble =true
+	
+	利用事件冒泡机制 实现事件委托（事件代理）
+	案例： 删除留言 （ul添加事件  直接找到事件源 a  进行判断删除）
+	
+	事件绑定：
+		元素.on+ 事件名称= 事件处理函数
+		
+		容易发生事件覆盖
+		
+		第二种方式
+			标准浏览器: 元素.addEventListener(事件名称，事件处理函数,是否捕获)
+			
+			IE 浏览器： 元素.attachEvent(‘on’+事件名称， 事件处理函数)
+			
+		
+		有区别
+		
+			元素.addEventListener()
+				1 事件名称 不用加 on
+				2 这种写法 支持冒泡 也支持捕获
+				3 事件执行的顺序 由上到下 正序执行
+				4 绑定的事件处理函数的内部的 this 指向 当前的元素
+			
+			attachEvent()
+				1 事件名称要加 on
+				2 这种写法 只支持冒泡 不支持捕获
+				3 事件执行的顺序
+					IE9以及以上 正序
+					IE 6 7 8: 从后往前依次执行 倒序
+				4 这种绑定方式 绑定的事件处理函数 内部的this 指向 window 
+				
+		封装了一个兼容性的绑定函数 bind()
+		
+			function bind(obj, evName, evFn) {
+				if (obj.addEventListener) { // 标准浏览器可以识别
+					obj.addEventListener(evName, evFn, false);
+				} else if (obj.attachEvent) { // IE浏览器可以识别  IE6 7 9
+					// 给当前绑定的元素添加一个自定义属性 挂载 匿名函数
+					obj.handler = function() {
+						evFn.call(obj);
+					}
+			
+					obj.attachEvent('on' + evName, obj.handler);
+				} else {
+					// 超级古老的浏览器
+					obj["on" + evName] = evFn;
+				}
+			
+			
+			
+			}
+			
+		removeEventListener()
+		
+		detachEvent()
+		
+				function unbind(obj, evName, evFn) {
+					if (obj.removeEventListener) {
+						obj.removeEventListener(evName, evFn, false);
+				
+					} else if (obj.detachEvent) {
+						obj.detachEvent('on' + evName, obj.handler);
+					} else {
+						obj['on' + evName] = null;
+					}
+				
+				}
+				
+	事件捕获：
+	
+	劈砖----》 事件流
+	
+	事件流三个阶段： 事件捕获---》目标阶段 ---》冒泡阶段
+	
+	
+二、键盘事件：
+	keyCode
+	
+	案例：小飞机移动
+	进阶: 小飞机斜着走
+	
+	案例：提交留言   （事件对象e.ctrlKey）
+	
+	
+三、浏览器默认行为：
+	
+	案例： 自定义右键菜单 （oncontextmenu）
+	
+	阻止默认行为：
+		e.preventDefault()
+		e.returnValue = false;
+		
+		
+		return false;
+		
+四、拖拽特效
+
+	案例： 一个div拖拽
+	案例： 一个图片拖拽 （处理默认行为 IE678 设置全局捕获）
+	
+	案例： 封装好函数之后  限制范围
+	
+	案例： 碰撞检测 函数封装 ---拿一个图片测试了一下 
+	
+	案例：多图片循环 拖拽 ---》 碰撞检测
+			
+			找出所有图片 哪些当前碰撞上拉，把碰撞上的图片存起来arr
+			
+			循环数组 在里面利用勾股定理判断 哪个图片距离我当前的拖拽图片 最近
+			
+			找出最近的距离的图片 newObj
+			
+	案例：鼠标弹起 交换位置  如果newObj 存着 位置交换  否则 自己回去
+	
+
+作业安排：
+	0 利用事件冒泡 案例 删除留言 （事件源a）
+	
+	1 bind函数和unbind函数的封装 理解一下
+	
+	2 小飞机 移动 （可以斜着飞）
+	
+	3 提交留言
+	
+	4 右键菜单
+	
+	5 图片拖拽（综合案例） （能实现到哪一步 就实现到哪一步）
+	
+	6 课件过一遍 
+	
+	代码量继续统计！

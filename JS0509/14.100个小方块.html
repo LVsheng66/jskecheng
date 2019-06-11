@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box div {
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				text-align: center;
+				font: 15px/50px '微软雅黑';
+				color: white;
+				position: absolute;
+				border: 1px solid white;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="单击生成100个div" id="btn">
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var oBox = document.getElementById('box');
+		var oBtn = document.getElementById('btn');
+		
+		// 设定一个数组
+		var arrColor = ['red', 'green', 'blue', 'orange'];
+		
+		// 单击按钮 循环生成100个div 让每一个div 颜色不一样 位置也
+		oBtn.onclick  = function() {
+			
+			var str = '';
+			
+			for(var i = 0; i < 100; i++){
+				
+				var l = (i%10)*50 + 50; // 看个位上的数
+				var t = parseInt(i/10)*50 + 50; //看10位上的数  1排 0 1  2  3 4 ..
+				
+				str += '<div style="left:'+ l +'px;top:'+ t +'px; background-color:'+ arrColor[i%arrColor.length] +'">'+ i +'</div>';
+			}
+			
+			oBox.innerHTML = str;
+			
+		}
+		
+		// 做出来这个100个div ===> 拼图 鼠标移上onmouseover display:none
+	</script>
+</html>

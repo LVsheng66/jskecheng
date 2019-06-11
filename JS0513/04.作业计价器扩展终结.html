@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<input type="button" value="-">
+				<strong>0</strong>
+				<input type="button" value="+">
+				单价：<em>12.5元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-">
+				<strong>0</strong>
+				<input type="button" value="+">
+				单价：<em>10.5元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-">
+				<strong>0</strong>
+				<input type="button" value="+">
+				单价：<em>8.5元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-">
+				<strong>0</strong>
+				<input type="button" value="+">
+				单价：<em>8元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-">
+				<strong>0</strong>
+				<input type="button" value="+">
+				单价：<em>14.5元</em>
+				小计：<span>0元</span>
+			</li>
+		</ul>
+		<p>
+			商品合计共：0件，共花费了：0元<br>
+			其中最贵的商品单价是：0元
+		</p>
+	</body>
+	<script type="text/javascript">
+	
+		// 功能: 实现计价器
+		// 先实现一个计价器
+		
+		// js获取一下元素
+		var oList = document.getElementById('list'); // 唯一的一个元素标签
+		
+		var aLi = oList.getElementsByTagName('li'); // 是一个集合 类数组 
+		
+		var oP = document.getElementsByTagName('p')[0]; // 这是统计的区域
+		
+		// 拿到所有的数量
+		var aStrong = document.getElementsByTagName('strong'); // 5个数量标签
+		
+		// 拿到所有的单价
+		var aEm = document.getElementsByTagName('em'); // 5个
+		
+		// 设置一个全局变量 用来统计总件数 默认是0
+		var totalNum = 0;
+		
+		// 设置一个全局的变量 用来统计总费用 默认是0
+		var totalMoney = 0;
+		
+		// 设置一个全局变量 用来统计购买的商品里面最贵单价 默认是0
+		var expensive = 0;
+		
+		
+
+		for(var i = 0; i < aLi.length; i++){
+			fn(aLi[i]);
+		}
+		
+		function fn(ele) {
+			
+			
+			// 从这一个li里面去获取一堆元素 来实现计价器
+			var aInp = ele.getElementsByTagName('input'); //集合 [input, input]
+			var oStrong = ele.getElementsByTagName('strong')[0]; // 数量 [strong][0]直接拿到strong标签
+			var oEm = ele.getElementsByTagName('em')[0]; // 单价  一个元素
+			var oSpan = ele.getElementsByTagName('span')[0]; // 小计 一个元素标签
+			
+			// 拿到 数量 0 
+			console.log(typeof oStrong.innerHTML); // '0' ==> 0  Number() parseInt() 
+			var num = Number( oStrong.innerHTML ); // 0 数量
+			
+			// 拿到单价
+			var price = parseFloat(oEm.innerHTML); // '14.5元'==> 14.5
+			
+			
+			
+			// 单击 减号 
+			aInp[0].onclick = function() {
+				// 让数量-1
+				// 控制一下
+				if(num > 0) {
+					num--;
+					totalNum--;
+					totalMoney -= price;
+					// 最贵单价的计算 
+					// 最贵单价 在减的时候 一般不用考虑 当减为0的时候要考虑一下
+					if(num == 0) {
+						// 先把最贵单价清0 然后重新去计算数量不为0的商品里面对应的单价 谁最贵
+						expensive = 0;
+						// 循环所有的数量标签
+						for(var i = 0; i < aStrong.length; i++){
+							// 拿到里面的数量 转换成数字类型 可能是0 也可能不是0
+							var shuliang = Number(aStrong[i].innerHTML);
+							// 这个把当前 的这个标签所在的数量过滤掉  看看循环中的数量strong标签 是否是当前的oStrong
+							if(shuliang != 0 && aStrong[i] != oStrong){
+								// 找到不为0的数量
+								// 找到当前数量对应的单价 转换成数字类型
+								var danjia = parseFloat(aEm[i].innerHTML);
+								if(danjia > expensive){
+									expensive = danjia;
+								}
+							}
+						}
+					}
+				}
+				fn2();
+			}
+			
+			// 单击 加号  让数量+1  （需要拿到单价） 得到 小计 
+			aInp[1].onclick = function() {
+				// 让数量+1
+				num++;
+				totalNum++;
+				// 每单击一下 让全局的总费用 增加一个当前的单价
+				totalMoney += price
+				
+				if(price > expensive){
+					expensive = price;
+				}
+				fn2();
+				
+			}
+			
+			
+			function fn2() {
+				// 将数量的num变量重新写入页面中
+				oStrong.innerHTML = num;
+				// 计算小计
+				oSpan.innerHTML = num * price + '元';  // 14.5
+				
+				// 将统计的结果写入到页面中
+				oP.innerHTML = '商品合计共：'+totalNum+'件，共花费了：'+ totalMoney +'元<br>'+
+								'其中最贵的商品单价是：'+expensive+'元' ;
+			}
+		}
+		
+		
+	</script>
+</html>

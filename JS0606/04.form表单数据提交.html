@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<!-- 
+form 几个属性
+	action： '请求的地址路径'
+	method: 请求 方式  get/post
+	
+	enctype:数据编码类型： 默认：application/x-www-form-urlencoded
+	这个默认编码方式：将数据 按照键值对的形式进行编码 然后发送到后端
+
+	text/plain：纯文本
+
+	multipart/form-data： 除了文本内容还有别的数据类型 比如 音频文件
+ -->	
+<form action="01.get.php" method="get" enctype="application/x-www-form-urlencoded">
+	<input type="text" name="username">
+	<input type="submit" value="提交">
+</form>	
+</body>
+<script type="text/javascript">
+
+
+</script>
+</html>

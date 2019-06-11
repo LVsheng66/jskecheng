@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+	<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" id="j_cbAll">
+            </th>
+            <th>课程名称</th>
+            <th>所属学院</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>JavaScript</td>
+            <td>前端与移动开发学院</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>css</td>
+            <td>前端与移动开发学院</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>html</td>
+            <td>前端与移动开发学院</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>jQuery</td>
+            <td>前端与移动开发学院</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+
+
+	// 全选按钮的操作： 如果它打勾了 则下面 全打勾  如果它没有打勾 全部不打勾
+
+	// 下面的按钮们  单击这些按钮 单击以后 你判断 当前下面的所有复选框中 有几个打勾的 如果 有四个打勾的 则 全选按钮打勾 否则不打勾 
+
+	$('#j_cbAll').click(function () {
+		
+		// console.log($(this).prop('checked'));
+
+		$('#j_tb input').prop('checked', $(this).prop('checked'))
+
+	});
+
+	$('#j_tb input').click(function () {
+		
+		//看看 当前下面的所有复选框中有几个打勾的
+		// console.log($('#j_tb input').length )  // 4个
+		// console.log($('#j_tb input:checked').length )  // 4个
+		// 
+		// 
+		//$('#j_cbAll').prop( 'checked',  $('#j_tb input:checked').length ==$('#j_tb input').length )
+		//
+		if($('#j_tb input:checked').length ==$('#j_tb input').length){
+			$('#j_cbAll').prop( 'checked', true )
+
+		}else {
+			$('#j_cbAll').prop( 'checked',  false)
+		}
+ 
+	})
+
+
+
+
+
+</script>
+</html>

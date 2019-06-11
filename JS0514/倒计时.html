@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#btn,input[type='text']{
+				line-height: 30px;
+				font-size: 20px;
+				height: 30px;
+			}
+			input[type='text']{
+				width: 250px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="txt" value='May 12,2019 14:03:12'>
+		<input type="button" value='单击开始倒计时' id="btn"><br />
+		<input type="text" id="txt2">
+	</body>
+	<script type="text/javascript">
+		// 倒计时   给定一个未来的时间点（确定的）   -  现在的时间点 （越来越靠近未来）差值会越来越小
+		
+		var oBtn = document.getElementById('btn');
+		var oTxt = document.getElementById('txt');
+		var oTxt2 = document.getElementById('txt2');
+		oBtn.onclick = function() {
+			var iNew = new Date(oTxt.value);
+			var timer = setInterval(function() {
+						// var iNew = new Date(2019, 4, 13, 20, 30, 30);
+			// 			var iNew = new Date('June 10,2019 12:12:12');
+			// 
+						var iNow = new Date();
+			
+						console.log(iNew - iNow); //差值 为毫秒  转换为对应的天  小时  分 秒
+			
+						var t = (iNew - iNow) / 1000;
+			
+						// 60*60*24 天
+						if(t>=0){
+							var tian = Math.floor(t / 86400);
+							// console.log(tian);
+										
+							var hour = Math.floor(t % 86400 / 3600);
+										
+							var min = Math.floor(t % 86400 % 3600 / 60);
+										
+							var sec = Math.floor(t % 60);
+										
+							var str = zero(tian) + '天' + zero(hour) + '时' + zero(min) + '分' + zero(sec) + '秒';
+							console.log(str);
+							
+							oTxt2.value = str;
+						}else {
+							clearInterval(timer);
+							alert('恭喜，时间到了');
+						}
+						
+						
+					}, 1000);
+		}
+		
+		
+		
+		function zero(m){
+			return m<10?'0'+m:''+m;
+		}
+	</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body style="background-color: black; color: white;">
+	</body>
+	<script type="text/javascript">
+// 	打印1-100之间所有数
+	for(var i = 1; i <= 100; i++){
+		document.write(i + '&nbsp;&nbsp;');
+	}
+	
+// 	求1-100之间所有奇数的和 
+	var sum = 0;
+	for(var i = 1; i <= 100; i++){
+		if(i%2==1){
+			sum += i;
+		}
+	}
+	console.log("和是："+sum);
+	
+	document.write('<br />')
+
+// 	打印正方形 &&打印直角三角形
+	for(var i = 0; i < 5; i++){
+		
+		for(var j = 0; j < 6; j++){
+			document.write('⭐️');
+		}
+		document.write('<br />');
+	}
+
+// 	打印9*9乘法表
+	document.write('<table>');
+	for(var i = 1; i <= 9; i++){
+		document.write('<tr>');
+		for(var j = 1; j <= i; j++){
+			document.write('<td style="border:1px solid white;">'+ j+'*'+i+'='+ j*i +'</td>');
+			
+		}
+		document.write('</tr>');
+
+	}
+	document.write('</table>');
+	
+		
+	</script>
+</html>

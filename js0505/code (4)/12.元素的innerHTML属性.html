@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">这是一个盒子</div>
+		<p id="p1">这是一个段落标签</p>
+	</body>
+	<script type="text/javascript">
+		// value
+		// 获取普通标签里面的内容 div  p span 
+		// 元素.innerHTML
+		var oBox = document.getElementById('box');
+		// console.log(oBox.value);  // 一个元素的属性不存在 是undefined 
+		console.log(oBox.innerHTML); // "这是一个盒子"
+		
+		console.log(document.getElementById('p1').innerHTML);  // ‘这是一个段落标签’ 文本内容  文字 字符串
+	</script>
+</html>

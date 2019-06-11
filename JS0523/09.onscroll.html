@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				position: fixed;
+				right: 10px;
+				bottom: 10px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body style="height: 2000px;">
+		<div id="box">返回顶部</div>
+	</body>
+	<script type="text/javascript">
+		// 当浏览器窗口 滚动的时候 触发该函数 
+		var num = 0;
+		var oBox = document.getElementById('box');
+		window.onscroll = function() {
+			/* document.title = num;
+			num++; */
+			console.log(document.documentElement.scrollTop);
+			var t = document.documentElement.scrollTop;
+			if(t >= 1000) {
+				oBox.style.display = 'block';
+			}else {
+				oBox.style.display = 'none';
+
+			}
+			
+		}
+		
+		oBox.onclick = function() {
+			document.documentElement.scrollTop = 0;
+		}
+		
+	</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" id="btn" value="按钮">
+</body>
+<script>
+
+var oBtn = document.getElementById('btn');
+
+
+oBtn.onclick = function(){
+
+	// 第一步 打开浏览器    1 创建一个ajax对象
+	// 			ajax是js的一个内置对象 我们需要 new XMLHttpRequest 就会产生一个ajax对象
+	// 			
+	// 			IE6:不识别  兼容性问题处理
+	// 			
+	// var xhr = new XMLHttpRequest();
+	//插件集---有很多插件（flash插件 ajax插件。。。）
+	var xhr  = new ActiveXObject('Microsoft.XMLHTTP')
+
+	// 第二步 输入地址     2 调用 open方法	
+	// 
+	xhr.open('get','aa.txt',true);
+
+	// 第三步 按下回车      3 调用send方法
+	// 
+	xhr.send();
+	// 第四步 等待页面数据返回  4 监听ajax状态发生改变 一旦状态变为4 获取响应的数据
+	// 
+	xhr.onreadystatechange = function () {
+		
+		if(xhr.readystate == 4) {
+			alert( xhr.responseText );
+		}
+
+	}
+
+}
+
+</script>
+	
+</html>

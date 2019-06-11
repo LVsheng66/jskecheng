@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+		/* . 任意字符    \. 代表只表示 . 
+		
+		
+		\1 重复第一子项 */
+		
+		var str='adadfaeesesswssfwrssrrsfs'; 
+		
+		 //1 把这个字符串 进行排序  str转换成数组 利用数组的sort进行排序 转换为字符串
+		/* var arr = str.split("")
+		 arr.sort()
+		 console.log(arr);
+		 str = arr.join('')
+		 console.log(str);  // aaaddeeefffrrrsssssssssww
+		 
+		 var val = '';
+		 var MaxNum = 0; */
+		 
+		//  'aaaabccc'
+		 //var re = /(.)\1*/g
+		 
+		 /*str.replace(re,function($0,$1,$2) {
+			 console.log($0);
+			 console.log($1);
+			 
+			 if(MaxNum < $0.length) {
+				 MaxNum = $0.length;
+				 val = $1
+			 }
+			 
+		 })
+		 console.log('重复最多的字符'+val+'重复了'+MaxNum+'次');
+		 */
+		
+		 
+		 // 2 利用正则的 第一子项\1  配合replace方法 实现查找
+		 
+		 
+		 var json = {}; // 利用json的键名唯一
+		 
+		 var str='adadfaeesesswssfwrssrrsfs'; 
+		 
+		 for(var i = 0; i < str.length; i++){
+			 
+			// json['a']  json['d'] json['a']  json['d'].....
+			 if(json[ str[i] ]) {
+				 json[str[i]] += 1;
+			 }else {
+				 // 说明json里面从来没存过
+				 json[str[i]] = 1;  // json= { 'a':2 , 'd':2  }
+			 }
+			 
+		 }
+		 console.log(json);
+		 
+		 var val = '';
+		 var num = 0;
+		 
+		 for(var k in json) {
+			 if(num < json[k]){
+				 num = json[k]
+				 val = k
+			 }
+		 }
+		 
+		 console.log('重复最多的字符'+val+'重复了'+num+'次');
+		 
+		
+	</script>
+</html>

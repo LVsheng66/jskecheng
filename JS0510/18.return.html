@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">盒子</div>
+		<input type="text" id="oText">
+	</body>
+	<script type="text/javascript">
+		// return 可以返回任何类型的数据
+
+		/* function fn1() {
+			
+			return 13;
+		}
+	
+		var cc = fn1();
+	
+		console.log(cc); */
+
+
+		/* function fn1() {
+			
+			return 'hello';
+		}
+	
+		var cc = fn1();
+	
+		console.log(cc.length); */
+
+
+		/* function fn1() {
+
+			return ['red', 'black', 'orange'];
+		}
+
+		var cc = fn1();
+		
+		document.body.style.backgroundColor = cc[2]; */
+		
+		
+		/* function fn1() {
+			
+			return function(){
+				alert('你好')
+			};
+		}
+		
+		var cc = fn1();
+		
+		cc(); */
+		
+		
+		/* function fn1() {
+			
+			
+		}
+		var dd = fn1();
+		console.log(dd); //return默认 返 回 undefined*/
+		
+		
+		
+		function fn2() {
+			
+			alert('哈哈');
+			return 14;
+			alert('嘻嘻');
+			
+		}
+		var aa = fn2();
+		console.log(aa);
+		
+		/* 
+		 return: 用于在函数中 返回特定的数据 可以返回任何类型的数据
+		    return 默认返回undefined
+			return 返回返回值之后 后面的代码不执行  函数终止
+		 
+		 */
+		
+		function $(id) {
+			
+			return document.getElementById(id);
+			
+		}
+		
+		var oBox = $("box"),oText = $('oText');
+		
+		
+	</script>
+</html>

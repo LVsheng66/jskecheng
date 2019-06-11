@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#p1 {
+				text-indent: 2em;
+				font-size:15px;
+			}
+		</style>
+	</head>
+	<script type="text/javascript">
+		// 如果代码放在body的前面 在获取元素的时候 容易出问题 (因为页面加载的顺序导致的)
+		// 包一个壳 
+		// 当整个浏览器程序全部加载完毕（所谓的全部加载完毕意味者页面的html结构和css样式以及外部引用的图片等资源全部加载完毕）
+		//之后再去执行里面的事情
+		window.onload = function() {
+			// 思路 两件事:
+			var oBtn1 = document.getElementById('btn1');
+			var oBtn2 = document.getElementById('btn2');
+			var oP1 = document.getElementById('p1');
+			
+			// 设置一个变量 用来更改字号大小
+			var num = 15;
+			// 1 单击-号  让p标签里面的内容 的文字大小缩小
+			oBtn1.onclick = function() {
+				//让 num 减1
+				num = num -1;
+				console.log(num);
+				oP1.style.fontSize = num + 'px';
+			}
+			
+			// 2 单击+号  让p标签里面的内容 的文字大小放大
+			oBtn2.onclick = function() {
+				//让变量num 加一
+				num = num + 1; // 15+1 赋给num  num:16
+				console.log(num); //
+				oP1.style.fontSize = num +'px';  // "18px"
+			}
+			
+			
+			
+		}
+	</script>
+	<body>
+		<input type="button" value="-" id="btn1">
+		<input type="button" value="+" id="btn2">
+		<p id="p1">
+			前端即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，完美的动效设计，给用户带来极高的用户体验
+		</p>
+	</body>
+	
+</html>

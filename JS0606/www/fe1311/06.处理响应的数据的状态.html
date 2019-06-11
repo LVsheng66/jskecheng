@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" id="btn" value="按钮">
+</body>
+<script>
+
+var oBtn = document.getElementById('btn');
+
+
+oBtn.onclick = function(){
+
+	
+	var xhr = null;
+
+	try {
+		xhr = new XMLHttpRequest()
+	}catch(e) {
+		xhr  = new ActiveXObject('Microsoft.XMLHTTP')
+	}
+
+	//alert(xhr.readyState); // 0
+
+	// 第二步 输入地址     2 调用 open方法	
+	
+	xhr.open('get','aa33.php',true);
+
+	 // 1 
+
+	// 第三步 按下回车      3 调用send方法
+	// 
+	xhr.send();
+	// 第四步 等待页面数据返回  4 监听ajax状态发生改变 一旦状态变为4 获取响应的数据
+	
+	 // 1
+
+	xhr.onreadystatechange = function () {
+		//alert(xhr.readyState);// 2  3  4
+		if(xhr.readystate == 4) {
+			alert( xhr.responseText );
+		}
+
+	}
+
+}
+
+</script>
+	
+</html>

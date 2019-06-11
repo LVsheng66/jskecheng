@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" id="btn" value="按钮">
+</body>
+<script>
+
+var oBtn = document.getElementById('btn');
+
+
+oBtn.onclick = function(){
+	       
+	var xhr =null;
+
+	if(window.XMLHttpRequest) {
+		xhr = new XMLHttpRequest()
+	}else {
+		xhr  = new ActiveXObject('Microsoft.XMLHTTP');
+	}
+
+	
+	xhr.open('get','aa.txt',true);
+
+	xhr.send();
+
+	
+
+	xhr.onreadystatechange = function () {
+		
+		if(xhr.readyState == 4) {
+			alert( xhr.responseText );
+		}
+
+	}
+
+}
+
+</script>
+	
+</html>

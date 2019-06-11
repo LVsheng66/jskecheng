@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="oUl">
+			<li>123</li>
+			<li>hello</li>
+			<li>javascript</li>
+		</ul>
+		<p>这是一个段落</p>
+	</body>
+	<script type="text/javascript">
+		
+		//第一种方式:在整个文档下 通过id名的方式 去获取对应的元素 id名的全局唯一的
+		var oUl = document.getElementById('oUl');
+		
+		// 第二种方式: 在整个文档下 通过标签名的方式 去获取对应的元素  可以有多个标签
+		// document.getElementsByTagName(标签名)
+		var aLi = document.getElementsByTagName('li');
+		console.log(aLi);  // HTMLCollection(3) [li, li, li]  
+		// 这是一个 html元素的集合 类似于数组  有length  下标  但是这个集合 它本身没有数组的一些操作方法
+		
+		console.log(aLi.length); // 5	
+		console.log(aLi[aLi.length-1]);
+		
+		aLi[0].onclick = function() {
+			//让它 aLi[0]背景颜色 变为 红色
+			this.style.backgroundColor = 'red';
+		}
+		
+		aLi[1].onclick = function() {
+			this.style.backgroundColor = 'orange';
+		}
+		aLi[2].onclick = function() {
+			this.style.backgroundColor = 'green';
+		}
+		
+		
+		var aP = document.getElementsByTagName('p')[0]; // ['p']
+		
+		aP.style.border = '3px solid black';
+		
+	</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="./img/1.jpg" id="oImg" >
+	</body>
+	<script type="text/javascript">
+		
+		// 多个图片循环切换 	
+		var oImg = document.getElementById('oImg');
+		
+		// var aa = "./img/1.jpg"
+		
+		//[]   // 数组 大的仓库 里面可以放很多数据 
+		var aa = ['123', 45, 'hello'];
+		
+		console.log(aa);
+		
+		console.log( aa.length); // 3 仓库的长度 代表存放了几个数据
+		
+		// 仓库里面有很多东西 仓库有编号(索引 下标) 0号往后走  下标从0开始
+		
+		console.log(aa[0]); // 取出数组仓库中的0号数据
+		console.log(aa[2]); // 'hello'
+		
+		//把所有图片的地址(字符串路径 字符串数据)
+		var arrUrl = [
+			"./img/1.jpg", 
+			"./img/2.jpg", 
+			"./img/3.jpg", 
+			"./img/4.jpg", 
+			"./img/decorator.jpg", 
+			"./img/o-56759.jpeg"
+			]
+		
+		// 设置一个变量 用来当作计数器
+		var num = 0
+		console.log('图片数组仓库的长度是'+ arrUrl.length);
+		// 单击图片 进行图片地址切换
+		oImg.onclick = function() {
+			num++;
+			if(num > arrUrl.length-1) {  //通过判断 控制一下  如果计数器 大于了3 则改为0 
+				num = 0
+			}
+			console.log(num);
+			oImg.src = arrUrl[num]; //arrUrl[1]  arrUrl[2]  arrUrl[3]
+			
+			
+			
+		}
+		
+		
+		/* 
+		 
+		 多张图片地址的存储  使用数组（仓库)  
+		
+		var arrUrl   arrUrl.length 当前数组的长度 （里面存储的数据个数）
+		
+		arrUrl[2] 可以通过下标 去取里面的数据 下标从0开始
+		// 想取出数组的最后一个数据
+		// arr1 = [.....]
+		arr1[arr1.length-1]
+		 
+		 */
+		
+	</script>
+</html>

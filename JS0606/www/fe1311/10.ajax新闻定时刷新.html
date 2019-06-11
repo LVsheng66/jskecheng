@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="单击获取新闻列表">
+	<ul id="oUl">
+		<!-- <li>aaaaa <span>date</span></li> -->
+
+	</ul>
+</body>
+<script src="json.js"></script>
+<script type="text/javascript">
+
+	
+var oBtn = document.getElementsByTagName('input')[0];
+var oUl = document.getElementById('oUl');
+
+oBtn.onclick = function () {
+	
+
+    ajax('get','04.getNews.php',function(data){
+        var data = JSON.parse(data)
+
+        // console.log(data);
+        var str = '';
+        for(var i = 0; i< data.length;i++) {
+            str += '<li>'+ data[i].con +'<span> ['+data[i].date+']</span></li>'
+        }
+        oUl.innerHTML = str;
+
+    });
+
+
+    var timer = setInterval(() => {
+        ajax('get','04.getNews.php',function(data){
+            var data = JSON.parse(data)
+
+            // console.log(data);
+            var str = '';
+            for(var i = 0; i< data.length;i++) {
+                str += '<li>'+ data[i].con +'<span> ['+data[i].date+']</span></li>'
+            }
+            oUl.innerHTML = str;
+
+        });
+     }, 2000);
+
+    
+}
+
+
+</script>
+<script>
+function ajax(method,url,data,success){
+
+
+    var xhr = null;
+
+	try{
+
+		xhr = new XMLHttpRequest();
+
+
+	}catch(e) {
+		xhr = new ActiveXObject('Microsoft.XMLHTTP');
+
+	}
+
+	xhr.open(method,url, true);
+
+	xhr.send();
+
+	xhr.onreadystatechange = function () {
+		if(xhr.readyState == 4) {
+
+			if(xhr.status == 200) {
+
+                (typeof success == 'function')&&success(xhr.responseText)
+			
+			}
+		}
+	}
+}
+
+// 完善 封装   请求方式  请求地址 携带的数据  成功的回调   ==》尝试模拟jquery的ajax 传入一个js对象
+
+</script>
+</html>

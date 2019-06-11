@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">按钮</button>
+</body>
+<script type="text/javascript">
+
+document.getElementById('btn').onclick = function () {
+	
+	var xhr = null;
+
+	try{
+		xhr = new XMLHttpRequest();
+	}catch(e) {
+		xhr = new ActiveXObject('Microsoft.XMLHTTP');
+	}
+
+	// 为了防止浏览器对相同的请求地址 进行缓存 可以在url地址后面 增加一个随机数 或者增加一个时间戳 new Date().getTime()
+
+	xhr.open('get','02.get.php?username='+encodeURI('尼古拉斯赵四') +'&age=22&job=FullStack&'+new Date().getTime(),true);
+
+	xhr.send();
+
+	xhr.onreadystatechange = function () {
+		if(xhr.readyState == 4) {
+
+			if(xhr.status == 200) {
+				alert( xhr.responseText );  //  xml  responseXML
+			}else {
+				alert('错了，错误是'+xhr.status);
+			}
+		}
+	}
+
+}
+
+
+
+
+</script>
+</html>

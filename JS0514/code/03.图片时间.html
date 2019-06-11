@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			ul li {
+				float: left;
+				margin-right: 10px;
+			}
+			
+		</style>
+		<script type="text/javascript">
+		/* 
+		 
+		案例：
+			第一步：观察案例--->想一下 里面使用了什么方法或者技术去实现？
+			
+			第二步：想一下 可以用学过的哪些方法或者知识点 去实现 该怎么去实现？（具体该怎么操作？）
+			
+			第三步：针对案例，先写一个大概基础的功能 ----》逐步修改和完善 如果遇到bug==>根据报错信息去修改bug
+					
+					===如果没有报错 一般可能是逻辑性错误 ===> alert()/console.log(num)测试
+					
+					===> 完成---》总结：这个案例学到了什么 用了什么知识点？
+			
+			先学了知识点 js中的日期时间对象 获取相关时间的操作方法
+			
+			简单的案例： 拿到具体的时间 拼接一下 放入页面
+			
+			进阶案例： 图片时间 将时间和图片对应起来
+			
+			
+			需求：===》开发
+			
+			新闻博客系统  原型图===》psd设计稿 ===》开发 ==》逐步开发过程   接口文档
+		 
+		 
+		 
+		 */	
+			
+			
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li><img src="img/0.JPG" alt=""></li>
+			<li><img src="img/0.JPG" alt=""></li>
+			<li><img src="img/0.JPG" alt=""></li>
+			<li><img src="img/0.JPG" alt=""></li>
+			<li><img src="img/0.JPG" alt=""></li>
+			<li><img src="img/0.JPG" alt=""></li>
+			<li><img src="img/0.JPG" alt=""></li>
+			<li><img src="img/0.JPG" alt=""></li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		
+		//先获取这一堆图片
+		var aImg = document.getElementsByTagName('img');
+		
+		
+		fn();	
+		
+		// 开一个循环定时器
+		var timer = setInterval(fn,1000);
+		
+		
+		function fn() {
+			
+			
+			var mydate = new Date();
+			
+			var hour = mydate.getHours();
+			var min = mydate.getMinutes();
+			var sec = mydate.getSeconds();
+			
+			//设定一个字符串
+			
+			var str = zero(hour) +':'+ zero(min) +':' + zero(sec);
+			console.log(str); // '10:20:35' length 8个
+			
+			// document.write(str);
+			//document.body.innerHTML = str;
+			
+			// 循环字符串str
+			for(var i = 0; i < str.length; i++){  // 8
+				// 1
+				/* str[0] // 1
+				str[1] // 0 */
+				
+				// 0 1 2 3 4 5 6 7
+				// 如果碰到下标为2  或者 5  就将对应的图片src 改为冒号
+				if(i==2 || i==5){
+					aImg[i].src = 'img/colon.gif';
+				}else {
+					// 0 1 : 3 4 :  6 7
+					// '10:20:35'
+					aImg[i].src = 'img/'+ str[i] +'.JPG';
+				}
+				
+				
+				// console.log(str[i]); // str[0]  str[1]  str[2]....str[7]
+				
+			}   //遍历  循环 
+			
+			
+			
+		}
+		
+		// 封装一个小函数 用来补零
+		function zero(m) {
+			if(m < 10) {
+				 return '0'+m;
+			}else {
+				return m
+			}
+		}
+		
+	</script>
+</html>

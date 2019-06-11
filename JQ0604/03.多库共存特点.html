@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">盒子</div>
+</body>
+
+<script type="text/javascript" src="myTool.js"></script>
+<script type="text/javascript" src="jQ.js"></script>
+
+<script type="text/javascript">
+	
+
+	// $(function () {
+		
+	// })
+	// 
+// jq解决冲突的办法 
+// 
+	// zepto.js  $   jQuery
+	
+	var zag = $.noConflict()  // 将jquery的$符号 的控制权 释放出来
+
+	zag(function () {
+		
+		zag('#box').css('backgroundColor', 'red');
+	})
+
+	console.log($);
+
+	// $ jQuery
+	// 
+	jQuery(function () {
+		jQuery('#box').click(function () {
+			alert(123);
+		})
+	})
+</script>
+</html>

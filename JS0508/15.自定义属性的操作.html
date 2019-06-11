@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" value="文字" id="inp">
+		<img src="" alt="">
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+	var oInp = document.getElementsByTagName('input')[0];
+	var oBox = document.getElementById('box');
+			//html属性操作
+			
+// 			元素.属性名
+// 			alert(oInp.type)
+// 			
+// 			元素.属性名= 你设置的新的属性值
+
+
+			// js可以动态给元素添加自定义属性
+		oInp.abc = 123;
+		
+		oBox.xxx = '你好';
+		
+		// alert(oInp.abc);
+		
+		alert(oBox.xxx);
+		
+	</script>
+</html>

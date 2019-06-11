@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+
+		}
+		ul li {
+			list-style:none;
+			float: left;
+			margin-right:50px;
+			width: 200px;
+			height: 300px;
+			margin-bottom:50px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+
+	/*for(var i = 0; i < $('ul li').length; i++) {
+
+		$('ul li')[i].style.opacity = 0.1*(i+1);
+	}*/
+
+	// 针对一堆元素 进行 不同的处理 each
+	
+	var arrColor = ['red','blue','green','pink']
+	
+	$('ul li').each(function (i,item) {
+		// console.log(i,item);
+
+		// $(this).css('opacity', (i+1)/10);
+		
+		$(this).css('background-color', arrColor[i%arrColor.length])
+
+	})
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

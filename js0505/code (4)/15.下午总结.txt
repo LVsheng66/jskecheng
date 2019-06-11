@@ -1,0 +1,49 @@
+﻿一、js如何操作html属性
+	
+html属性：html标签元素身上的属性 type="button" id="box" style="color:red;background-color:blue;..."
+	
+
+	读操作：获取
+	alert( 元素.属性名 )
+	console.log(元素.属性名 )
+	oBox.innerHTML 
+	oBtn.value
+	oImg.src
+	...
+	
+
+
+	写操作：
+		元素.属性名 = 你新设置的值
+		
+
+	oImg.src = './img/3.jpg'
+	oBox.id = 'aa'
+	
+	+号 js里面有两个作用：
+	1 用于数字相加 3 + 5   ==> 8
+	2 用于字符串拼接  "abc" + 'dd' ==> 'abcdd'   6+ 'px' => '6px'
+	
+	案例： 文字的放大和缩小
+		注意： 对于复合样式(font-size  background-color) ==> fontSize  backgroundColor 
+		
+		
+	元素.innerHTML  某个普通元素里面的html内容 div.innerHTML p span
+	 
+	案例 简单留言框
+	
+	
+
+
+
+
+
+// 今天的作业：
+ 1、把 一天的上课的代码 过一遍 
+
+ 2、作业（硬性要求）：案例：1 下拉菜单  2 盒子显示与隐藏  3 交换两个变量值 （掌握两个方法）
+	     4 文字的放大和缩小  5 简单留言框  6 给盒子设置样式
+		 
+// 案例 
+		
+	

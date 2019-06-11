@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	 
+	 //NaN: not a number, 不是一个数字
+	 
+	 console.log(Number('abc')); // NaN 
+	 
+	 console.log( 'abc' - 123 ); // NaN 
+	 
+	 // 一般在程序中出现了NaN  说明你当前进行了 非法运算
+	 
+	 console.log(typeof('abc' - 123)); // NaN 是一个数字类型
+	 
+	 console.log( '123'=='123' );
+	 
+	 console.log(NaN == NaN); // NaN 自己和自己不想等
+	 
+	 // 如何判断一个数字类型的数据 到底是不是数字
+	 
+	 // 14==14  NaN==NaN
+	 
+	 // is  not  a number
+	 isNaN()  // 判断一个数据 是不是  不是一个数字  如果这个数据判断完之后 是数字 则false 是NaN 则返回true
+		
+	console.log( isNaN( 'abc' - 123 ) ); // NaN=> true
+		
+	console.log( isNaN( null ) ); //数字 false
+	
+	// isNaN方法内部 使用的是 Number() 作为转换的依据
+	</script>
+</html>

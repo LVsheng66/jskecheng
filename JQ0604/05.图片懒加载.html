@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		div {
+			height: 900px;
+			margin-top: 40px;
+
+		}
+		div:nth-of-type(1) {
+			background-color: red;
+		}
+		div:nth-of-type(2) {
+			background-color: blue;
+		}
+		div:nth-of-type(3) {
+			background-color: green;
+		}
+
+	</style>
+</head>
+<body style="height: 2000px">
+	<img src="0001.jpg" class="lazy">
+	<div id="top"></div>
+	<img src="0001.jpg" class="lazy">
+	<div id="middle"></div>
+	<img src="0001.jpg" class="lazy">
+	<div id="btm"></div>
+	<img src="0001.jpg" class="lazy">
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript" src="jquery.lazyload.js"></script>
+<script type="text/javascript">
+
+// 懒加载：懒加载(Load On Demand)是一种独特而又强大的数据获取方法,它能够在用户滚动页面的时候自动获取更多的数据,而新得到的数据不会影响原有数据的显示,同时最大程度上减少服务器端的资源耗用。
+
+// 图片懒加载：在页面首次加载的时候 图片先不加载，当页面滚动条滚动的时候 超出可视区域范围外，则让图片进行加载
+
+// 这样 可以 优化 首屏加载效率 提高用户响应速度 这是一种首屏优化的手段
+// 
+		
+	$('img.lazy').each(function (i,item) {
+		$(this).attr('data-original', $(this).attr('src') ).removeAttr('src');
+	})
+
+	$('img.lazy').lazyload();
+
+
+
+</script>
+</html>

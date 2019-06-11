@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">盒子</div>
+	</body>
+	<script type="text/javascript">
+		
+	
+		
+		
+		function fn1() {
+			console.log(this);
+			this.style.backgroundColor = 'red';
+		}
+		
+		function fn2() {
+			this.style.border = '3px solid green';
+		}
+		
+		var oBox = document.getElementById('box');
+		
+		/* oBox.addEventListener('click',fn1,false);
+		oBox.addEventListener('click',fn2,false);
+		 */
+		/* 
+		oBox.attachEvent('onclick',fn1);
+		oBox.attachEvent('onclick',fn2);
+		
+		 */
+		
+		/* oBox.attachEvent('onclick',function(){
+			fn1.call(oBox);
+		});
+		oBox.attachEvent('onclick',function(){
+			fn2.call(oBox);
+		}); */
+		
+		// 如果更改 attachEvent绑定的事件处理函数内部this指向
+		
+		bind(oBox,'click',fn1);
+		bind(oBox,'click',fn2);
+		
+		//处理一下 绑定事件的兼容问题
+		
+		function bind(obj,evName,evFn) {
+			if(obj.addEventListener){  // 标准浏览器可以识别
+				obj.addEventListener(evName,evFn,false);
+			}else if(obj.attachEvent){ // IE浏览器可以识别  IE6 7 9
+				obj.attachEvent('on'+evName,function(){
+					evFn.call(obj);
+				});
+			}else {
+				// 超级古老的浏览器
+				obj["on"+evName]= evFn;
+			}
+			
+			
+		}
+		
+		
+	</script>
+</html>

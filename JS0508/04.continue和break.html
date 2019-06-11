@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	// continue 继续 跳出当前 这一次循环 继续下一次的后续循环
+    // break 停止 打断 终止  跳出当前的整个循环 后续循环不进行了 终止循环
+	// 这两个关键字 用在循环语句中 while  do...while   for  
+	// 如果有多层嵌套的循环语句 这两个关键字如果用在最里面的那一层循环语句中,它只会影响最近这一层循环语句,不会影响外层循环
+	
+	
+	
+	
+	
+	
+	// 求整数1～100的累加值，但要求跳过所有个位为3的数 
+		
+	/* var i = 0;
+	var sum = 0;
+	// 1--100 3 
+	while(i< 100) {
+		i++; //4
+		if(i % 10 == 3){
+			// 到了这里 i 一定个位为3的
+			continue; //跳过当前的循环
+		}
+		
+		//
+		sum += i; // sum += 1+2 + 4 
+		
+		
+		
+	}
+	console.log(sum); */
+	
+	
+	// 求整数1～100的累加值，但要求碰到个位为3的数则停止累加 
+	var i = 0;
+	var sum = 0;
+	// 1--100 3 
+	while(i< 100) {
+		i++; // 3
+		if(i % 10 == 3){
+			break; 
+		}
+		sum += i; // sum += 1+2
+	}
+	console.log(sum);
+		
+	// 循环嵌套情况下的break和continue	
+	/* var i = 0;
+	while(i<5){
+		
+		var j = 10;
+		while(j<50){
+			if(j==13){
+				continue;
+			}
+			j++;
+		}
+		
+		if(i%5==3){
+			break;
+		}
+		
+		
+		i++;
+	} */
+	
+	</script>
+</html>

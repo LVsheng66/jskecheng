@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+	</body>
+	<script type="text/javascript">
+		
+	
+	// window.location 对象 操作浏览器地址栏
+		
+	/* 	href  获取整个url地址
+		host/hostname 主机名
+		protocol 协议
+		
+		search值  可以获取url地址里面参数 '?name=zs&age=14&job=fe'
+		
+		hash 值 获取url地址里面 #后面的部分   // hash和很多框架中的路由实现 有关 */
+		
+		/* reload() 刷新页面 重新加载当前页面  参数中可以写true 强制刷新  */
+		
+		btn.onclick = function () {
+			location.reload(); // 刷新  
+			location.reload(true); // 强制刷新 不使用缓存  直接从服务器获取数据
+			
+			//f5 刷新   ctrl+f5 强制刷新 (不使用缓存)
+		}
+		
+		
+		// location.reload();
+	</script>
+</html>

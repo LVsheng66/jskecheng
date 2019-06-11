@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: white;
+				/* 可见性 为隐藏状态hidden  visible可见*/
+				/* visibility: hidden; */
+			}
+			
+		</style>
+	</head>
+	<body>
+		<input type="button" value="单击让盒子显示" id="btn1">
+		<input type="button" value="单击让盒子隐藏" id="btn2">
+		<strong id="oStrong">我也想让盒子显示</strong>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+		// 思路: 1  事件驱动编程语言 
+		 
+		/*
+		 
+		 让一个元素隐藏  有哪些方式
+		 display : none  
+		 visibility: hidden;
+		 
+		 width:0
+		 height: 0
+		 
+		 margin: -10000px;
+		 
+		 
+		 */
+		
+		// 单击 按钮1 让 盒子显示
+		// js 要想玩  先获取元素
+		document.getElementById('btn1').onclick = function() {
+			// 让 盒子显示
+			// document.getElementById('box').style.display = 'block';
+			// document.getElementById('box').style.visibility = 'visible';
+			document.getElementById('box').style.background = 'red';
+		}
+		
+		// 单击 按钮2 让盒子隐藏
+		document.getElementById('btn2').onclick = function() {
+			// 让盒子隐藏
+			// document.getElementById('box').style.visibility = 'hidden';
+			document.getElementById('box').style.background = '#fff';
+
+		}
+		
+		// 单击strong标签 让 盒子显示
+		document.getElementById('oStrong').onmouseover = function() {
+			// document.getElementById('box').style.visibility = 'visible';
+			document.getElementById('box').style.background = 'rgb(255,0,0)';
+
+		}
+	</script>
+</html>

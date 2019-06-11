@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 第一种js的书写方式 外部脚本标签引入 以后开发项目的时候推荐使用这种方式-->
+		<script src="index.js">
+			<!-- alert('呵呵') -->
+		</script>
+		<!-- 第二种方式 在当前的页面script标签中 直接写js代码 当前学习阶段推荐这种方式-->
+		<!-- <script>
+			alert('你好');
+		</script> -->
+	</head>
+	<body>
+		<!-- 第三种方式 直接在html标签中写js代码 嵌入式 不推荐  -->
+		<div id="box" onclick="alert(123)">盒子</div>
+	</body>
+	
+	<script type="text/javascript">
+		// 控制台输出语句  后期便于调试代码
+		console.log("hello javascript!")
+	</script>
+</html>

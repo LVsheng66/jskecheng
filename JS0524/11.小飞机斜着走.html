@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html,body {
+				height: 100%;
+			}
+			body {
+				background: linear-gradient(aqua,white);
+			}
+			#box {
+				width: 85px;
+				height: 80px;
+				background: url(fly.gif);
+				position: absolute;
+				left: 100px;
+				top: 100px;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+	
+	/* 给每一个方向 设置一个开关  left  right  up  down  四个开关 分别控制四个方向运动 默认四个开关都是false
+	
+	按下键盘的时候 如果按下 left 键 将left开关设置true  按下up键  将up的开关为ture
+	
+	弹起键盘的时候 如果弹起 left 键 将left开关设置false  弹up键  将up的开关为false
+	
+	准备一个定时器  定时器 设置四个方向的运动 判断哪个方向的开关 是true 则让对应的方向的物体进行运动
+	 */
+	
+	var oBox = document.getElementById('box');
+	
+	// 四个开关
+	var json = {
+		left:false,
+		right:false,
+		up:false,
+		down:false
+	}
+	var speed = 3;
+	
+	setInterval(function(){
+		
+		if(json.left){
+			oBox.style.left = oBox.offsetLeft - speed + 'px';
+			oBox.style.transform = "rotate(-90deg)";
+		}
+		if(json.right) {
+			oBox.style.left = oBox.offsetLeft + speed + 'px';
+			oBox.style.transform = "rotate(90deg)";
+		}
+		if(json.up) {
+			oBox.style.top = oBox.offsetTop - speed + 'px';
+			oBox.style.transform = "rotate(0deg)";
+		}
+		if(json.down) {
+			oBox.style.top = oBox.offsetTop + speed + 'px';
+			oBox.style.transform = "rotate(180deg)";
+		}
+		
+		if(json.left&&json.up) {
+			oBox.style.transform = "rotate(-45deg)";
+		}else if(json.up&&json.right) {
+			oBox.style.transform = "rotate(45deg)";
+			
+		}else if(json.left && json.down) {
+			oBox.style.transform = "rotate(-135deg)";
+		}else if(json.down && json.right) {
+			oBox.style.transform = "rotate(135deg)";
+		}
+		
+		
+	},30);
+	
+	
+	document.onkeydown = function(e) {
+		e = e || event;
+		
+		switch(e.keyCode) {
+			case 37: json.left = true;break;
+			case 38: json.up = true;break;
+			case 39: json.right = true;break;
+			case 40: json.down = true;break;
+		}
+	}
+	
+	
+	document.onkeyup = function(e) {
+		e = e || event;
+		
+		switch(e.keyCode) {
+			case 37: json.left = false;break;
+			case 38: json.up = false;break;
+			case 39: json.right = false;break;
+			case 40: json.down = false;break;
+		}
+	}
+	
+	/* 
+	 
+	 
+	 
+	 
+	 
+	 */	
+		
+	</script>
+</html>

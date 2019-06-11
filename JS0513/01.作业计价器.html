@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<input type="button" value="-">
+				<strong>0</strong>
+				<input type="button" value="+">
+				单价：<em>12.5元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-">
+				<strong>0</strong>
+				<input type="button" value="+">
+				单价：<em>10.5元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-">
+				<strong>0</strong>
+				<input type="button" value="+">
+				单价：<em>8.5元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-">
+				<strong>0</strong>
+				<input type="button" value="+">
+				单价：<em>8元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-">
+				<strong>0</strong>
+				<input type="button" value="+">
+				单价：<em>14.5元</em>
+				小计：<span>0元</span>
+			</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+	
+		// 功能: 实现计价器
+		// 先实现一个计价器
+		
+		// js获取一下元素
+		var oList = document.getElementById('list'); // 唯一的一个元素标签
+		
+		var aLi = oList.getElementsByTagName('li'); // 是一个集合 类数组 
+		
+		// 从这一个li里面去获取一堆元素 来实现计价器
+		var aInp = aLi[3].getElementsByTagName('input'); //集合 [input, input]
+		var oStrong = aLi[3].getElementsByTagName('strong')[0]; // 数量 [strong][0]直接拿到strong标签
+		var oEm = aLi[3].getElementsByTagName('em')[0]; // 单价  一个元素
+		var oSpan = aLi[3].getElementsByTagName('span')[0]; // 小计 一个元素标签
+		
+		// 拿到 数量 0 
+		console.log(typeof oStrong.innerHTML); // '0' ==> 0  Number() parseInt() 
+		var num = Number( oStrong.innerHTML ); // 0 数量
+		
+		// 拿到单价
+		var price = parseFloat(oEm.innerHTML); // '14.5元'==> 14.5
+		
+		// 单击 减号 
+		aInp[0].onclick = function() {
+			// 让数量-1
+			// 控制一下
+			if(num > 0) {
+				num--;
+			}
+			
+			
+			// 将数量的num变量重新写入页面中
+			oStrong.innerHTML = num;
+			// （需要拿到单价） 得到 小计
+			 oSpan.innerHTML = num * price +'元';
+		}
+		
+		// 单击 加号  让数量+1  （需要拿到单价） 得到 小计 
+		aInp[1].onclick = function() {
+			// 让数量+1
+			num++;
+			
+			// 将数量的num变量重新写入页面中
+			oStrong.innerHTML = num;
+			// 计算小计
+			oSpan.innerHTML = num * price + '元';  // 14.5
+		}
+	</script>
+</html>

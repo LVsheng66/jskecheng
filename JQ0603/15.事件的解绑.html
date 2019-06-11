@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">盒子 <p>aaaaa</p> </div>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+function aa() {
+ 	console.log(123);
+ }
+ function bb() {
+ 	console.log(789);
+ }
+
+ // 1 简单的绑定方式
+ // $(document).click(aa)
+ 
+ // $(document).click(bb);
+
+
+ // $(document).mouseover(function () {
+ // 	console.log(555);
+ // })
+
+ // $(document).off('click',aa);   
+ // 
+ // 
+ // $(document).bind('click',function () {
+ // 	console.log('aaaaaa');
+ // })
+
+ // $(document).unbind('click')
+ // 
+ // 
+ // $('#box').delegate('p','click', function(event) {
+ // 	console.log(123);
+ // });
+
+ // $('#box').undelegate('p','click');
+ // 
+ $('#box').on({
+ 	'mouseover':function () {
+ 		$(this).css('background-color','blue');
+ 	},
+ 	'click':function () {
+ 		$(this).css('background-color','green');
+
+ 	},
+ 	'mouseout':function () {
+ 		$(this).css('background-color','purple');
+
+ 	}
+ })
+
+ $('#box').off('mouseout'); //取消box所有的事件
+</script>
+</html>

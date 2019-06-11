@@ -1,0 +1,61 @@
+一、日期时间对象
+	
+	var mydate = new Date() // 直接获取系统中的时间 
+	
+	// 年
+	mydate.getFullYear()
+	// 月
+	mydate.getMonth() + 1
+	
+	// 日
+	mydate.getDate()
+	
+	// 星期
+	mydate.getDay() // 0 1 2 3 4 5 6
+	// switch语句处理了一下这个数字 ==》 '星期X'
+	// 时
+	mydate.getHours()
+	//分
+	mydate.getMinutes()
+	// 秒
+	mydate.getSeconds()
+	
+	// 字符串拼接在一起 输出到页面中
+	
+	
+	图片时间案例：str = '14:10:40'
+	
+	往页面上放置了八个图片 <img src='img/0.JPG' />
+	
+	aImg[0]  aImg[1] ...
+	
+	str[0]   str[1]   ....
+	  1        4
+	aImg[i].src = 'img/'+ str[i] +'.JPG'
+	
+	冒号图片： 判断 i==2  || i ==5  aImg[i].src = 'img/colon.gif';
+	
+二、倒计时
+	
+	newT 给定一个未来的时间 固定的  10.1  1.1
+	
+	//两种形式 数字形式  字符串形式
+	new Date(2019,10,1,10,30,10);
+	字符串形式
+	new Date('January 10,2019 12:12:12')
+	
+	January、February、March、April、May、June、
+	July、August、September、October、November、December
+	
+	天：Math.floor(t/86400)
+	时：Math.floor(t%86400/3600)
+	分：Math.floor(t%86400%3600/60)
+	秒：t%60
+	
+	
+	
+
+	
+	nowT 拿到当前时间 t = newT - nowT   t = 0
+	
+	

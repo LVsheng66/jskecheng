@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="./img/1.jpg" alt="" id="oImg">
+	</body>
+	<script type="text/javascript">
+		// 思路: 单击图片 进行 图片的切换 1.jpg ===> <===2.jpg
+		var oImg = document.getElementById('oImg');
+		
+		// 设置一个变量 相当于一个开关 要么开(true) 要么关 (false)
+		var onOff = true;
+
+
+		oImg.onclick = function() {
+			console.log(oImg.src);  // 'file:///Users/ZaG/Desktop/jsday03/img/1.jpg'
+			// http://www.baidu.com/img/aa.jpg;
+			// 再做判断的时候 不要轻易拿路径去做判断
+			// 比如: 不要拿颜色值去做判断  (red, #ff0000  rgb(255,0,0))
+			/* if (oImg.src == 'file:///Users/ZaG/Desktop/jsday03/img/1.jpg') {
+				
+				oImg.src = "./img/2.jpg";
+			} else {
+				oImg.src = "./img/1.jpg";
+			} */
+			
+			if(onOff == true) {
+				oImg.src = "./img/2.jpg";
+				//onOff = false;
+			}else {
+				oImg.src = "./img/1.jpg";
+				//onOff = true;
+			}
+			onOff = !onOff;
+			
+		}
+		/* 
+		 
+		 知识点：onOff 开关操作 
+		 
+		 */
+	</script>
+</html>

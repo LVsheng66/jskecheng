@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 800px;
+				height: 450px;
+				border: 1px solid black;
+				margin: 20px auto 0;
+				position: relative;
+				overflow: hidden;
+			}
+			#qq {
+				width: 24px;
+				height: 24px;
+				/* border: 1px solid black; */
+				position: absolute;
+				left: 0;
+				top: -24px;
+				cursor: pointer;
+			}
+			#message {
+				width: 800px;
+				text-align: center;
+				margin: 0 auto;
+				position: relative;
+			}
+
+			#fraction {
+				width: 100px;
+				height: 60px;
+				border: 1px solid black;
+				position: absolute;
+				left: -102px;
+				top: 133px;
+			}
+
+			#fraction p {
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="message">
+			<h2>你的鼠标有多快？</h2>
+			<p>游戏说明：点击“开始游戏”，随机掉下QQ表情，点中它，千万别让它掉下去！！</p>
+			<input type="button" value="开始游戏" id="btn">
+			<div id="fraction">
+				<p>得分：0 分</p>
+				<p>失分：0 分</p>
+			</div>
+		</div>
+		<!-- 游戏框 -->
+		<div id="box">
+			<!-- qq表情小div -->
+			<div id="qq"></div>
+		</div>
+	</body>
+	<script src="./myTool.js"></script>
+	<script type="text/javascript">
+	/* 
+	 匀速 抖动  获取元素$
+	
+	 思路：
+	   单击开始游戏 按钮
+	   
+	   把外面的box盒子设置参照物 给一个相对定位
+	   
+	   把qqdiv（绝对定位 left top） 从 上面 往下走  运动 （move函数）
+		top 值 放置 大盒子顶部的外面 刚好看不见
+		left 随机的范围 （参照大盒子 0--800之间随机排列）
+		
+		让qqdiv 调用move函数 从上面往下（改变的qq的top值）运动 到大盒子底部
+		
+		运动完之后让 大盒子  上下抖动 
+		
+		让qq从新 自上而下 运动
+	  
+	 
+	 */	
+	
+	 // 把qq表情的图片存一下
+	 var arrImg = [
+		 './img/1.png',
+		 './img/2.png',
+		 './img/3.png',
+		 './img/4.png',
+		 './img/5.png',
+		 './img/6.png',
+		 './img/7.png',
+		 './img/8.png',
+		 './img/9.png',
+		 './img/10.png',
+		 './img/11.png'
+	 ];
+	 
+	 // 获取按钮
+	 var oBtn = $('#btn');
+	 // 获取大盒子
+	 var oBox = $('#box');
+	 // 积分器
+	 var oFra = $('#fraction');
+	 var aP = $('p',oFra);  // 集合
+	 var oQQ = $('#qq');
+	 
+	 // 设置得分的计数器
+	 var get = 0;
+	 // 设置失分计数器
+	 var lose = 0;
+	 
+	 // 设置一个计数器 用来累加背景图的变化 如果计数器 加到数组的最后一个表情了 然后再重新随机数组
+	 var n = 0;
+	 
+	 // 默认的速度1
+	 var speed = 1;
+	 
+	 var onOff = false;
+	 
+	 // 初始化 将数组随机 打乱一下
+	 arrImg.sort(function(){
+	 	return Math.random() - 0.5
+	 })
+	 
+	 console.log(arrImg);
+	 
+	 
+	 // 单击按钮 开始游戏
+	 oBtn.onclick  = game;
+	 
+	 
+	 
+	 //===========人为干预=============================== 
+	   
+	 // 如果你 点击了qqdiv 意味这你把qq的匀速运动给中断了
+	 
+	 // click 按下鼠标+弹起鼠标   
+	  oQQ.onmousedown = function() {
+	 	 if(onOff){
+	 		 return;
+	 	 }
+	 	 
+	 	 clearInterval(oQQ.timer);
+	 	 oQQ.timer = null;
+	 	 
+	 	 // 变 哭脸
+	 	 oQQ.style.background = 'url(./img/qq.png)';
+	 	 // 让qq抖动
+	 	 shake(oQQ, 'left', 20,2,function(){
+	 		 
+	 		 // 随机的表情也要变
+	 		 n++;
+	 		 if(n==arrImg.length-1){
+	 			 n=0;
+	 			 arrImg.sort(function(){
+	 			 	return Math.random() - 0.5
+	 			 })
+	 		 }
+	 		 //速度自增1
+	 		 speed ++;
+	 		 // 得分+1
+	 		 get++;
+	 		 aP[0].innerHTML = '得分：'+ get +' 分';
+	 		 // 让qq重新开始运动
+	 		 //让qq放置 -24px
+	 		 oQQ.style.top = '-24px';
+	 		 game();
+	 		 
+	 		 
+	 	 })
+	 	 
+	  }
+	 //========================================== 
+	 
+	 function game() {
+		 onOff = false;
+		 // 让按钮文字改为 '正在游戏当中...'
+		 oBtn.value =  '正在游戏当中...';
+		 // 让按钮禁用  disabled
+		 oBtn.disabled = true;	
+		 
+		 aP[0].innerHTML = '得分：'+ get +' 分';
+		 aP[1].innerHTML = '失分：'+ lose +' 分';
+		
+		// 让qq的left 随机参照大盒子 0--800之间随机排列
+		oQQ.style.left = Math.round(Math.random()*(800-24)) + 'px';
+			
+		 	
+		 // 给qqdiv 加表情背景图
+		 oQQ.style.background = 'url('+arrImg[n]+')';
+		 
+		 // 自然下落  调用move 从上往下运动 450-24
+		 move(oQQ, 'top', speed, 426, function(){
+			 // 这里说明运动到底部了
+			 // 让box 上下抖一下
+			 onOff = true;
+			 shake(oBox, 'top', 30, 2, function(){
+				 // 这里说明大盒子抖完了
+				 
+				 // 让qqdiv 重新 放置到 top值 -24
+				 oQQ.style.top = '-24px';
+				 // 失去一分
+				 lose++; // 1
+				 aP[1].innerHTML = '失分：'+ lose +' 分';
+				  
+				 // 如果失分达到5分 则游戏结束
+				if(lose == 5){
+					alert('游戏失败');
+					// 把计分器 重新归零
+					get = 0;
+					lose = 0;
+					
+					n=0;
+					oBtn.value = '开始游戏';
+					oBtn.disabled = false;
+					return;
+				}
+				 // n 该取数组中的下一个表情 
+				 n++; // 1 如果n加到了10 也就是数组的最后一个表情 这个时候需要让数组重新随机一下
+				 if(n==arrImg.length-1){
+					 n=0;
+					 arrImg.sort(function(){
+					 	return Math.random() - 0.5
+					 })
+				 }
+				 
+				 
+				 game();
+			 })
+			 
+		 })
+		 
+		 
+	 }
+	 
+	 
+	/* 第一步:  获取相关元素,
+			初始化设置 得分变量get 失分变量lose 
+			设置一个数组里面 存的表情图  并随机打乱
+			设置一个表情数组的计数器n 
+			设置速度的speed的变量 为1 
+			
+			
+	第二步: 给按钮添加单击事件,单击之后,
+			
+			把按钮的value改为'正在游戏当中...'
+			把按钮禁用
+			
+			把目前得分 失分的统计 写入页面
+			
+			随机qq的盒子的left 在0--776范围随机
+			给qq盒子添加背景图 是qq表情图
+			
+			将qq调用匀速运动move函数
+			
+			在匀速运动完之后 回调中 添加 大盒子oBox的抖动函数 shake
+			
+			在抖动完的回调函数中 做以下事情:
+			
+				1 让qq的top值回到-24px
+				2 失去1分 lose++ 并写入页面 innerHTML 
+				
+				3 同时判断lose == 5 表明 游戏失败 结束了
+					
+					 3.1 弹个框
+					 3.2 计分器归零
+					 3.2 按钮的文字改回 '开始游戏'
+					 3.3 按钮的禁用解除 false
+					 3.4 n++ 为了下一次去找数组的下一个表情图  同时判断如果n==arrImg.length-1 需要重新随机数组
+					 3.5 调用game 重新开自上儿下运动
+	 
+	第三步:人为干预 如果你鼠标在qq上按下啦:
+			
+			1 清除匀速运动定时器
+			2 变哭脸
+			3 让qq抖动
+			4 qq抖完 的回调函数中
+				
+				4.1 得分+1 并写入页面in 呢让HTML
+				4.2 让n++ 为了下一次去找数组的下一个表情, 同时判断如果n==arrImg.length-1 需要重新随机数组
+				4.3 让速度+1
+				4.4 让qq的top值回到 -24px
+				4.5 game函数重新调用 */
+	</script>
+</html>

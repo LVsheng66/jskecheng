@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+// try ...catch... 异常捕获语句  一般后端用的比较多
+
+
+
+try{
+	alert(123);
+	/*尝试运行这里的代码 如果有异常 则会进入catch中 如果没有异常 则不会进入catch  
+	不管有没有异常 都会顺利执行后面的代码*/
+
+	// 手动抛出一个异常
+	throw new Error('错了错了，手动抛了一个错误')
+
+}catch(e) {
+	alert(e); // e 它是try发生的错误信息
+	alert(456);
+}
+
+alert('到这里啦')
+
+</script>
+</html>

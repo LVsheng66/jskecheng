@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+
+/*jq插件机制： 有两种 
+
+	1 $.extend() 有两个意思：含义1 ： 可以做对象属性拷贝  含义2 可以实现jquery的工具方法的扩展*/
+
+// var obj = {
+// 	name:'zs',
+// 	age: 24
+// }
+
+// var obj2 = {
+// 	age:25,
+// 	job:'fe'
+// }
+
+// var obj3 = {
+// 	aaaa:function(){
+// 		console.log('222222');
+// 	}
+// }
+
+// // for(var k in obj2) {
+
+// // 	obj[k] = obj2[k];
+// // }
+
+// // console.log(obj);
+// // 
+// 	$.extend(obj,obj2,obj3);
+// 	console.log(obj);
+	
+	// $('#box').html()
+	// $('#box').css()
+	// $('#box').click()
+
+	console.log($.type([3,4]))
+	console.log($.type('aaa'))
+	console.log($.type({}))
+
+	var aLi = document.getElementsByTagName('li'); //集合
+
+	console.log( $.isArray([1,3,4,5]) );
+	console.log( $.isArray(aLi) );
+
+	console.log( "("+$.trim('    hello  ')+")" );
+
+
+	// $('ul li').each(function () {
+		
+	// })
+	// 
+	var arr = [3,5,17,23,-8];
+
+	// arr.each(function () {
+		
+	// })
+	$.each(arr,function (i,n) {
+		console.log(i,n);
+	})
+
+
+
+	$.extend({
+		aaaa:function () {
+			console.log('这是我开发的jquery的工具方法');
+		},
+		leftTrim:function (str) {
+			return str.replace(/^\s*/,'');
+		}
+	})
+
+	$.aaaa();
+
+	var result = $.leftTrim("     hello     ");
+
+	console.log( "("+result+")");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

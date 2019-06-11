@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	div {
+		position: absolute;
+		left: 100px;
+		width: 100px;
+		height: 100px;
+	}
+	#box {
+		background-color: red;
+		top:100px;
+	}
+	#box2 {
+		background-color: green;
+		top: 200px;
+	}
+</style>
+<body>
+	<input type="button" value="单击开始走">
+	<div id="box"></div>
+	<!-- <div id="box2"></div> -->
+</body>
+<script src="jQ.js"></script>
+<script type="text/javascript">
+
+	$('input').eq(0).click(function () {
+		
+		/*$('#box').animate({
+			width:600
+		},3000,'swing',function(){
+			console.log('123');
+		});
+
+		$('#box2').animate({
+			width:600
+		},3000,'linear');*/
+
+		/*$('#box').animate({width:500},1000,function () {
+			$('#box').animate({height:400},1000);
+		})*/
+
+		// $('#box').animate({width:500},1000).animate({height:400},1000);
+
+	})
+
+</script>
+
+</html>

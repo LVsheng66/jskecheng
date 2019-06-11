@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+	// js组成: ECMAScript (flash --actionscript)   DOM  BOM	
+	
+	/* BOM:  browser  object model 浏览器对象模型,
+	它规定了一些 操作浏览器窗口的js接口(API) 属性和方法 */
+	// window 浏览器当前打开的窗口  window属于顶级对象
+	
+	// 只有对象才可以拥有/挂载 属性和方法  
+	
+	
+	// 对象的遍历方式 for in 
+	var num = 1;
+	for(var k in window) {
+		
+		document.write(num++ +" : " + k + " : "+window[k]+ '<br/>');
+	}
+	
+	// window.document.getElementById()
+	
+	/* setInterval();
+	
+	window.onload = function() {
+		
+	} */
+	
+// 	alert(123);
+// 	
+// 	prompt('你喜欢我吗？')
+		
+	confirm('今天你学习了吗？'); // 确认框
+		
+	</script>
+</html>

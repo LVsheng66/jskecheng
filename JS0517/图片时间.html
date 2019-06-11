@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			ul {
+				margin: 20px auto 0;
+				width: calc(122px*8);
+			}
+			ul li{
+				list-style: none;
+				float: left;
+				width: 122px;
+				height: 172px;
+				overflow: hidden;
+			}
+			p {
+				position: relative;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 344px;
+			}
+			p img{
+				display: block;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+			<li>
+				<p><img src="./img/0.JPG" alt=""><img src="./img/0.JPG" alt=""></p>
+			</li>
+		</ul>
+	</body>
+	<script src="./myTool.js"></script>
+	<script type="text/javascript">
+		
+		var aP = $('p',$('#list'));
+		
+		var timer = null;
+		var prevStr = '';
+		timer = setInterval(picTime,1000);
+		
+		function picTime() {
+			
+			var mydate = new Date();
+			var h = mydate.getHours();
+			var m = mydate.getMinutes();
+			var s = mydate.getSeconds();
+			
+			var str = zero(h)+':'+zero(m)+':'+zero(s);
+			
+			console.log(str); // 15:01:16
+			
+			/* aP[0].style.background = str[0]
+			aP[1].style.background = str[1]
+			aP[2].style.background = '冒号图片';
+			aP[3].style.background = str[3]
+			aP[4].style.background = str[4]
+			aP[5].style.background = '冒号图片';
+			aP[6].style.background = str[6]
+			aP[7].style.background = str[7] */
+			
+			for(var i = 0; i < aP.length; i++){
+				
+				fn(aP[i],i);
+				
+			}
+			
+			function fn(parentEle,n) {
+				var aImg = $('img',parentEle);
+				
+				if(str[n]==':'){
+					aImg[0].src = './img/colon.gif';
+				}else {
+					aImg[1].src = './img/'+ str[n] +'.JPG';
+					
+					if(prevStr[n] != str[n]){
+						move(parentEle,'top',10,-172,function(){
+							
+							parentEle.style.top = '0';
+							aImg[0].src = aImg[1].src;
+							
+						})
+					}
+					
+				}
+				
+			}
+			prevStr = str;
+		}
+		
+		
+		
+	</script>
+</html>

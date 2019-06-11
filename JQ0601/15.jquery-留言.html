@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+
+#oUl {
+	width: 300px;
+	height: 280px;
+	border: 1px solid black;
+}
+
+</style>
+<body>
+	<ul id="oUl">
+		<!-- <li>今天天气不错！<a href="javascript:;">删除</a></li> -->
+	</ul>
+	<input type="text" > <input type="button" value="发送">
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+	
+	$('input:eq(1)').click(fn)
+
+	function fn() {
+		
+		/*innerHTML  html()
+		innerText text()
+		value      val()*/
+		// 获取文本框的value值
+		var txt = $('input:eq(0)').val()
+		// 使用jq方法创建一个li节点
+		var $li = $('<li>'+txt+'</li>');
+		// 使用jq方法创建一个a节点
+		var $a = $('<a href="javascript:;">删除</a>');
+		// 添加a节点到li里面
+		$li.append($a)
+
+		$('#oUl').prepend($li);
+
+		// 删除留言
+		$('#oUl li a').click(function () {
+			$(this).parent().remove();
+		})
+
+	}
+
+	$(document).keydown(function (e) {
+		if(e.keyCode == 13){
+			fn();
+		}
+	})
+	
+
+</script>
+</html>

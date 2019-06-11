@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box"></div>
+	<ul>
+		<li>这是第1个li</li>
+		<li>这是第2个li</li>
+		<li>这是第3个li</li>
+		<li>这是第4个li</li>
+	</ul>	
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+
+// html() 可以用来获取和设置某个元素中的内容（包含标签和文本 可以识别标签）  innerHTML   
+
+// text() 可以用来获取和设置某个元素中的内容（包含标签和文本 不识别标签）innerText
+
+// val() 相当于原生js中的value  专门用来获取表单中的input的内容 
+// 
+	// $('#box').html('<strong>加粗标签</strong>') 
+	$('#box').text('<strong>加粗标签</strong>') 
+
+	// console.log($('#box').text() );
+	console.log($('ul li').text() ); //  text() 获取的时候 会获取所有的元素中的文本内容
+
+	console.log( $('ul li').html() );
+
+</script>
+
+</html>

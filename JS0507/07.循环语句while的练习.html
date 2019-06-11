@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+			
+		// 1--100求和
+		
+		// 设定一个循环变量 初始化为1
+// 		var i = 0;
+// 		// 声明一个用来累加的变量
+// 		var sum = 0;
+// 		
+// 		// while循环语句
+// 		while(i < 100) {
+// 			
+// 			i++;
+// 			
+// 			sum += i;
+// 			
+// 		}
+// 		
+		// 循环打印 10遍 console.log('你好');
+// 		var k = 1;
+// 		while(k<=10){
+// 			console.log('你好');
+// 			k++;
+// 		}
+
+
+		// 案例:
+		// 			1、打印100以内7的倍数 ​ 
+		// 从1 到 100 一个个看一看 哪个是7的倍数
+		var i = 1;
+		while(i <= 100) {
+			if(i % 7 == 0){
+				//凡是能够进来if里面的 i都是7的倍数
+				document.write(i+"&nbsp;&nbsp;");
+			}
+			i++;
+		}
+		
+		document.write('<br />')
+		// 2、打印100以内的奇数
+		
+		var j = 0;
+		while(j< 101) {
+			if(j%2 != 0) {
+				document.write(j+'&nbsp;&nbsp;')
+			}
+			
+			j++;
+		}
+		
+		document.write('<br />')
+		// 3、打印100以内所有偶数的和
+		var a = 0;
+		// 设定一个变量 用来累加和
+		var sum = 0;
+		
+		while(a<=100) {
+			if(a%2==0){
+				sum += a;
+			}
+			a++;
+		}
+		
+		document.write('100以内所有偶数的和是:'+ sum);
+		
+		// while 打印正方形 &&打印直角三角形 ⭐️ * ❤️  document.write('⭐️')
+// 		⭐️⭐️⭐️⭐️⭐️⭐️
+// 		⭐️⭐️⭐️⭐️⭐️⭐️
+// 		⭐️⭐️⭐️⭐️⭐️⭐️
+// 		⭐️⭐️⭐️⭐️⭐️⭐️
+// 		⭐️⭐️⭐️⭐️⭐️⭐️
+		
+		var i = 1;
+		while(i <=6) {
+			document.write('⭐️')
+		}
+		
+		
+		
+		document.write('⭐️')
+		
+// 		⭐️
+// 		⭐️⭐️
+// 		⭐️⭐️⭐️
+// 		⭐️⭐️⭐️⭐️
+// 		⭐️⭐️⭐️⭐️⭐️
+// 		⭐️⭐️⭐️⭐️⭐️⭐️
+		
+		
+	</script>
+</html>

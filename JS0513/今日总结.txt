@@ -1,0 +1,50 @@
+一、计价器案例：
+	1 一个计价器实现 小计
+	2 传参功能实现 ==》 多个计价器
+	
+	3 扩展：汇总统计：（总共多少件 总花费） 设置一个全局变量
+		最贵单价：尤其是减 （有些难度 如果一旦减为0 则将最贵单价变为0 然后重新去统计购买的商品里面的数量不为0的 所对应的单价们
+		这些单价们里面 最贵的===》expensive）
+		
+		
+二、递归函数
+	函数自身调用自身 的一个编程技巧
+	递归不能无限制进行下去 ==》 会导致内存栈溢出
+	需要给一个条件 某个时刻停止递归
+	
+	实际应用：递归  求阶乘
+	
+	递归：兔子问题--》斐波那契数列 1 1 2 3 5  8 13 21. ... 
+	
+	
+三、封装一个获取样式的兼容性函数 getStyle()
+	function getStyle(obj,attr) {
+		if(obj.currentStyle){
+			return obj.currentStyle[attr];
+		}else {
+			return getComputed(obj)[attr];
+		}
+	}
+	
+四、定时器：
+	
+	var timer = setInterval(函数，毫秒)； 循环定时器
+	clearInterval(timer);
+	
+	var timer2 = setTimeout(函数，毫秒)； 延迟定时器
+	clearTimeout(timer2);
+	
+	案例：计价器完善
+	案例：递归  求阶乘
+	案例：更换背景
+	案例：选项卡自动切换
+	案例：弹窗广告
+	案例  qq延时面板
+	
+	手速
+	
+五、Math
+	
+	
+	
+

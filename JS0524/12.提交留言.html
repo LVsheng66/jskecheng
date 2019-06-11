@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+				
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#box {
+				width: 540px;
+				height: 490px;
+				background: url(bj.png);
+				background-size: 100% 100%;
+				margin: 30px auto 0;
+				position: relative;
+			}
+			#oUl {
+				width: 350px;
+				height: 275px;
+				position: absolute;
+				left: 0;
+				top: 80px;
+				list-style: none;
+			}
+			#text {
+				width: 350px;
+				height: 68px;
+				position: absolute;
+				left: 0;
+				bottom: 28px;
+				outline: none;
+				border:none;
+			}
+			#btn {
+				position: absolute;
+				left: 280px;
+				bottom: 0;
+				width: 50px;
+			}
+			#oSel {
+				position: absolute;
+				left: 330px;
+				bottom: 0;
+				width: 36px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="oUl">
+				<!-- <li>哈哈哈</li> -->
+			</ul>
+			<textarea id="text">	
+			</textarea>
+			<button id="btn">发送</button>
+			<select  id="oSel">
+				<option value="e">按enter发送</option>
+				<option value="c">按ctrl+enter发送</option>
+			</select>
+		</div>
+	</body>
+	<script src="./myTool.js"></script>
+	<script type="text/javascript">
+	
+		var oUl = $('#oUl'), oBtn = $('#btn'), oSel = $('#oSel'), oText = $('#text');
+		
+		
+		// 1 单击发送信息
+		
+		function core() {
+			var li = document.createElement('li');
+			var text = document.createTextNode(oText.value);
+			
+			li.appendChild(text);
+			
+			oUl.appendChild(li);
+			oText.value = '';
+		}
+		
+		oBtn.addEventListener('click',function(){
+			core();
+		},false);
+		
+		document.addEventListener('keydown',function(e){
+			e = e || event;
+			console.log(e);
+			
+			if(oSel.value == 'e') {
+				// enter
+				if(e.keyCode==13 && !e.ctrlKey){
+					core();
+				}	
+			}else if(oSel.value == 'c') {
+				//ctrl+enter
+				console.log(123);
+				if(e.keyCode == 13 && e.ctrlKey) {
+					console.log(456);
+					core();
+				}
+			}
+			
+		})
+		
+		/* altKey ctrlKey  shiftKey 在键盘事件对象里面 默认都是假的 
+		只有按下了对应的键, 则对应的辅助键 就会为真true */
+		
+	</script>
+</html>

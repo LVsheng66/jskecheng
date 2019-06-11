@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">盒子</div>
+		<p id="p1">dfsfa</p>
+		<ul id="oUl">
+			<li>11</li>
+			<li>22</li>
+			<li>33</li>
+		</ul>
+		<ol>
+			<li>111</li>
+			<li>222</li>
+		</ol>
+		<span>span</span>
+		<em>em</em>
+	</body>
+	<script type="text/javascript">
+	  /* 获取元素的方式 两种
+	  1 document.getElementById()
+	  2 document/ul.getElementsByTagName() */
+	  
+	  function $(selector,parentEle) {
+		  
+		  // 通过传入的传入参数 带不带 '#'来区分 到底是获取id 还是标签
+		  
+		  if(selector.charAt(0) == '#'){
+			  // 你要通过id名获取元素   '#box' 
+			  return document.getElementById(selector.substring(1));
+		  }else {
+			  // 你要通过标签获取元素'      li'
+			  
+			  parentEle = parentEle || document;
+			  
+			  return parentEle.getElementsByTagName(selector);
+		  }
+		    
+		  
+	  }
+	  // 1 标签  2 从哪个父级元素里面获取
+	 /* function $$(tagName,parentEle){
+		  
+	  } */
+	  
+	  /* 'box'  'div'
+	  '#div'
+	  'div'
+	  选择器   #box  #div   p  div
+	  
+	  'p' */
+	  
+	  var oBox = $('#box');
+	  
+	  var oUl = $('#oUl');
+	  
+	  oBox.style.backgroundColor = 'red';
+		
+	  var aLi = $('li',oUl);
+	  
+	  var oEm = $('em');
+	  var oSpan = $('span');
+	  oEm[0].style.backgroundColor = 'pink';
+	  oSpan[0].style.backgroundColor = 'purple';
+	  
+	  for(var i = 0; i < aLi.length; i++){
+		  aLi[i].style.backgroundColor = 'blue';
+	  }
+		
+	</script>
+</html>

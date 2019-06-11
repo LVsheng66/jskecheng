@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 全局范围 全局变量  全国
+		/* var  a  = 1;
+		
+		function fn1(){  // 深圳
+			var a = 2; // 函数是一个局部区域 在函数里面声明一个变量 称之为局部变量
+			alert(a); // 2
+		}
+		
+		fn1();
+		
+		alert(a); // 1 */
+		
+		
+		var  a  = 1;
+		
+		function fn1(){  // 深圳
+			
+			alert(a); // undefined
+			var a = 2;
+		}
+		
+		fn1();
+		
+		alert(a); // 1
+
+		
+	</script>
+</html>

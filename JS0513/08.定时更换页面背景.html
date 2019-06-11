@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html,body {
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		// 将换背景的图片 放入一个数组中存储
+		var arrImg = [
+			'../img/08-0806.jpg',
+			'../img/08-0807.jpg',
+			'../img/08-0808.jpg',
+			'../img/316093.jpeg',
+			'../img/414144.jpeg'
+		];
+		var arrColor = [
+			'red',
+			'green',
+			'blue',
+			'purple'
+		]
+		
+		// 设定一个计数器
+		var num = 0;
+		
+		// 开启一个循环定时器
+		var timer = setInterval(fn,3000);
+		fn();
+		function fn(){
+			// 事情
+			// document.body.style.background = 'url('+ arrImg[num]  +')';
+			document.body.style.background = arrColor[num++ % arrColor.length];
+			
+			// document.body.style.backgroundSize = '100% 100%';
+// 			num++;
+// 			if(num>arrColor.length-1){
+// 				num = 0;
+// 			}
+		}
+	</script>
+</html>

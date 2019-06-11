@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>单击颜色变化</button>
+	<div id="box"></div>
+</body>
+<style type="text/css">
+
+#box {
+	width: 400px;
+	height: 400px;
+	background-color: red;
+}
+
+</style>
+<!-- 第一步jq -->
+<script type="text/javascript" src="jQ.js"></script>
+<!-- 第二步 引入jq插件 -->
+<script type="text/javascript" src="jquery.color.js"></script>
+<script type="text/javascript">
+	
+	$('button').click(function () {
+		$('#box').animate({
+			'backgroundColor':'blue'
+		},3000)
+	})
+
+</script>
+</html>

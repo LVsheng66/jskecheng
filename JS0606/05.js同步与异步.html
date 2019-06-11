@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+
+// alert('123');
+
+
+// setTimeout(function () {
+// 	console.log(123);
+// },0);
+
+// alert(456);
+
+// console.log(456);
+// 
+
+
+console.log(123);
+
+var old = new Date().getTime();
+setTimeout(function () {
+	console.log(666);
+	newTime = new Date().getTime()
+	console.log('时间差值：'+ (newTime-old) );
+},1000);
+
+var str = 0
+for(var i = 0; i < 10000000; i++) {
+	str += 'aa';
+}
+console.log(str);
+
+
+</script>
+</html>

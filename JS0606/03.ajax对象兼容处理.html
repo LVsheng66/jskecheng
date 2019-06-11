@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	var xhr = null;
+	try{
+		xhr = new XMLHttpRequest()
+	}catch(e) {
+		xhr = ActiveXObject(‘Microsoft.XMLHTTP’)
+	}
+
+	xhr.open('get','aa.txt',true)
+
+	xhr.send();
+
+	alert(xhr.responseText);
+
+	xhr.onreadystatechange = function  (){
+		
+		if(xhr.readyState == 4) { 
+			
+		}
+	}
+
+</script>
+</html>

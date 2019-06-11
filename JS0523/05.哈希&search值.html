@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#abc">哈哈哈</a>
+		<a href="#bb">呵呵呵</a>
+		<div>111111</div>
+		<div>22222</div>
+	</body>
+	<script type="text/javascript">
+		
+		var aDiv = document.getElementsByTagName('div');
+		
+		window.onhashchange = function() {
+			console.log("当前hash是："+window.location.hash);
+			var h = window.location.hash;
+			if(h.substring(1) == 'abc') {
+				for(var i = 0; i < aDiv.length; i++){
+					aDiv[i].style.display = 'none'
+				}
+				aDiv[0].style.display = 'block';
+			}else if(h.substring(1) == 'bb') {
+				for(var i = 0; i < aDiv.length; i++){
+					aDiv[i].style.display = 'none'
+				}
+				aDiv[1].style.display = 'block';
+			}
+		}
+		移动 spa 单页面应用
+	</script>
+</html>

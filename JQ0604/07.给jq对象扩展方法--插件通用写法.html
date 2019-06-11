@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="jquery.tab.css">
+</head>
+<body>
+	<!-- 开发一个 选项卡插件  完整的方案  css: jquery.tab.css  js  插件的名称  jquery.tab.js -->
+
+	<div id="tab" class="tab">
+		<!-- <input type="button" value="按钮1">
+		<input type="button" value="按钮2">
+		<input type="button" value="按钮3">
+		<div>内容1</div>
+		<div>内容2</div>
+		<div>内容3</div> -->
+	</div>
+
+	<div id="tab2" class="tab"></div>
+	<!-- <div id="tab2" class="tab"></div> -->
+</body>
+<!-- 引入jq -->
+<script type="text/javascript" src="jQ.js"></script>
+<!-- 引入插件 -->
+<script type="text/javascript" src="jquery.tab.js"></script>
+<script type="text/javascript">
+	//执行这个插件的初始化方法的时候 可以传入一个配置项（个性化的配置）
+	$('#tab').tab({
+			'divCon':['新闻111','科技2222','体育3333'],
+			'evType':'mouseover'
+	});
+
+	$('#tab2').tab({
+			'btnCon':['新闻','科技', '体育', '娱乐'],
+			'divCon':['新闻111','科技2222','体育3333','娱乐44444'],
+			'evType':'dblclick'
+	});
+</script>	
+</html>

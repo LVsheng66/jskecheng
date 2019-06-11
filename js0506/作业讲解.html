@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box {
+				width: 100px;
+				height: 100px;
+				border: 2px solid black;
+			}
+			#setting {
+				border: 20px solid #ccc;
+				width: 300px;
+				height: 240px;
+				position: absolute;
+				left: 500px;
+				top: 200px;
+				padding: 10px;
+				display: none;
+				background-color: white;
+				text-align: center;
+				z-index: 1;
+			}
+			#setting button {
+				outline: none;
+				width: 50px;
+				height: 50px;
+				border:1px solid #ccc;
+				margin:5px;
+				background-color: #ccc;
+				cursor: pointer;
+				opacity: 0.7;
+			}
+			#btn {
+				width: 70px;
+				height: 30px;
+				background-color: #999999;
+				border: none;
+				outline: none;
+			}
+			#setting button:hover {
+				opacity: 1;
+			}
+				
+			#setting input{
+				width: 80px;
+				height: 30px;
+				border:none;
+				background-color: #999999;
+			}
+			html,body {
+				width: 100%;
+				height: 100%;
+			}
+			#mask {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				display: none;
+				background-color: rgba(128,128,128,0.5);
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">单击设置</button> <br><br>
+		<div id="box"></div>
+		
+		<div id="setting">
+			设置背景色: <button id="btn1" style="background: red;">红</button><button id="btn2"  style="background:green">绿</button><button id="btn3" style="background: blue;">蓝</button> <br />
+			设置&nbsp;宽(px): <button id="btn4" >200</button><button id="btn5" >300</button><button id="btn6" >400</button> <br/>
+			设置&nbsp;高(px): <button id="btn7">200</button><button id="btn8">300</button><button id="btn9">400</button><br/><br/>
+			<input type="button" id="cancel" value='取消'>
+			<input type="button" id="confrim" value='确定'>
+		</div>
+		<div id="mask"></div>
+	</body>
+	<script type="text/javascript">
+		
+		// 思路: 单击设置按钮  让 设置样式的框 显示
+		var oBtn = document.getElementById('btn');
+		var oSet = document.getElementById('setting');
+		var oMask = document.getElementById('mask');
+		var oBtn1 = document.getElementById('btn1');
+		var oBtn2 = document.getElementById('btn2');
+		var oBtn3 = document.getElementById('btn3');
+		var oBtn4 = document.getElementById('btn4');
+		var oBtn5 = document.getElementById('btn5');
+		var oBtn6 = document.getElementById('btn6');
+		var oBtn7 = document.getElementById('btn7');
+		var oBtn8 = document.getElementById('btn8');
+		var oBtn9 = document.getElementById('btn9');
+		var oBox = document.getElementById('box');
+		
+		// 给按钮 添加单击事件
+		oBtn.onclick = function() {
+			// 让设置框显示
+			oSet.style.display = 'block';
+			// 让遮罩层 显示
+			oMask.style.display = 'block'; // img ==> inline-block
+		}
+		// 设置盒子为红色背景 
+		oBtn1.onclick = function() {
+			oBox.style.backgroundColor = 'red';
+		}
+		oBtn2.onclick = function() {
+			oBox.style.backgroundColor = 'green';
+		}
+		oBtn3.onclick = function() {
+			oBox.style.backgroundColor = 'blue';
+		}
+		oBtn4.onclick = function() {
+			oBox.style.width = '200px';
+		}
+		oBtn5.onclick = function() {
+			oBox.style.width = '300px';
+		}
+		oBtn6.onclick = function() {
+			oBox.style.width = '400px';
+		}
+		oBtn7.onclick = function() {
+			oBox.style.height = '200px';
+		}
+		oBtn8.onclick = function() {
+			oBox.style.height = '300px';
+		}
+		oBtn9.onclick = function() {
+			oBox.style.height = '400px';
+		}
+		
+		// 单击确定 让设置框 隐藏 让遮罩层 隐藏
+		
+		var oConfrim = document.getElementById('confrim')
+		oConfrim.onclick = function() {
+			// 让设置框显示
+			oSet.style.display = 'none';
+			// 让遮罩层 显示
+			oMask.style.display = 'none'; // img ==> inline-block
+		}
+		
+		// 单击取消 让盒子恢复成原来的默认的状态 
+		var oCancel = document.getElementById('cancel');
+		// cssText 直接在js中写css样式 进行设置
+		oCancel.onclick = function() {
+			/* oBox.style.width='100px';
+			oBox.style.height= '100px';
+			oBox.style.border= '2px solid black';
+			oBox.style.backgroundColor = ''; */
+			oBox.style.cssText = 'width:100px;height:100px;border:1px solid black; background-color:white;';
+			// 让设置框显示
+			oSet.style.display = 'none';
+			// 让遮罩层 显示
+			oMask.style.display = 'none'; // img ==> inline-block
+		}
+		
+	
+	</script>
+</html>

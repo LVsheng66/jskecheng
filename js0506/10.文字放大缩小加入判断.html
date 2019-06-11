@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#oP {
+				font-size: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="-" id="btn1">		
+		<input type="button" value="+" id="btn2">
+		<p id="oP">
+			现任中国共产党中央委员会总书记，中共中央军事委员会主席，中华人民共和国主席，中华人民共和国中央军事委员会主席。
+		</p>
+	</body>
+	<script type="text/javascript">
+		
+		// 两件事 单击 减号 文字缩小   单击加号 文字放大
+		var oBtn1 = document.getElementById('btn1');
+		var oBtn2 = document.getElementById('btn2');
+		var oP = document.getElementById('oP');
+			
+		// 计数器
+		var num = 15;
+	
+		// 缩小 font-size
+		// 给减号 按钮 添加单击事件 让p标签的样式 font-size 缩小
+		oBtn1.onclick = function() {
+			//让p标签的样式 font-size 缩小
+			if(num > 13){ //最小13号字体
+				num --;
+			}
+			console.log(num);
+			oP.style.fontSize = num + 'px';
+		}
+		
+		
+		// 放大 font-size
+		oBtn2.onclick = function() {
+			//让p标签的样式 font-size 缩小
+			if(num < 25) {
+				num ++;
+			}
+			console.log(num);
+			// 控制一下 如果加到25 就停止加
+			oP.style.fontSize = num + 'px';
+		}
+	</script>
+</html>

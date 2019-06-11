@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 400px;
+				height: 225px;
+				border: 10px solid black;
+				margin: 50px auto 0;
+				position: relative;
+				/* overflow: hidden; */
+			}
+			#oUl {
+				width: 10000px;
+				list-style: none;
+				position: absolute;
+				left: -400px;
+			}
+			#oUl>li {
+				float: left;
+				
+			}
+			#nav {
+				position: absolute;
+				left: 140px;
+				bottom: 10px;
+				list-style: none;
+			}
+			#nav li {
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 20px;
+				color: orange;
+				background-color: white;
+				font-size: 12px;
+				font-weight: bold;
+				float: left;
+				margin-right: 10px;
+			}
+			#box a {
+				display: block;
+				text-decoration: none;
+				position: absolute;
+				top: 100px;
+				width: 40px;
+				height: 30px;
+				background-color: rgba(255,255,255,0.5);
+				text-align: center;
+				line-height: 30px;
+				color: black;
+			}
+			#right {
+				right: 0;
+			}
+				
+			#box a:hover {
+				background-color: rgba(255,255,255,0.9);
+			}
+			
+			#nav li.active {
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box">
+			<ul id="oUl">
+				<li><img src="./img/4.jpg" alt=""></li>
+				<li><img src="./img/1.jpg" alt=""></li>
+				<li><img src="./img/2.jpg" alt=""></li>
+				<li><img src="./img/3.jpg" alt=""></li>
+				<li><img src="./img/4.jpg" alt=""></li>
+				<li><img src="./img/1.jpg" alt=""></li>
+			</ul>
+			<ol id="nav">
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ol>
+			<a href="javascript:;" id="left">&lt;</a>
+			<a href="javascript:;" id="right">&gt;</a>
+		</div>
+		
+	</body>
+	<!-- 外部的脚本文件 里面 $函数  getStyle函数  move函数  -->
+	<script src="./myTool.js"></script>
+	<script type="text/javascript">
+		//获取相关需要操作的元素
+		var oUl = $('#oUl');
+		// 获取图片li
+		var imgLi = $('li',oUl);  // 集合
+		// 获取位移的一个宽度距离 400 box的宽度
+		var iW = parseInt( getStyle($('#box'), 'width'));
+		console.log(iW);
+		
+		//导航小圆圈
+		var oNav = $('#nav');
+		var aNavLi = $('li',oNav); // 集合 一堆nav  li
+		
+		// 两个箭头按钮
+		var oLeft = $('#left');
+		var oRight = $('#right');
+		
+		/* 
+		 单击 右边箭头按钮  让图片 运动   单击一下 运动一下（改变ul的位置left 负的一个图片的宽度）
+		 
+		 
+		 */
+		// 设定一个计数器 用来 控制 运动的位置变化
+		var n = 1;  // -0*iW
+		
+		oRight.onclick = function() {
+			// 自增一下
+			n++;
+			move(oUl,'left',30,-n*iW,function(){
+				
+				if(n>= imgLi.length-1) {
+					n = 1;
+					oUl.style.left = -n*iW +'px';
+				}
+				
+			})
+			
+		}
+		
+		
+		
+		
+	</script>
+</html>

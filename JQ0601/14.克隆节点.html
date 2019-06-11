@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p class="p1">
+		ppppp
+		<span>span</span>
+	</p>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+
+	// clone() 这个方法 相当于原生 cloneNode() 但是可以直接把里面内容全部克隆过来
+	//  可以传入参数 true  可以把原有的节点上的事件克隆过来
+	//  
+	//  
+	$('.p1').click(function () {
+		alert(123);
+	})
+	
+
+
+	var $p = $('.p1').clone(true)
+	console.log($p);
+
+	$('.p1').after($p);
+</script>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+</body>
+<script>
+    document.getElementById('btn').onclick = function() {
+
+        // 参数的个数比较多 不好操作 另外如果某一个参数不传 则可能会报错
+        ajax('post', '04.getNews.php', 'username=张三&age=23&job=fe', "json", function(data) {
+
+
+            // 数据就过来了
+            console.log(typeof data);
+        });
+
+    }
+
+    function ajax(method, url, data, dataType, success) {
+        // ajax 第一步  创建一个ajax对象
+        var xhr = null;
+        // 使用异常捕获语句进行 兼容性处理
+        try {
+            xhr = new XMLHttpRequest(); // js内置的一个ajax对象 （IE6）
+        } catch (e) {
+            xhr = new ActiveXObject('Microsoft.XMLHTTP'); //IE 6 可以识别的
+
+        }
+
+        // 判断一下请求方式  如果是get data放在url的？后面拼接 如果是post 则放在send方法里
+        if (method == 'get') {
+            url = url + "?" + data;
+        }
+
+        // 第二步 调用  open方法
+        xhr.open(method, url, true);
+
+
+        // 第三步 调用send方法
+
+        // 如果是post 方法 则需要处理的 1 设置请求头 2 把data放在send方法里面
+        if (method == 'post') {
+            //如果是post请求 需要设置请求头
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send(data);
+        } else {
+            xhr.send();
+        }
+
+
+
+
+
+        // 第四步 监听ajax工作状态码 发生改变
+        xhr.onreadystatechange = function() {
+
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    // alert(xhr.responseText);
+                    //这里要处理一下 数据格式的问题
+                    /* 如果数据返回的是文本字符串  直接返回 xhr.responseText
+                    如果数据返回的是json字符串  需要使用JSON.parse 解析成js对象
+                    过去老的接口 习惯返回 xml数据  则需要 返回 xhr.responseXML */
+
+                    var data = '';
+
+                    if (dataType == '') { // 默认文本字符串 
+                        data = xhr.responseText;
+                    } else if (dataType == 'json') { // 后端返回的是json字符串
+                        data = JSON.parse(xhr.responseText);
+
+                    } else if (dataType == 'xml') {
+                        data = xhr.responseXML;
+                    }
+
+                    // 执行回调函数
+                    (typeof success === 'function') && success(data);
+                } else {
+                    alert('错了，错误信息是' + xhr.status);
+                }
+            }
+        }
+    }
+</script>
+
+</html>

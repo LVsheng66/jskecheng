@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	#box {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		position: absolute;
+		left: 100px;
+		top: 100px;
+	}
+</style>
+<body>
+	<div id="box"></div>	
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+	
+
+	$('#box').mousedown(function(e){
+		
+
+		var disX = e.offsetX;
+		var disY = e.offsetY
+		
+		$(document).on({
+			'mousemove':function (e) {
+				$('#box').css({
+					'left': e.clientX - disX,
+					'top': e.clientY -  disY
+				})
+			},
+			'mouseup':function () {
+				$(this).off();
+			}
+		})
+		
+	})
+
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">按钮</button>
+</body>
+<script type="text/javascript">
+
+document.getElementById('btn').onclick = function () {
+	
+	var xhr = null;
+
+	try{
+		xhr = new XMLHttpRequest();
+	}catch(e) {
+		xhr = new ActiveXObject('Microsoft.XMLHTTP');
+	}
+
+	xhr.open('get','02.get.php?username=lisi&age=22&job=FullStack',true);
+
+	xhr.send();
+
+	xhr.onreadystatechange = function () {
+		if(xhr.readyState == 4) {
+
+			if(xhr.status == 200) {
+				alert( xhr.responseText );  //  xml  responseXML
+			}else {
+				alert('错了，错误是'+xhr.status);
+			}
+		}
+	}
+
+}
+
+
+
+
+</script>
+</html>

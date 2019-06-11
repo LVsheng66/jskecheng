@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		//  + 两个作用:
+// 		1 参与数字之间的运算 求和
+// 		2 用于两个字符串之间 进行拼接 
+		
+		console.log('123' + 3); // ‘123’+ ‘3’ ==》 '1233'
+		
+		// + 如果一边为字符串 另一边为数字 则将数字隐式转换为字符串 进行拼接
+		
+		// -  *  /  %  把字符串转换为数字
+		 
+		console.log( '24' - 8 ); // - 把字符串转换为数字
+		
+		console.log( 3 * '2' );  // * 把字符串转换为数字
+		
+		console.log( '9' / 3 );
+		
+		console.log( '7' % 5 ); 
+		
+		
+		// ++  -- 
+		
+		var num = '12';
+		
+		// console.log( ++num ); // 13
+		
+		console.log(--num); // 11 
+		
+		
+		// >  < 
+		
+		console.log( 5 > 3); // true
+		
+		console.log( '5' > 3); // true  一个字符串 和 一个数字比较  会把字符串转换数字 进行比较
+		
+		
+		// console.log( '100' > '15' ); // false 字符串之间进行比较  逐位比较 内部比较的是字符编码 // 0-9 a-z A-Z
+		
+		
+		!'23' ==> false
+		!!'23' ==> true
+		
+		!! ===> Boolean()
+		
+	</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	
+	#box {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+
+</style>
+<body>
+	<div id="box"></div>
+	<p class="cc aa abc">11111</p>
+	<p class="active aa">22222</p>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript" src="zQuery.js"></script>
+<script type="text/javascript">
+
+	ZaG(function () {   // $函数 接收很多参数 如果传入的是一个函数 则意味着 dom结构加载完毕
+		 console.log( ZaG('#box')); 
+
+		 console.log( ZaG('.aa') );
+
+		 console.log( ZaG('p'));
+
+		 ZaG('#box').css({
+		 	'backgroundColor':'blue'
+		 })
+
+		 ZaG('.aa').css('backgroundColor','purple');
+
+		 console.log(ZaG('p').css('backgroundColor'));
+
+		 ZaG('.aa').html('哈哈哈哈')
+
+		 ZaG('.aa').click(function () {
+		 	alert(123);
+		 })
+
+		 ZaG('p').css('backgroundColor','green').html('呵呵呵').click(function () {
+		 	alert(123);
+		 })
+
+		 
+
+
+	})
+
+	// 类似 window.onload  里面绑定的是DOMContentLoaded
+	// addEventListener  处理了兼容性
+
+	// 意味着我们要获取元素啦
+	// ZaG('div')
+	// ZaG('#div')
+	// ZaG('.aa')
+	// console.log($);
+
+	console.log($('#box'));
+</script>
+</html>

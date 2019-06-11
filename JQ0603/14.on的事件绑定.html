@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box {
+			width: 400px;
+			height: 400px;
+			background-color: red;
+		}
+		#box p {
+			width: 500px;
+			position: relative;
+			left: 0;
+			top: 0;
+		}
+		#box span {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<p> 啦啦啦啦啦<span>向右运动</span></p>
+		<p> 嘻嘻嘻嘻嘻嘻<span>向右运动</span></p>
+		<p> 呜呜呜呜<span>向右运动</span></p>
+		<p> 呵呵呵呵呵<span>向右运动</span></p>
+	</div>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+
+ // on:
+ // 
+ // 1 绑定单个事件
+ 
+ // $('#box').on('click',function () {
+ // 	console.log('单击啦');
+ // })
+
+ // 2 绑定多个
+ 
+ /*$('#box').on({
+ 	'mouseover':function () {
+ 		$(this).css('background-color','blue');
+ 	},
+ 	'click':function () {
+ 		$(this).css('background-color','green');
+
+ 	},
+ 	'mouseout':function () {
+ 		$(this).css('background-color','purple');
+
+ 	}
+ })*/
+
+ // 3 事件委托代理
+/* $('#box').on('click','span',function () {
+ 	$(this).parent().animate({left:400}, 1000)
+ })
+*/
+ // 4 on 支持传入数据
+ //  $('#box').on('click','span',{name:'尼古拉斯',age:40},function (e) {
+
+ //  	console.log(e.data);
+
+ // 	$(this).parent().prepend('我的名字叫'+e.data.name+'，今年'+e.data.age+'岁了').animate({left:400}, 1000)
+ // })
+
+
+ /* $('#box').mouseenter(function () {
+  	console.log(123);
+  })
+  $('#box').mouseleave(function () {
+  	console.log(456);
+  })*/
+  // 
+  $('#box').hover(function(){
+  	console.log(134);
+  },function(){
+  	console.log(555);
+  })
+  
+
+</script>
+</html>

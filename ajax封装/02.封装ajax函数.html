@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+</body>
+<script>
+    document.getElementById('btn').onclick = function() {
+
+
+        ajax();
+
+    }
+
+    function ajax() {
+        // ajax 第一步  创建一个ajax对象
+        var xhr = null;
+        // 使用异常捕获语句进行 兼容性处理
+        try {
+            xhr = new XMLHttpRequest(); // js内置的一个ajax对象 （IE6）
+        } catch (e) {
+            xhr = new ActiveXObject('Microsoft.XMLHTTP'); //IE 6 可以识别的
+
+        }
+        // 第二步 调用  open方法
+        xhr.open('post', '02.post.php', true);
+
+        // 第三步 调用send方法
+        //如果是post请求 需要设置请求头
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("username=张三&age=23&job=fe");
+
+        // 第四步 监听ajax工作状态码 发生改变
+        xhr.onreadystatechange = function() {
+
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    alert(xhr.responseText);
+                } else {
+                    alert('错了，错误信息是' + xhr.status);
+                }
+            }
+        }
+    }
+</script>
+
+</html>

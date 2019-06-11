@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+			// 逻辑操作符  && 与  || 或    ! 非
+			
+			// && 与  并且  两边的结果都为真 结果才为真  如果有一个为假 则返回结果假
+			// && 先从左 往 右 看  先看左边 左边如果是个假的 则直接返回左边的这个结果 如果左边是本质上是真的,则去看右边 右边无论是真还是假 直接返回右边
+			
+// 			alert( 5 > 3  && 3< 8 )  // true 真
+// 			
+// 			alert( 5 > 3  && 3< -1 )  // false
+			
+// 			alert( false && true);  // false
+// 			// 0101010111  true 1  false 0
+// 			alert( 0 && 5 > 2 ); // 0 && true ==> 0
+// 			
+// 			alert( 6>1 && 0 ); // true && 0 ==> 0 
+			
+			// alert( 1 && false ); //  false
+			
+			// alert( 1 && 0); // 0
+			
+			//alert( 5 && 12 ); // 12 
+			
+			
+// 			var a = 1+1 && 3>2; // 2 && true ==> true
+// 			alert(a)
+			
+			
+			// || 或运算  或者  只要有一个真 就为真 , 如果两个都是假的 才为假
+			// 从左往右看 先左边 左边如果是个假的 去右边看一下  右边如果是真的 返回真的结果 右边如果是假的,直接假的结果
+			// 如果左边是一个真的 直接返回左边的真的结果
+			//alert( 5>7 || 8< 23 ); // false || true  > true
+			
+			// 一个表达式当中 如果既有&& 还有||  先与&&  后 || 
+// 			var a = 3 && 0 || 2; 
+// 			//   3&&0==>       0|| 2 ==> 2
+// 			alert(a); // 2
+
+
+// 			var b = 3 || 0 && 2;
+// 			//      3||0        0 && 2 ==>
+// 			alert(b); // 3
+			
+			
+// 			var c= 0 || 2 && 3; 
+// 			// 0||3
+// 			alert(c);
+			
+			
+// 			var b = 0 && 1+1; 
+// 			var c = 1 || 2 && 3-1; 
+// 			//      1 || 2
+// 			console.log(b); // 0
+// 			console.log(c); // 1
+			
+			// ! 非 取反 true 取反 false 遇到不是true或者false  而是一些数字 或者其他类型的数据 
+			// 取反符号会把这些数据的本来面目显示出来,转换为true或者false
+			// alert(!true); // false
+			
+			alert(!0); // true
+			
+			alert(!12);// false
+			
+			alert(!!12); // true  二次取反 将数据本身的真假显示出来
+			
+			alert(!!0);// false
+
+	</script>
+</html>

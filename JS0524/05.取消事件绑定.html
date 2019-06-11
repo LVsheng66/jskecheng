@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html,body {
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function fn1() {
+			console.log(this);
+			this.style.backgroundColor = 'red';
+		}
+
+		function fn2() {
+			this.style.border = '3px solid green';
+		}
+		
+		/* document.body.onclick = fn1;
+		// 取消事件 
+		document.body.onclick = null; */
+		
+		// 添加事件侦听器
+		/* document.body.addEventListener('click',fn1,false);
+		document.body.addEventListener('click',fn2,false);
+		
+		// 移除事件侦听器
+		document.body.removeEventListener('click',fn1,false);
+		document.body.removeE ventListener('click',fn2,false);
+		*/
+		function bind(obj,evName,evFn) {
+			if(obj.addEventListener){  // 标准浏览器可以识别
+				obj.addEventListener(evName,evFn,false);
+			}else if(obj.attachEvent){ // IE浏览器可以识别  IE6 7 9
+				// 给当前绑定的元素添加一个自定义属性 挂载 匿名函数
+				obj.handler = function() {
+					evFn.call(obj);
+				}
+			
+				obj.attachEvent('on'+evName,obj.handler);
+			}else {
+				// 超级古老的浏览器
+				obj["on"+evName]= evFn;
+			}
+			
+			
+			
+		}
+		
+		
+		function unbind(obj,evName,evFn) {
+			if(obj.removeEventListener){
+				obj.removeEventListener(evName,evFn,false);
+				
+			}else if(obj.detachEvent) {
+				obj.detachEvent('on'+evName, obj.handler);
+			}else {
+				obj['on'+evName] = null;
+			}
+			
+		}
+		
+		
+		//绑定事件
+		/* document.body.attachEvent('onclick',function(){
+			fn1.call(document.body);
+		});
+		document.body.handler = function(){
+			fn2.call(document.body);
+		}
+		document.body.attachEvent('onclick',document.body.handler);
+		
+		
+		
+		
+		
+		//移除事件
+		document.body.detachEvent('onclick',document.body.handler);
+ */
+		
+		
+	</script>
+</html>

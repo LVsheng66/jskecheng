@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	#box {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		position: absolute;
+		left: 100px;
+		top: 100px;
+	}
+</style>
+<body>
+	<input type="button" value="按钮">
+	<div id="box"></div>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+	
+	/*animate();  
+		参数1 ：支持传入一个js对象 （里面可以放多个属性）
+		参数2 运动过渡的时间 单位毫秒 默认normal
+	   【参数3 可选】 运动形式 （默认两种： 默认swing（慢快慢） linear（匀速）） 
+	   【参数4】 回调函数*/
+	 $('input:first').click(function () {
+	 	
+	 	$('#box').animate({
+	 		width:300,
+	 		height:400,
+	 		left:'500px',
+	 	},3000);
+
+	 })
+
+	
+</script>
+</html>

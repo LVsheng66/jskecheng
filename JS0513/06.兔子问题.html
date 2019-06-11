@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/* 有个人想知道，一年之内一对兔子能繁殖多少对？
+	于是就筑了一道围墙把一对兔子关在里面。已知一对兔子每个月可以生一对小兔子，
+	而一对兔子从出生后第3个月起每月生一对小兔子。假如一年内没有发生死亡现象，
+	那么，一对兔子一年内（12个月）能繁殖成多少对？ */
+
+		// 斐波那契数列
+		// 1  1  2  3  5  8  13  21.....
+
+		/* function tuzi(){
+			
+		}
+	
+		tuzi(); */
+
+		function qiutuzi(n) {
+			if (n <= 2) {
+				return 1
+			}
+			return qiutuzi(n - 1) + qiutuzi(n - 2)
+		}
+		
+		var result = qiutuzi(12);  // 144
+		console.log(result);
+	</script>
+</html>

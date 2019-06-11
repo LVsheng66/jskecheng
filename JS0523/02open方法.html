@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="单击打开新窗口">
+		<input type="button" value="单击关闭新窗口">
+	</body>
+	<script type="text/javascript">
+	
+		/* window.open() / open()
+		
+		两个参数 1 放置打开的url地址 (空白窗口)  2 打开方式 新窗口 本窗口 默认是新窗口打开
+		
+		这个方法调用完毕之后 有 返回值  返回的新窗口的window对象
+		
+		
+		close() 关闭窗口
+		
+		 */
+		
+		var aBtn = document.getElementsByTagName('input');
+		var newWindow = null;
+		
+		aBtn[0].onclick = function() {
+			newWindow = open('http://www.baidu.com', '_blank');
+			
+		}
+		
+		aBtn[1].onclick = function() {
+			
+			newWindow.document.body.style.backgroundColor = 'red';
+			
+			newWindow.document.body.innerHTML = '哈哈哈哈'
+			
+			// newWindow.close();
+		}
+		
+		
+		
+	</script>
+</html>

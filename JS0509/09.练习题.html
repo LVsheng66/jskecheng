@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/* 
+		 优先级从高到底 
+			() 优先级最高 
+			一元运算符 ++ -- ! 
+			算数运算符 先* / % 后 + - 
+			关系运算符 > >= < <= 
+			相等运算符 == != === !== 
+			逻辑运算符 先&& 后|| 
+			赋值运算符
+	
+		 */
+		var num = 10;
+		//        true   && true
+		if (5 == num / 2 && (2 + 2 * num).toString() === '22') {
+			console.log(true);
+		} else {
+			console.log(false);
+		}
+	</script>
+</html>

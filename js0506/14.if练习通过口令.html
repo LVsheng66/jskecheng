@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>欢迎加入前端群，请输入验证信息：</p>
+		<input type="text" id="oText">
+		<input type="button" value="验证" id="btn">
+	</body>
+	<script type="text/javascript">
+		// 口令 前端群  html css  js     java  你好  大哥,我来啦
+		
+		var oText = document.getElementById('oText');
+		var oBtn = document.getElementById('btn');
+		
+		oBtn.onclick = function() {
+			// 获取到文本框的输入内容
+			var val = oText.value;
+			if(val == '') {
+				alert('请您输入验证')
+			}else if(val == 'html') {
+				alert('欢迎加入本群!')
+			}else if(val == 'css') {
+				alert('欢迎加入本群!')
+			}else if(val == 'js') {
+				alert('欢迎加入本群!')
+			}else {
+				alert('滚开')
+			}
+			
+		}
+		
+		
+	</script>
+</html>

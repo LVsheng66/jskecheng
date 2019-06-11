@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			td {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+	document.write('<table>');
+	
+	var i = 1;
+	
+	while(i <= 9) {
+		document.write('<tr>')
+		
+		var j = 1;
+		while(j <= i) {
+			document.write('<td>'+ j +'*'+ i+ '='+ i*j +'</td>');
+			j++;
+		}
+		
+		i++;
+		document.write('</tr>')
+	}
+		
+	document.write('</table>');	
+		
+	</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+	function fn(cc,zz) {  //   cc  zz  a b 这些东西 都是形参 
+							 // 形参:在函数定义的时候 写的参数 就是形参(形式上的参数)
+							 // 形参 相当于 局部变量
+							 
+// 		var a = 3;
+// 		var b = 5;
+		var c = cc + zz;
+		console.log(c);
+		
+	}	
+	// 扩展
+	fn(3,5);  // 3+5   实参:在函数调用的时候传入的参数 是实参(实际的参数)
+	
+	fn(4,7); // 4+7
+	
+	fn(16,23); // 16+23
+	
+	
+	// 形参 和 实参 一一对应   参数可以写任意个
+	// 如果形参个数 大于 实参 个数  多余的形参没有值 为undefined
+	
+	function fn2(a,b,c,d) {
+		console.log(a);
+		console.log(b);
+		console.log(c);
+		console.log(d); // 没有值 undefined
+	}
+	
+	fn2(4,7,9);
+	
+		
+	</script>
+</html>

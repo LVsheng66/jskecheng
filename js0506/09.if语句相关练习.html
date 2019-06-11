@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//1、是否年满18岁(是否成年) 
+		// 如果成立 可以进网吧啦
+		// 如果不成立 赶紧回家写作业去​ 
+		
+		// 设置一个变量
+		/* var age = 26;
+		if(age >= 18) {
+			
+			alert('可以进网吧啦');
+			
+		}else {
+			// 如果不成立 赶紧回家写作业去​ 
+			alert('赶紧回家写作业去');
+		} */
+		
+
+		//2、判断一个数是偶数还是奇数 
+		
+// 		var num = 24;
+// 		if(num % 2 == 0){
+// 			// 成立 偶数
+// 			alert(num + '是偶数');  
+// 		}else {
+// 			// 成立 奇数
+// 			alert(num + '是奇数');  
+// 		}
+		
+		//3、判断一个年份是闰年还是平年  四年一闰，百年不闰，四百年再闰。 例如，2000年是闰年，2100年则是平年。
+		var year = 2100;
+		
+// 		if(year % 4 == 0 && year % 100 !=0 || year % 400 == 0) {
+// 			console.log('是闰年');
+// 		}else {
+// 			console.log('是平年');
+// 		}
+		
+		if(year % 4 == 0 && year % 100 !=0) {
+			console.log('是闰年');
+		}else if(year % 400 == 0){
+			console.log('是闰年');
+		}else {
+			console.log('是平年');
+		}
+	</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+		// toString() 
+		
+		
+		
+		var a = 24;
+		console.log(a.toString()); // '24'
+		console.log(typeof a.toString()); // string
+		var b = true; // 1
+		console.log(b.toString()); // 'true'
+		console.log(typeof b.toString()); // string
+		var c = false; // 0
+		console.log(c.toString()); // 'false'
+		console.log(typeof c.toString()); // string
+		// 		
+// 		
+// 		console.log(Number(true));
+// 		console.log(Number(false));
+
+		var d = [1,2,3];
+		console.log(d.toString()); // '1,2,3'
+		console.log(typeof d.toString()); // string
+		// 		
+		
+		var e = {name:'zag', job:'fe'}; // fe
+		console.log(e.toString()); // '[object Object]'
+		console.log(typeof e.toString()); // string
+		// 		
+// 		var f = null;
+// 		console.log(f.toString()); //  报错
+// 		console.log(typeof f.toString());
+// 		
+// 		var g;
+// 		console.log(g.toString()); //  报错
+// 		console.log(typeof g.toString());
+		
+		
+		var h = function() {}
+		
+		console.log(h.toString()); //  'function(){}'
+		console.log(typeof h.toString());// string
+		
+		
+		// String()
+		var f = null;
+		console.log(String(f)); //  'null'
+		console.log(typeof String(f)); // string
+		
+		var g;
+		console.log(String(g)); //  'undefined'
+		console.log(typeof String(g)); // string
+		
+		
+		var e = {name:'zag', job:'fe'}; // fe
+		
+		console.log(String(e)); //  'undefined'
+		console.log(typeof String(e)); // string
+	</script>
+</html>

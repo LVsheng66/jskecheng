@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	#box {
+		width: 100px;
+		height: 100px;
+		background-color: greenyellow;
+	}
+</style>
+<body>
+	<div id="box"></div>
+	<button>单击之后 让文本框获取焦点</button>
+	<input type="text" >
+</body>
+<script src="jQ.js"></script>
+
+<script type="text/javascript">
+
+ 	$('input').focus(function () {
+ 		console.log('这里可以做一些事情');
+ 		$('body').css('background-color','green');
+ 	})
+
+ 	$('button').click(function(event) {
+ 		// 让文本框主动触发focus事件 然后执行里面对应的事情
+ 		//$('input').trigger('focus');
+ 		//
+ 		//$('input').triggerHandler('focus');  // 不会触发默认行为
+ 		$(document).trigger('abc');
+ 	});
+
+ 	// 自定义事件  on
+ 	
+ 	$(document).on('abc',function () {
+ 		console.log('哈哈，我是自定义事件');
+ 	})
+
+ 	
+
+</script>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">单击停止定时器</button>
+	</body>
+	<script type="text/javascript">
+	var oBtn = document.getElementById('btn');
+	// 定时器 闹钟   6:30  时间概念  
+	
+	// setInterval()   // 循环定时器 每间隔一段时间 执行一次函数或者代码  循环炸弹
+	//  1 函数  2 时间单位毫秒 1000
+		
+	var num = 0;
+	var timer = setInterval(function(){
+		num++;
+		//console.log(num);
+	}, 100);
+	
+	
+	var num2 = 0;
+	var timer2 = setInterval(function(){
+		num2++;
+		document.title = num2;
+	}, 200);
+
+	console.log(timer);  //当前定时器在页面中的编号 1
+	console.log(timer2); // 当前定时器在页面中的编号 2
+
+	oBtn.onclick = function() {
+		// 停止清除定时器
+		clearInterval(timer);
+		clearInterval(timer2);
+	}
+	
+	
+	
+	// for 运行速率 计算机cpu运行速率 酷睿i3 i7  cpu主频  2.5GHZ/s  25亿/s * 4 = 100亿/s
+	/* for(var i = 0; i < 1000; i++){
+		
+		console.log('hello world');
+	} */
+	
+	</script>
+</html>

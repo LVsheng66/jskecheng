@@ -1,0 +1,57 @@
+id 名用的比较少
+
+#header
+	导航条 nav
+	横幅 广告 或者轮播图 banner   lunbo
+
+	列表  list   菜单  menu
+
+	广告 ad
+
+	side
+
+	box
+
+	tip 提示框  小贴士
+
+	#logo  .logo 商标 品牌
+
+	search
+
+	er_code
+
+	消息 信息 message  msg
+
+	timeBox
+
+	brand 品牌
+
+	shop  shopcart购物车 购物
+
+	login
+
+	register
+
+	goTop
+
+
+效果8个以及以上  10个效果
+
+
+
+ #container
+ 	 #main
+
+# footer
+
+从整体到局部  按照大的区块进行划分
+
+css3效果先放一放     js+jq   
+
+
+组内 代表 表达能力要好  ：  把每一个的布局 和效果 分别进行讲解 -----遇到什么问题 如何解决的  有什么收获  有什么地方改进----适当的问几个问题
+
+
+
+
+

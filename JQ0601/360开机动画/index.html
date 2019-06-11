@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width:0;
+			opacity: 0;
+		}
+		#top {
+			width: 322px;
+			height: 244px;
+			background: url(images/t.jpg) no-repeat;
+		}
+		#btm {
+			width: 322px;
+			height: 0px;
+			background: url(images/b.jpg) no-repeat;
+		}
+		#close {
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			right:12px;
+			top: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<script type="text/javascript" src="../jQ.js"></script>
+<script type="text/javascript">
+	
+	$(function () {
+
+	$('#box').animate({
+				width:322,
+				opacity:1
+			},1000,function(){
+
+				$('#btm').animate({height:101},1000)
+			});
+
+	
+
+
+		
+	// 单击关闭按钮close 让btm的高度变为0  然后接着让box盒子宽度变为0
+	$('#close').click(function(event) {
+		
+		$('#btm').animate({height:0},1000,function () {
+			
+			$('#box').animate({
+				width:0,
+				opacity:0
+			},1000);
+
+		})
+	
+	});
+
+	})
+	
+
+	
+</script>
+<body>
+	<div id="box">
+		<span id="close"></span>
+		<div id="top"></div>
+		<div id="btm">
+		</div>
+	</div>
+</body>
+</html>

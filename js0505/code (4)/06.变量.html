@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: white;
+				/* 可见性 为隐藏状态hidden  visible可见*/
+				/* visibility: hidden; */
+			}
+			
+		</style>
+		<script type="text/javascript">
+			// document
+			// window 窗口对象 整个浏览器程序
+			// 让整个浏览器程序 全部加载完毕之后 再做里面的事情
+			window.onload = function() {  // 壳
+				// 思路: 1  事件驱动编程语言 
+				
+				// console.log(document.getElementById('box'));
+				
+				// 
+				// js 获取元素
+				var oBox = document.getElementById('box');
+				var oBtn1 = document.getElementById('btn1');
+				var oBtn2 = document.getElementById('btn2');
+				var oStro = document.getElementById('oStrong');
+				
+				console.log(oBox);
+				// 单击 按钮1 让 盒子显示
+				// js 要想玩  先获取元素
+				oBtn1.onclick = function() {
+					// 让 盒子显示
+					oBox.style.background = 'red';
+				}
+				
+				// 单击 按钮2 让盒子隐藏
+				oBtn2.onclick = function() {
+					// 让盒子隐藏
+					oBox.style.background = '#fff';
+						
+				}
+				
+				// 单击strong标签 让 盒子显示
+				oStro.onmouseover = function() {
+					// oBox.style.visibility = 'visible';
+					oBox.style.background = 'rgb(255,0,0)';
+						
+				}
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<input type="button" value="单击让盒子显示" id="btn1">
+		<input type="button" value="单击让盒子隐藏" id="btn2">
+		<strong id="oStrong">我也想让盒子显示</strong>
+		<div id="box"></div>
+	</body>
+	
+</html>

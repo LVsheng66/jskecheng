@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body style="height: 2000px;">
+	</body>
+	<script type="text/javascript">
+		
+	节点:
+		childNodes  ===> children 
+		firstChild  firstElementChild
+		lastChild   lastElementChild
+		nextSibling nextElementSibling
+		previousSibling  previousElementSibling
+		
+		parentNode dom结构上父节点
+		
+		当时封装了四个小函数
+		
+	元素.offsetParent : 距离元素最近的具有定位属性的父级 如果父级们都没有定位 则指向body
+	
+	元素.offsetLeft  元素的外边框距离 它的offsetParent 的内边框 之间 左侧距离 左侧偏移量
+	元素.offsetTop   元素的外边框距离 它的offsetParent 的内边框 之间 顶部距离 顶部偏移量
+	
+	
+	在dom结构中 元素所占用的实际空间大小
+	元素.offsetWidth = 元素的css里面 定义的 width  + 左右padding  + 左右borderWidth 
+	元素.offsetHeight= 元素的css里面 定义的 height  + 上下padding  + 上下borderWidth 
+		
+	元素.clientWidth = 元素的css里面 定义的 width  + 左右padding   
+	元素.clientHeight = 元素的css里面 定义的 height  + 上下padding   
+		
+	
+	浏览器可视区域:
+		document.documentElement.clientWidth
+		document.documentElement.clientHeight
+		
+	浏览器的实际内容高度:
+		document.documentElement.scrollHeight;
+		document.documentElement.scrollWidth;
+		
+	浏览器 垂直方向上 距离顶部 滚动过的(卷曲过的) 距离	
+		document.documentElement.scrollTop        // document.body.scrollTop 旧谷歌支持的是这个
+	
+	浏览器 水平方向上 距离左侧 滚动过的(卷曲过的) 距离	
+		document.documentElement.scrollWidth
+	
+	</script>
+</html>

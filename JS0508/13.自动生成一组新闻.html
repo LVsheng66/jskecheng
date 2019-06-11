@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="单击获取一组新闻">
+		<ul id="oUl">
+			<!-- <li>海关总署：前4月进出口总值同比增4.3% 顺差扩大31.8%</li> -->
+		</ul>
+	</body>
+	<script type="text/javascript">
+	var arrNews = [
+		'海关总署：前4月进出口总值同比增4.3% 顺差扩大31.8%',
+		'教育部回应"南京应用技术学校虚假招生":已要求各地清查',
+		'民政部回应德云社演员众筹事件：将引导平台修订自律公约',
+		'广东汕头、潮州、揭阳3市新任市委书记同步就位',
+		'它是中国最“憋屈”的省会！如今放下身段，零门槛落户…'
+	];
+	
+	
+	// 思路: 单击按钮 将数组里面存的一个个的新闻 通过循环的方式 放入 ul中
+	var aInp = document.getElementsByTagName('input');
+	var oUl = document.getElementById('oUl');
+	
+	
+	
+	aInp[0].onclick = function() {
+		
+		//声明一个变量 用来拼接 新闻这一堆字符串
+		var str = '';
+		
+		// 将数组里面存的一个个的新闻 通过循环的方式 放入 ul中
+		for(var i = 0; i < arrNews.length; i++){
+			
+			str += '<li>'+arrNews[i]  +'</li>';
+			
+		}
+		
+		oUl.innerHTML = str;
+	}
+	
+	
+	</script>
+</html>

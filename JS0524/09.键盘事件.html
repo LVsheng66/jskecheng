@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// click mouseover  mouseout mousemove mousedown mouseup ...
+		// keydown 键盘按下  keypress 键盘按下  keyup 键盘弹起
+		
+		// keypress 键盘按下 辅助键按下不会触发
+		
+		// 辅助键 shift  alt  ctrl  #command  win
+
+
+		/* document.onkeypress = function() {
+			console.log('keypress事件');
+		} */
+		
+		// keyCode  计算机中键盘上对应的 数字或者字母的 计算机编码
+		
+		// keyCode:空格 32
+		
+		// 左方向键 37   上方向键 38 右方向键 39  下方向键 40
+
+		document.onkeydown = function(e) {
+			e = e || event;
+			console.log(e);
+			console.log(e.keyCode);
+			console.log('keydown事件');
+		}
+		document.onkeyup = function() {
+			console.log('keyup事件');
+		}
+	</script>
+</html>

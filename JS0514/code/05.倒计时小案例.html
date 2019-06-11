@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			input[type='text']{
+				width: 200px;
+				height: 30px;
+				line-height: 30px;
+				font-size: 16px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="txt1" value="May 14,2019 12:06:12">
+		<input type="button" id="btn" value="单击开始倒计时">
+		<input type="text" id="txt2"  />
+	</body>
+	<script type="text/javascript">
+		function $(id){
+			return document.getElementById(id);
+		}	
+		
+		// 用户可以在第一个文本框中设置未来时间
+		
+		// 单击按钮 开始倒计时
+		
+		// 让倒计时的时间 在第二个本框中显示
+		
+		
+		// 给按钮添加一个单击事件 
+		var timer = null;
+		$('btn').onclick = function() {
+			var newT = $('txt1').value; // '2019,4,1,9,48,12'
+			// 第二种 字符串形式 ‘June 10,2019 12:12:12'
+			var future = new Date(newT);
+			
+			fn();
+			clearInterval(timer);
+			timer = setInterval(fn,1000);
+			
+			function fn(){
+					
+				var now = new Date();
+				
+				var t = Math.floor((future - now)/1000);
+				
+				if(t>=0){
+					var tian = Math.floor(t/86400);
+					
+					var hour = Math.floor(t%86400/3600);
+					
+					var min = Math.floor(t%86400%3600/60);
+					
+					var sec = t%60
+					
+					var str = zero(tian) + '天' + zero(hour) +'时' + zero(min) + '分' + zero(sec) + '秒';
+					console.log(str);
+					
+					$('txt2').value = str;
+					
+				}else {
+					clearInterval(timer);
+					alert('恭喜时间到了');
+				}
+					
+				
+			}
+			
+		}
+		function zero(m){
+			return m<10? '0'+m : m;
+		}
+		
+		// 1557826863140  当前的时间  -   1970年1月1号 0点 0分 0秒
+		
+		// 1946年 ENIC
+		console.log(new Date().getTime()); //返回毫秒数  时间戳 版本控制 前后端数据交互 ajax
+	</script>
+</html>

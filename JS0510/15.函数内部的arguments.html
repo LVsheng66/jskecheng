@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+	/* function fn() {
+		// arguments 它是实参的集合 是在函数内部存在的 
+		
+		// arguments 适合 实际参数 不确定个数 形参不方便使用的时候 去使用arguments
+	}	 */
+	
+	
+	// 这个函数目的是实现任意个数 都能求和
+	function fn() {
+		 // 3 + 5 + undefined + undefined
+		//console.log(a+b+c+d); // NaN
+		
+		console.log(arguments); //实参的集合 类似于数组 有length 下标(索引)
+		
+		//console.log(arguments.length);
+		
+		// console.log(arguments[1]); // 
+		var sum = 0;
+		for(var i = 0; i < arguments.length; i++){
+			sum += arguments[i];
+		}
+		console.log(sum);
+		
+	}
+	
+	/* fn(3,5); // 8
+	
+	fn(12,8); // 20
+	
+	fn(3,6,9); // 18
+	
+	fn(4,7,9,13); // 33
+	 */
+	
+	// 传入任意个数 求它们中 最大值
+	// 练习题
+	function getMax() {
+		// arguments
+		// 设置一个最大值 为 负无穷
+		var max = arguments[0];
+		for(var i = 1; i < arguments.length; i++){
+			if(arguments[i] > max) {
+				max = arguments[i];
+			}
+		}
+		console.log(max);
+	}
+	
+	getMax(-2,46,8,13);  // ==> 46
+	getMax(0,7,2);  // 7
+	getMax(99,487,-345,12,78); // 487
+		
+	</script>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				overflow: hidden;
+			}
+			ul li {
+				list-style: none;
+				width: 60px;
+				height: 30px;
+				line-height: 30px;
+				font-size: 14px;
+				text-align: center;
+				float: left;
+				background-color: orange;
+				cursor: pointer;
+				margin-right: 10px;
+			}
+			#box div,#box2 div {
+				width: 280px;
+				height: 250px;
+				border: 1px solid black;
+				text-align: center;
+				font-size: 30px;
+				line-height: 250px;
+				display: none;
+			}
+			
+			/* 设定一个激活的类 */
+			#box ul li.active,#box2 ul li.active {
+				background-color: red;
+			}
+		</style>
+		<script type="text/javascript">
+			// 当浏览器程序 全部加载完毕之后 在运行函数里面代码
+			window.onload = function(){
+				
+			
+				// 选项卡的功能
+				// 获取元素
+				
+				
+				var oBox2 = document.getElementById('box2');
+				var oBox = document.getElementById('box1');
+				function fn(ele,eventName) {
+					
+					// 获取oBox里面的 一堆li  和 一堆div
+					var aLi = ele.getElementsByTagName('li');
+					var aDiv = ele.getElementsByTagName('div');
+					
+					// 给li添加单击事件
+					for(var i = 0; i < aLi.length; i++){
+						// 自定义索引
+						aLi[i].index = i;
+						aLi[i][eventName] = function() {
+							
+							for(var j = 0; j < aLi.length; j++){
+								aLi[j].className = '';
+								aDiv[j].style.display = 'none';
+								
+							}
+							
+							aDiv[this.index].style.display = 'block';
+							this.className = 'active';
+						}
+						
+					}
+					
+					
+				}
+				
+				fn(box, 'onclick');
+				fn(oBox2, 'onmouseover');
+				
+			/* 重用代码的原则：
+				1、尽量保证HTML结构的一致性，可以通过父级选取子元素
+				2、把核心主程序实现 用函数包起来
+				3、把每组里不同的值找出来，通过传参实现 */
+		
+			
+			
+			
+			
+			
+				
+			}
+			
+		</script>
+	</head>
+	
+	<body>
+		<div id="box">
+			<ul>
+				<li class="active">苹果</li>
+				<li>戴尔</li>
+				<li>华硕</li>
+				<li>联想</li>
+			</ul>
+			<div style="display: block;">苹果专区</div>
+			<div>戴尔旗舰店</div>
+			<div>华硕专卖店</div>
+			<div>联想笔记本</div>
+		</div>
+		
+		
+		<div id="box2">
+			<ul>
+				<li class="active">热带水果</li>
+				<li>亚热带水果</li>
+				<li>温带水果</li>
+			</ul>
+			<div style="display: block;">椰子水果</div>
+			<div>芒果</div>
+			<div>橘子</div>
+		</div>
+	</body>
+	
+</html>

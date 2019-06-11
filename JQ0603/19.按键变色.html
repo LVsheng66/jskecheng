@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="icon" href="favicon.ico"  type="image/x-icon" />
+	<style type="text/css">
+		
+		#box {
+			width: 400px;
+			height: 300px;
+			background-color: black;
+			border: 1px solid black;
+			margin:100px auto 0;
+		}
+		p {
+			text-align: center;
+			color: white;
+			font-size: 25px;
+			line-height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"> <p>keyCode 为<span></span></p></div>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+	
+	$(document).keydown(function (e) {
+		// r red  g  green  b blue  p  purple
+		console.log(e.keyCode);
+
+		$('#box span').text(e.keyCode);
+		switch(e.keyCode) {
+			case 82:
+				$('#box').css('background-color','red');
+				break;
+			case 71:
+				$('#box').css('background-color','green');
+				
+				break;
+			case 66:
+				$('#box').css('background-color','blue');
+				
+				break;
+			case 80:
+				$('#box').css('background-color','purple');
+				
+				break;
+		}
+
+	})
+	
+</script>
+</html>

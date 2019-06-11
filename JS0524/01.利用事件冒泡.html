@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul {
+				background-color: red;
+				padding: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>今天你拿苹果支付了么 <a href="javascript:;">删除</a></li>
+			<li>今天天气不错，风和日丽的 <a href="javascript:;">删除</a></li>
+			<li>常要说的事儿是乐生于苦 <a href="javascript:;">删除</a></li>
+			<li>把朋友家厕所拉堵了 不敢出去 掏了半小时了都 <a href="javascript:;">删除</a></li>
+			<li>端午节快乐 <a href="javascript:;">删除</a></li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		
+		var oUl = document.getElementsByTagName('ul')[0];
+		
+		/* for(var i = 0; i < aA.length; i++){
+			
+			aA[i].onclick = function() {
+				
+				this.parentNode.parentNode.removeChild(this.parentNode);
+				
+			}
+			
+		} */
+		
+		
+/* 	事件委托:	 可以将 子元素身上的事件 委托(代理)给 某一个祖先节点,让祖先节点上添加事件 利用事件冒泡机制 向上传递 最后触发该事件
+		
+	事件源:触发该事件的源头	,
+	
+		通过事件对象 e 找到里面的两个属性
+			
+			火狐和谷歌浏览器支持: target  谷歌和火狐两种都支持
+			IE  6 78  9以上支持这种: srcElement */
+		
+	// 利用事件冒泡机制 实现事件委托的好处: 1 省去循环 有一定的性能提高  2  给祖先节点添加事件,不再需要关心内部子元素如何变化
+			
+		oUl.onclick = function(e) {
+			// 事件对象兼容性处理
+			e = e || window.event;
+			
+			console.log(e);
+			
+			var target = e.srcElement || e.target;
+			
+			if(target.nodeName == 'A') {
+				// 删除
+				oUl.removeChild(target.parentNode);
+			}
+			
+		}
+			
+		
+		
+		
+	</script>
+</html>

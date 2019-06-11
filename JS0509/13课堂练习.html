@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	var arr = [ '100px', 'abc'-6, [], -98765, 34, -2, 0, '300', , function(){alert(1);}, null, document, [], true, '200px'-30,'23.45元', 5, Number('abc'), function(){ alert(3); }, 'xyz'-90 ];
+	 
+	 /* 
+	 1、找到arr里所有的数字：-98765, 34, -2, 0, 5 
+	 2、找到可以转成数字的：'100px', -98765, 34, -2, 0, '300', '23.45元', 5 
+	 3、把转成数字以后，最大值判断出来：300 
+	 4、把 NaN 所在的位置找出来：1 14 17 19 
+	 */ 	
+		
+	// 设置一个变量假定一个最大值  (而这个最大值 设定为一个最小的数 没有任何数比这个小了);
+	var max = -Infinity;  // 负无穷    正无穷 Infinity
+		
+	for(var i = 0; i < arr.length; i++){
+		//1  typeof arr[i] number   arr[i]== arr[i]
+// 		if(typeof arr[i] == 'number' && arr[i] == arr[i]) {
+// 			console.log(arr[i]);
+// 		}
+// 		
+		// 2 typeof parseFloat(arr[i]) == 'number'&& arr[i] == arr[i]
+// 		if( ( parseFloat(arr[i])==parseFloat(arr[i]) && arr[i] == arr[i]) || (typeof arr[i] == 'number'&& arr[i] == arr[i])) {
+// 			console.log(arr[i]);
+// 		}
+// 		if(( parseFloat(arr[i]) || typeof arr[i]=='number') && arr[i]==arr[i] ) {
+// 			 console.log(arr[i]);
+// 			
+// 			 if(parseFloat(arr[i]) > max) {
+// 				 max = parseFloat(arr[i]);
+// 			 }
+// 			
+// 		}
+		
+		if(typeof parseFloat(arr[i]) == 'number' && arr[i]!=arr[i] || typeof arr[i]=='function') {
+			console.log(i);
+		}
+
+		
+	}
+	
+	//console.log('最大值是'+ max);
+	
+	// if()else{}   typeof 数据类型转换  &&  || 
+	</script>
+</html>

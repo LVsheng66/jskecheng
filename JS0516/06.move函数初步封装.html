@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 30px;
+				top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="单击向上走">
+		<input type="button" value="单击向下走">
+		<div id="box"></div>
+	</body>
+	<script src="./myTool.js"></script>
+	<script type="text/javascript">
+		var aInp = $('input');
+		var oBox = $('#box');
+		// 设置一个变量 初始化为空对象 后期用来存定时器s
+		var timer = null;
+		
+		// 向上
+		aInp[0].onclick = function() {
+			
+			// console.log( parseInt(getStyle(oBox,'left')) );  // '30px'==> parseInt();
+			
+			move(oBox,'top',-17,50);
+			
+		}
+		
+		
+		// 尝试合并两个运动函数
+		// obj:运动的元素是谁
+		// attr:让什么属性运动 'left' 'top'
+		// rate: 速率
+		// target: 目标点
+		function move(obj,attr,rate,target) {
+			// 先清除定时器 再开新的定时器 确保当前页面上只有一个定时器
+			clearInterval(timer);
+			
+			timer = setInterval(function(){
+				
+				var speed = parseInt(getStyle(obj,attr)) + rate;
+				              
+				if(speed>=target && rate>0){
+					speed = target;
+				}
+				if(speed<=target && rate < 0){
+					speed = target;
+				}
+				obj.style[attr] = speed + 'px';
+				
+				if(speed == target){
+					//清除定时器 停止运动 往前走
+					clearInterval(timer);
+				}
+				
+				
+			},30);
+			
+			
+		}
+		
+		
+		//向下走
+		aInp[1].onclick = function() {
+			
+			/* timer = setInterval(function(){
+				
+				var speed = parseInt(getStyle(oBox,'left')) - 17;
+				                 
+				if(speed<=30){
+					speed = 30;
+				}
+				oBox.style.left = speed + 'px';
+				
+				if(speed == 30){
+					//清除定时器 停止运动 往前走
+					clearInterval(timer);
+				}
+				
+				
+			},30); */
+			
+			move(oBox,'top',17,400);
+			
+		}
+		
+		
+	</script>
+</html>

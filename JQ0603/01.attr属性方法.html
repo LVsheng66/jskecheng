@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		li:nth-child(1) {
+			background-color: red;
+		}
+		li:nth-child(2) {
+			background-color: green;
+		}
+		li:nth-child(3) {
+			background-color: blue;
+		}
+		li:nth-child(4) {
+			background-color: purple;
+		}
+	</style>
+</head>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+
+
+/*css() 设置（设置单个属性  多个属性）和获取
+
+class相关方法   addClass()  removeClass()  toggleClass()  hasClass()
+
+
+attr() 属性操作方法：可以设置属性可以获取属性  //原生js   getAttribute()  setAttribute()  removeAttribute()
+	设置单个属性
+	attr(属性名,属性值)  比如  attr('title','盒子')
+	同时设置多个属性   
+	attr({
+		title:"哈哈哈",
+		style:"color:red;border: 1px solid black;"
+	})
+
+	读取属性
+	attr(属性名)  attr('title')*/
+
+// 移除属性  removeAttr(属性名)
+
+	$(function () {
+		
+
+		$('#box').attr('title','盒子');
+
+		$('img').attr({
+			'src':'01.jpg',
+			'alt':'这是一个京剧小人'
+		})
+
+		// alert( $('#box').attr('id') )
+
+		// alert( $('ul li').attr('title') )  所有获取元素中 默认读取第一个
+		// 
+		
+		// $('ul li').attr('class', 'aa');// 设置会将所有获取的元素都设置
+		// 
+		// 
+		// $('ul li').css('backgroundColor','pink');
+
+		// alert( $('ul li').css('background-color') )
+		// 
+		
+		// alert( $('ul li').html() )
+
+
+		// $('ul li:eq(2)').removeAttr('title');
+		
+		// $('ul li:eq(2)').removeAttr(); // 如果没有加参数 意味着 不移除任何属性
+
+
+		// $('#box').removeClass(); // 如果不写参数 意味着所有的类 全部移除
+
+
+
+	})
+
+</script>
+
+<body>
+	<div id="box" class="aa box active cc"></div>
+	<img src="" />
+	<ul>
+		<li title="111" >这是第1个li</li>
+		<li title="222">这是第2个li</li>
+		<li title="333">这是第3个li</li>
+		<li title="444">这是第4个li</li>
+	</ul>
+</body>
+</html>

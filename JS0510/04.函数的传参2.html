@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+	// 传参 可以传递哪些参数？ 任何类型的数据
+	
+	var num = 13;
+	
+	function fn(aa){
+		aa++;
+		console.log(aa);
+	}
+	fn(num);
+	
+	var str = 'hello';
+	
+	function fn2(aa) {
+		console.log(aa+' world');
+	}
+	fn2(str);
+	
+	var arr = ['hi','靠你起哇','撒浪嘿哟', '萨瓦迪卡', '你好'];
+	
+	function fn3(bb) {
+		console.log('我是中国人，打个招呼：'+ arr[arr.length-1]);
+		console.log('我是英国人，打个招呼：'+ arr[0]);
+	}
+	
+	fn3(arr);
+	
+	var bool = true;
+	
+	function fn4(c) {
+		if(c){
+			console.log('是真的');
+		}else{
+			console.log('是假的');
+		}
+	}
+	fn4(bool);
+	
+	var func = function() { alert(123) }
+	
+	
+	function fn5(abc) {
+		
+		abc(); // alert(123)
+	}
+	fn5(func);
+	
+	
+	var obj = {
+		name:'尼古拉斯赵四',
+		age: 40,
+		job: 'actor'
+	}
+	
+	function fn6(ddd) {
+		console.log('我的名字叫'+ ddd.name);
+	}
+	
+	fn6(obj);
+	
+	var abc = null;
+	
+	function fn7(aa) {
+		if(aa){
+			console.log('是真的');
+		}else{
+			console.log('是假的');
+		}
+	}
+	fn7(abc);
+			
+		
+	</script>
+</html>

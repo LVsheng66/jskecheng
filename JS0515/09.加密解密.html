@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="txt1">
+		<input type="button" value="单击加密" id="btn"><br />
+		<input type="text" name="" id="txt2">
+		<input type="button" value="单击解密" id="btn2"><br />
+		
+
+	</body>
+	<script type="text/javascript">
+		function $(id){
+			return document.getElementById(id);
+		}
+		// 文本框1 写要加密的文字  单击 经过加密 输出加密后的文字 到文本框中
+		
+		$('btn').onclick = function(){
+			var text = $('txt1').value;
+			
+			var newText = '';
+			
+			for(var i = 0; i < text.length; i++){
+				// 通过charCodeAt这个方法 参数写i 找到该字符串中的字符对应的字符编码
+				var code = text.charCodeAt(i);
+				// 将当前的字符编码进行运算 得到一个新的字符编码 将这字符编码 转回到对应的字符
+				var newStr = String.fromCharCode(code+520-1314)
+				
+				newText += newStr;
+				
+			}
+			
+			$('txt2').value = newText;
+			
+		}
+		
+		//解密
+		$('btn2').onclick = function() {
+			var str = $('txt2').value;
+			
+			var text = '';
+			
+			for(var i = 0; i < str.length; i++){
+				
+				var code = str.charCodeAt(i) + 1314 -520;
+				
+				text += String.fromCharCode(code)
+				
+			}
+			alert(text);
+		}
+		
+		
+	</script>
+</html>

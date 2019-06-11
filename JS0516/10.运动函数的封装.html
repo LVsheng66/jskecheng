@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 30px;
+				top: 50px;
+			}
+		</style>
+		<script type="text/javascript">
+		function $(selector, parentEle) {
+		
+			// 通过传入的传入参数 带不带 '#'来区分 到底是获取id 还是标签
+		
+			if (selector.charAt(0) == '#') {
+				// 你要通过id名获取元素   '#box' 
+				return document.getElementById(selector.substring(1));
+			} else {
+				// 你要通过标签获取元素'      li'
+		
+				parentEle = parentEle || document;
+		
+				return parentEle.getElementsByTagName(selector);
+			}
+		
+		
+		
+		
+		}
+		
+		
+		// 获取样式的兼容性函数
+		function getStyle(obj,attr) {
+			if(obj.currentStyle) {
+				return obj.currentStyle[attr]
+			}else {
+				return getComputedStyle(obj)[attr];
+			}
+		}	
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		<input type="button" value="走一圈">
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+	var oInp = $('input');
+	var oBox = $('#box');
+	
+	// 初始化一个变量timer 默认null 后期存定时器
+	
+	
+	oInp[0].onclick = function(){
+		
+		  // '30px'==>30
+		  move(oBox,'left',19,800,function(){
+			  move(oBox,'top',19,400,function(){
+				  
+				  move(oBox,'left',25,30,function() {
+					  
+					  move(oBox,'top',15,50);
+					  
+				  })
+				  
+			  });
+		  });
+		 
+		
+		
+	}
+	
+	
+	
+	
+	/* oInp[1].onclick = function() {
+		move(oBox,'top',19,400);
+		/* clearInterval(timer);
+		
+		timer = setInterval(function() {
+			var speed = parseInt(getStyle(oBox, 'left')) - 19;
+			// 790 + 19 ===> 809  790+10
+			if(speed<=30){
+				speed = 30; // 800
+			}
+			
+			oBox.style.left = speed + 'px';
+			
+			if(speed == 30){
+				//清除定时器
+				clearInterval(timer); // 定时器虽然停止了 但是timer变量里面存的还有一个数字定时器编号 13  2 
+			}
+			
+		},30) 
+		
+	}
+		 */
+		
+	</script>
+</html>

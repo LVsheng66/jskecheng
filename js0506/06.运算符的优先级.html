@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	
+// 			优先级从高到底 
+// 				() 优先级最高 
+// 				一元运算符 ++ -- ! 
+// 				算数运算符 先* / % 后 + - 
+// 				关系运算符 > >= < <= 
+// 				相等运算符 == !=        === !== 
+// 				逻辑运算符 先&& 后|| 
+// 				赋值运算符
+		
+		// alert( 5>=5 ); // true
+		// alert( 6 <= 8 ); // true
+		
+		// = 赋值
+		// == 判断是否相等 比较  （只会判断值是否相等）  !=
+		//alert( 6 != 6 ); // false
+		
+		// === 判断是否相等  （不但要判断值是否相等 还要判断类型相等）      !==
+		// alert( '6' == 6 );  //true
+		
+// 		alert( '6' !== 6 ); // 字符串  数字 true
+// 		alert( '6' != 6); // false
+// 		
+// 		var num = 3;
+// 		// num = num + 5;
+// 		num += 5
+// 		num = num * 2;
+// 		num *= 2;
+// 		
+// 		num = num/ 3;
+// 		num /= 3;
+// 		
+// 		num = num % 3;
+// 		num %= 3;
+// 		
+// 		console.log(num);
+		
+		alert(    ((4 >= 6) || ('人' != '阿凡达')) && !(((12 * 2) == 144) && true)  );// true  false
+	//      (false ||  	true) &&          !false
+	//	      true    &&   true
+		// true
+		
+	</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<button id="btn">单击抖起来</button>
+		<div id="box"></div>
+	</body>
+	<script src="./myTool.js"></script>
+	<script type="text/javascript">
+		// 100px
+	/* 	  -10      10
+		// 90px   110px
+		   -8      +8
+		// 92px   108px
+		   -6      +6
+		// 94     106
+		   -4    +4
+		// 96    104
+		   -2  +2
+		//  98   192
+		      0
+		//    100 */
+		
+		var oBtn = $('#btn');
+		var oBox = $('#box');
+		
+		var arr = [];
+		for(var i = 50; i >0; i-=2){
+			
+			arr.push(-i,i);
+		}
+		
+		arr.push(0);
+		console.log(arr);//[-10, 10, -8, 8, -6, 6, -4, 4, -2, 2, 0]
+		var timer = null;
+		
+		oBtn.onclick = function() {
+			
+			var pos = parseInt( getStyle(oBox,'left') );
+			var n = 0;
+			timer = setInterval(function(){
+				oBox.style.left = pos + arr[n++] + 'px';
+				
+				if(n > arr.length-1) {
+					clearInterval(timer);
+					timer =null;
+				}
+			},30)
+			
+			
+		}
+		
+	</script>
+</html>

@@ -1,0 +1,24 @@
+.tab input {
+	width: 60px;
+	height: 30px;
+	text-align: center;
+	font: 14px/30px '微软雅黑';
+	background-color: orange;
+	outline: none;
+	border: none;
+	margin-right: 10px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+.tab input.active {
+	background-color: red;
+}
+
+.tab div {
+	width: 300px;
+	height: 280px;
+	border: 1px solid #333;
+	text-align: center;
+	font: 30px/280px '微软雅黑';
+	display: none;
+}

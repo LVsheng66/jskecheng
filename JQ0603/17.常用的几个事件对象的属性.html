@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box {
+			width: 300px;
+			height: 300px;
+			background-color: blue;
+			margin: 100px;
+		}
+	</style>
+</head>
+<body style="height: 2000px">
+	<div id="box">盒子 <span>span</span> <em>em</em></div>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+
+	$('#box').on("click","em",['red','green'],function (e) {
+		// console.log(e);
+		// console.log(e.type);
+		// console.log(e.data);
+
+		// console.log(e.target);  //事件源 em 被代理人
+
+		// console.log("========",this);
+
+		// console.log( e.currentTarget ); // 当前绑定的元素
+
+		// console.log(e.delegateTarget); // box代理人 
+
+		console.log(e.offsetX);
+		console.log(e.offsetY);
+
+		
+	})
+
+
+	$('#box').on("click",function (e) {
+		// console.log(e);
+		// console.log(e.type);
+		// console.log(e.data);
+
+		// console.log(e.target);  //事件源 em 被代理人
+
+		// console.log("========",this);
+
+		// console.log( e.currentTarget ); // 当前绑定的元素
+
+		// console.log(e.delegateTarget); // box代理人 
+
+		console.log(e.offsetX);
+		console.log(e.offsetY);
+	})
+
+
+	$(document).click(function (e) {
+		// console.log(e.clientX,e.clientY); 相当于可视区域的 坐标距离
+		// console.log(e.pageX,e.pageY);  相当于整个文档的 坐标距离
+		// console.log(e.switch); 
+		// cancelBubble = true 
+		// e.stopPropagation() 阻止事件冒泡
+		// e.preventDefault() 阻止默认行为
+
+		// return false = e.stopPropagation() + e.preventDefault()
+	})
+
+</script>
+</html> 

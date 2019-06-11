@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+	<div id="box">
+		<p id="p1">pppppp
+			<em class="em1">倾斜标签</em>
+		</p>
+	</div>
+
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+
+
+	 //原生js 当中  创建元素节点
+
+	/* var oDiv = document.createElement('div')
+ 	oDiv.innerHTML = '哈哈哈'
+
+	document.body.appendChild(oDiv);*/
+
+	//jq创建节点
+
+	// appendChild  insertBefore()   // removeChild() repalceCHild()
+
+	// 往body的里面的最后位置添加 一个创建好的div元素
+
+	$('body').append($('<strong>加粗</strong>'));
+
+
+	$('body').prepend( '<em>倾斜</em>' );
+
+/*
+	var $div = $('div')*/
+
+/*
+	添加元素
+	A.append(B)  把B放到A里面的最后面 
+	A.prepend(B) 把B放到A里面的最前面
+
+	A.before(B)  把B放到A的前面 （并列兄弟关系）
+	A.after(B)   把B放到A的后面  （并列兄弟关系）*/
+
+
+
+	$('#box').after($('#p1'))
+
+
+	$('#box').before($('.em1'))
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

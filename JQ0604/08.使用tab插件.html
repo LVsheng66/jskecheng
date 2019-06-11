@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="jquery.tab.css">
+</head>
+<body>
+	<div id="tab" class="tab"></div>
+	<div id="tab2" class="tab"></div>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript" src="jquery.tab2.js"></script>
+<script type="text/javascript">
+	
+	$('#tab').tab({
+		autoPlay:true
+	});
+
+	$('#tab2').tab({
+		btnCon: ['111','222','333','444'],
+		divCon: ['科技','新闻','体育','娱乐'],
+		evType:'mouseover'
+	});
+
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		// 找出字符串中的所有数字  数字的字符串 "9"  '3'
+
+		var str = 'haj123sdk54hask33dknalsd789'; // ===> ['123’,  ‘54’,  ‘33’, ‘789’]
+		
+		
+		// alert('a' > 'b'); // 字符串比较 按照编码比较的
+		
+		// 0--9  48---57
+		
+		// alert('a'<'0'  'a' > '9')
+	/* 	var arr = [];
+		
+		var temp = ''; // 累加那些连续的数字字符串
+		
+		for(var i = 0; i < str.length; i++){
+			
+			if(str.charAt(i) >= '0' && str.charAt(i) <= '9') {
+				// 数字字符串
+				// 累加那些连续的数字字符串
+				temp += str.charAt(i);
+				
+			}else {
+				//走到else 说明不是数字了 就判断一下如果temp里面存了一些数字 把temp存到arr
+				if(temp) {
+					arr.push(temp);
+					temp = '';
+				}
+				
+			}
+			
+		}
+		if(temp) {
+			arr.push(temp);
+			temp = '';
+		}
+		
+		console.log(arr); */
+		
+		
+		
+		console.log(str.match(/\d+/g));
+		
+		
+	</script>
+</html>

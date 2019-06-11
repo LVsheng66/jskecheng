@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+	 window.onload = function(){
+		 
+	 }	
+	 
+	 window  document  body 
+		
+	</script>
+	<body>
+		<input type="button" value="按钮" id="btn">
+	</body>
+	<script type="text/javascript">
+	 var oBtn = document.getElementById('btn');
+	 
+	 function fn(){
+		 // this
+		 console.log(this); // this 这个 指代谁？ 谁调用了当前的函数 函数内部的this就指向谁
+	 }
+	 
+	 
+	 fn(); // 直接调用函数 this指向 window  js中顶级对象  
+	 
+	 oBtn.onclick = fn;   // 当事件调用函数 函数内部this 指向触发该事件前面的那个元素
+	 
+	 
+	 
+			
+		
+	</script>
+</html>
