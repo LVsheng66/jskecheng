@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="ccc">
+        <li>这是第1个li</li>
+        <li class="aa cc">这是第2个li</li>
+        <li>这是第3个li</li>
+        <li class="active abc aa">这是第4个li</li>
+    </ul>
+</body>
+<script>
+    // document.getElementsByClassName
+
+    // 元素.className = ''
+
+    //手动封装方法 addClass()  removeClass()  
+
+    // jq: addClass() removeClass()  toggleClass()  hasClass() jq
+
+    // h5   classList
+    var oUl = document.querySelector('ul');
+
+    var li = document.querySelectorAll('li')[1];
+
+    console.dir(oUl); // log 正常输出 普通内容  dir (可以用来打印对象的详细信息)
+
+    console.dir(li);
+
+    console.log(li.classList);
+
+    li.classList.add('box');
+
+    li.classList.remove('cc');
+
+    li.onclick = function() {
+
+        li.classList.toggle('aa');
+        console.log(li.classList.contains('aa'));
+    }
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 1000px;
+            border: 1px solid black;
+            margin: 50px auto 0;
+            /* 线性渐变的标准写法 基础上 可以添加浏览器的私有前缀 这样可以尝试在不同浏览器下 进行效果显示 
+        -ms- IE浏览器
+        -moz- 火狐浏览器
+        -o- 欧朋浏览器
+        -webkit- 谷歌 safari
+        */
+            background: linear-gradient( 135deg, black 0%, black 25%, transparent 25%, transparent 50%, black 50%, black 75%, transparent 75%);
+            background-size: 100px 100px;
+            animation: move 0.5s linear infinite;
+        }
+        
+        @keyframes move {
+            from {
+                background-position-x: 0px;
+            }
+            to {
+                background-position-x: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>

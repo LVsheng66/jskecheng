@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 400px;
+            height: 300px;
+            margin: 100px auto;
+            background-color: pink;
+            position: relative;
+        }
+        
+        img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 80px;
+            height: 120px;
+            margin-left: -40px;
+            margin-top: -60px;
+            transition: 2s;
+            /*改变旋转中心点 */
+            transform-origin: center top;
+        }
+        
+        #box:hover img:nth-child(1) {
+            transform: rotate(0deg);
+        }
+        
+        #box:hover img:nth-child(2) {
+            transform: rotate(60deg);
+        }
+        
+        #box:hover img:nth-child(3) {
+            transform: rotate(120deg);
+        }
+        
+        #box:hover img:nth-child(4) {
+            transform: rotate(180deg);
+        }
+        
+        #box:hover img:nth-child(5) {
+            transform: rotate(240deg);
+        }
+        
+        #box:hover img:nth-child(6) {
+            transform: rotate(300deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+        <img src="img/pk1.png" alt="">
+        <img src="img/pk2.png" alt="">
+        <img src="img/pk1.png" alt="">
+        <img src="img/pk2.png" alt="">
+        <img src="img/pk1.png" alt="">
+        <img src="img/pk2.png" alt="">
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+html,
+::after {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: black;
+}
+ul,
+li {
+  list-style: none;
+}
+input {
+  border: none;
+  outline: none;
+  resize: none;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  height: 0px;
+  font-size: 0px;
+  float: left;
+  clear: both;
+  overflow: hidden;
+}

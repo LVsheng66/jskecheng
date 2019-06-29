@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            /* animation-name: move;
+            animation-duration: 3s;
+            /* animation-delay: 2s; */
+            /* linear  step() 整个过程 通过四个状态完成  钟表*/
+            /* animation-timing-function: linear;
+            animation-iteration-count: 6; */
+            /* 动画结束之后的状态 forwards backwards默认 */
+            /* animation-fill-mode: forwards; */
+            /* animation-direction: alternate; */
+            /*反向*/
+            /* 3d相册：js+css3动画 */
+            animation: toR 1s linear 1 forwards, toD 3s 1s linear 1 forwards, toL 2s 4s linear 1 forwards, toU 3s 6s linear 1 forwards;
+        }
+        /* body:hover #box {
+            animation-play-state: paused;
+        } */
+        
+        @keyframes toR {
+            from {
+                left: 100px;
+                background-color: red;
+                border-radius: 0;
+            }
+            to {
+                left: 500px;
+                background-color: purple;
+                border-radius: 50%;
+            }
+        }
+        
+        @keyframes toD {
+            from {
+                top: 100px;
+                background-color: purple;
+                border-radius: 50%;
+            }
+            to {
+                top: 500px;
+                background-color: yellow;
+                border-radius: 30px;
+            }
+        }
+        
+        @keyframes toL {
+            from {
+                left: 500px;
+                background-color: yellow;
+                border-radius: 30px;
+            }
+            to {
+                left: 100px;
+                background-color: green;
+                border-radius: 50%;
+            }
+        }
+        
+        @keyframes toU {
+            from {
+                top: 500px;
+                background-color: green;
+                border-radius: 50%;
+            }
+            to {
+                top: 100px;
+                background-color: red;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        tranform 各种变换  + transition 来实现动画  类似于传统动画 的补间动画  初始状态 ---  结束状态
+
+        @keyframes  + animation 来实现动画  类似于传统动画  的关键帧动画  你来定义每一个变化的动作
+
+        css3 颠覆性的特征之一
+
+        定义函数
+        调用函数
+
+        定义动画
+        @keyframes 动画名 {
+            from{
+
+            }
+            to {
+
+            }
+
+        }
+        或者
+        @keyframe 动画名 {
+            0% {
+
+            }
+            30% {
+
+            }
+            50% {
+
+            }
+            100%{
+
+            }
+
+        }
+
+        在需要调用动画的元素 样式中 添加 animaton 
+        
+
+     -->
+    <div id="box"></div>
+</body>
+
+</html>

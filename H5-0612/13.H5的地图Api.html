@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="box">
+        <p>经度:<span id="s1"></span></p>
+        <p>纬度:<span id="s2"></span></p>
+        <p>准确度:<span id="s3"></span></p>
+        <p>海拔高度:<span id="s4"></span></p>
+        <p>海拔准确度:<span id="s5"></span></p>
+
+    </div>
+
+</body>
+<script>
+    var s1 = document.querySelector('#s1');
+    // 移动端  app   LBS: location basic  service 基于位置的服务  饿了么 送餐软件 百度地图软件 滴滴打车
+
+    //位置：经度 纬度  海拔   北京  东经 118度   北回归线 23.5
+
+    // 位置如何定位：
+    // IP地址 定位： 比如pc电脑 ip网络运营商提供 精确到市
+
+    //GPS: 北斗  欧洲 伽利略卫星  俄罗斯 全球卫星定位系统 手机GPS
+    // 流量：你的网络运营商 移动--》移动运营---在全国范围的基站建设数量
+
+    // 位置属于个人用户隐私  一般需要经过允许才能获取
+
+    // 获取一次你的当前位置
+    window.navigator.geolocation.getCurrentPosition(function(pos) {
+        s1.innerHTML = pos.coords.longitude //经度
+        s2.innerHTML = pos.coords.latitude // 纬度
+        s3.innerHTML = pos.coords.accuracy // 准确度
+        s4.innerHTML = pos.coords.altitude // 海拔高度
+        s5.innerHTML = pos.coords.altitudeAccuracy // 海拔准确度
+
+
+
+    }, function(err) {
+        console.log(err)
+    });
+
+    // 就像定时器一样 开启监控位置 可以不断监控你的位置变化
+    var timer = window.navigator.geolocation.watchPosition(function(pos) {
+        s1.innerHTML = pos.coords.longitude //经度
+        s2.innerHTML = pos.coords.latitude // 纬度
+        s3.innerHTML = pos.coords.accuracy // 准确度
+        s4.innerHTML = pos.coords.altitude // 海拔高度
+        s5.innerHTML = pos.coords.altitudeAccuracy // 海拔准确度
+        s5.innerHTML = pos.coords.heading; // 行径方向
+        s5.innerHTML = pos.coords.speed; // 运动速度
+        s5.innerHTML = new Date(pos.coords.timestamp) // 当前的运动时间戳
+
+    }, function(err) {
+        console.log('获取位置失败了,失败信息是' + err);
+    }, {
+        timeout: 10000 // 超时时间为10秒 
+    });
+
+    navigator.geolocation.clearWatch(timer); // 清除监控位置的方法
+
+    //  经度 113.9   纬度 22.5  准确度：246.4
+</script>
+
+</html>

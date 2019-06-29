@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        body {
+            background-color: rgb(7, 152, 248);
+        }
+        
+        #box {
+            width: 303px;
+            height: 301px;
+            margin: 100px auto 0;
+            position: relative;
+            transition: 1s;
+        }
+        
+        #box>section {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        section:nth-child(1) {
+            width: 303px;
+            height: 301px;
+            background: url(img/bg.png) left 0 no-repeat;
+            /* 预先翻过去 */
+            backface-visibility: hidden;
+            transform: rotateY(-180deg);
+            transition: 1s;
+        }
+        
+        section:nth-child(2) {
+            width: 303px;
+            height: 301px;
+            background: url(img/bg.png) right 0 no-repeat;
+            /* 背面 隐藏 */
+            backface-visibility: hidden;
+            transition: 1s;
+        }
+        
+        body:hover section:nth-child(1) {
+            transform: rotateY(0deg);
+        }
+        
+        body:hover section:nth-child(2) {
+            transform: rotateY(-180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <section></section>
+        <section></section>
+    </div>
+</body>
+
+</html>

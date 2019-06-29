@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        body {
+            background: linear-gradient( 135deg, blue, aqua);
+        }
+        
+        #rocket {
+            width: 101px;
+            height: 190px;
+            position: absolute;
+            left: 0;
+            bottom: -200px;
+            transform: rotate(45deg);
+            transition: 2s;
+        }
+        
+        body:hover #rocket {
+            bottom: 500px;
+            left: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rocket">
+        <img src="rocket.png" alt="">
+    </div>
+</body>
+
+</html>

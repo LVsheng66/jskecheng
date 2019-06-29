@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 1000px;
+            height: 600px;
+            border: 1px solid black;
+            background: url(1-big.jpg) no-repeat;
+            /* 要设置背景图的尺寸大小： background-size: */
+            /* 可以设置固定值 像素  100px 100px  可能会导致图片比例变形  不会随着盒子的宽高变化而变化*/
+            /* 背景的宽高 为100px 100px */
+            /* background-size: 400px 300px; */
+            /* 可以设置百分比 会随着盒子的宽高变化而变化 但是比例有可能 变形 */
+            /* background-size: 100% 100%; */
+            /* 可以设置 cover 保证图片比例不变形 可以让图片尽可能覆盖 盒子全部区域 但是有可能 图片部分区域看不到*/
+            background-size: cover;
+            /* 可以设置 contain 保证图片比例不变形 尽可能让图片全部显示在盒子区域 但是有可能让盒子出现空白区域 */
+            /* background-size: contain; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>

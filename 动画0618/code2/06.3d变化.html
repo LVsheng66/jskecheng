@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            /*  添加透视距离 让用户和 目标元素之间有一定的距离 */
+            perspective: 500px;
+        }
+        
+        img {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -100px;
+            transition: 1s;
+        }
+        
+        body:hover img {
+            /* transform: translateX(100px) translateY(80px) translateZ(100px); */
+            /* transform: translate3d(200px, 200px, -150px); */
+            /* transform: translateZ(400px); */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        3D变换 是css3 具有颠覆性的特征之一  可以将我们的页面 从二维平面  转换为 三维的空间 多个了一个z轴
+
+        三个轴 x  y  z  互相垂直
+
+        可以实现 3d位移 3d旋转  3d的缩放
+        transform:
+            translateX() tranlateY()  translateZ()
+
+        z 轴想要出效果 需要加一个透视  通过透视的原理 给人视觉上 3d的效果
+
+        透视：利用人眼的视角 近大远小的原理 
+     -->
+    <img src="img/x.jpg" alt="">
+</body>
+
+</html>

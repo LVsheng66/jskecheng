@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*  box-sizing:content-box border-box */
+        
+        #box {
+            width: 400px;
+            height: 300px;
+            background: url(1-big.jpg) no-repeat;
+            padding: 30px;
+            /* border: 20px dotted red; */
+            border: 1px dotted red;
+            /* 背景裁切  content-box  padding-box  border-box默认 */
+            background-clip: content-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>

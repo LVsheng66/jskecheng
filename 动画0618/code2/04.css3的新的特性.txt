@@ -1,0 +1,220 @@
+一、 H5的新增的结构化标签
+header 头部区域 页眉
+section 区块
+footer 底部页脚
+main 主体主要 
+nav 导航
+article 文章区域
+aside 侧边栏
+figure 媒介内容分组
+figcaption 分组标题
+progress  进度条
+time  时间日期
+detail 详细信息
+summary 汇总的 摘要
+hgroup 标题组
+address 地址
+
+二 表单的新增类型
+email 邮箱
+url 地址
+tel  电话号码
+number 数字
+search 搜索 
+color 拾色器
+range 范围
+
+time 时间
+date 日期
+date-local 本地日期
+week 周
+month 月
+
+新增的表单属性
+placeholder 占位符
+autofocus 自动获取焦点
+required 必填项
+pattern  正则
+
+H5 多媒体
+audio 音频
+video 视频
+source 源
+autoplay 自动播放
+loop 循环  （-1）
+muted 静音
+
+
+dataset H5中设置自定义属性
+
+H5新增的选择器
+querySelector()
+querySelectorAll()
+
+H5操作类
+classList.add() / remove() / toggle() / contains()
+
+H5地理定位
+window.navigator.geolocation
+
+getCurrentPosition 获取一次当前位置
+watchPosition 持续获取位置
+从这些方法里面 第一个成功的回调函数中传入position
+position.coords.longitude 经度
+position.coords.latitude 维度
+
+百度API/高德API
+
+
+H5 本地存储
+
+sessionStorage 会话（当前窗口的生存时间）期间存储
+
+localStorage 永久的存储
+
+getItem(key) 获取
+setItem(key,val) 设置
+removeItem(key) 移除
+clear() 清空
+
+H5监听网络接口：
+两个事件
+online  如果网络连接成功 则触发
+offline 如果网络断开 则触发
+
+FileReader 文件读取的构造函数 通过new 产生文件读取对象
+能够读取的格式：
+1  readAsText():
+2  readAsBinaryString()
+3  readAsDataUrl() 一般图片上传并预览 使用这个格式读取 返回base64格式 直接将返回的图片信息 放入src中 用户就可以看到
+
+本地上传 ---》 <input type='file' /> 元素.files
+
+H5拖拽
+        拖拽元素触发
+        ondrag 整个拖拽过程都会持续调用
+        ondragstart 当开始拖拽的时候调用
+        ondragleave 当鼠标离开拖拽元素的时候
+        ondragend 当拖拽结束的时候 调用
+        
+        应用于目标元素的事件
+        ondragenter 当拖拽元素进入时调用
+        ondragover 当停留在目标元素上的时候 持续调用
+        ondrop 当在目标元素上松开鼠标时调用
+        ondragleave 当鼠标离开目标元素时调用
+
+拖拽上传 ===> drop事件的事件对象中 e.dataTransfer.files
+
+ajax上传----1 创建ajax 2 open 3 send  4 onload 上传成功之后触发
+
+
+
+
+三、CSS3 属性选择器
+
+    1 [attr]      比如 div[class]
+    2 [attr=val]  比如：div[class="aa"]
+    3 [attr^=val] 比如 div[class^="aa"]
+    4 [attr$=val] 比如 div[class$="aa"]
+    5 [attr*=val] 比如 div[class$="aa"]
+
+伪类选择器
+    a:
+        :link :hover :active :visited
+
+    :first-child{}
+    :last-child{}
+    :nth-child(n) {}
+    :nth-last-child(n) {}
+
+    :first-of-type {}
+    :last-of-type {}
+    :nth-of-type() {}
+    :nth-last-of-type() {}
+
+    伪元素
+    :before
+    :after
+    新版浏览器 ::before ::after
+
+
+新增的颜色表示方式
+1 rgba 红色 绿色 蓝色 透明度
+2 hsla 色调 饱和度 明度  透明度  hsla这个颜色模式 要比 rgba 包含的颜色信息更多
+
+阴影：
+ 文本阴影：
+    text-shadow: 
+        参数： 水平偏移量  垂直偏移量  模糊半径  颜色
+盒子阴影：
+    box-shadow:
+        参数：水平偏移量  垂直偏移量  模糊半径  颜色  inset(可选 内侧)
+
+盒模型：
+    两个模式：
+        content-box 
+        border-box
+圆角：css2 ---> 滑动门实现定位  css3
+    border-radius: 任何一个角 都可以设置两个值（水平轴 垂直轴 半径）
+    border-radius: 50px;
+    border-radius: 10px 20px 30px 40px; 
+    ///  不支持 border-top-radius:
+    border-top-left-radius: 10px 8px;
+
+
+线性渐变：
+    参数1 方向： to left/right ...   角度90deg
+    参数2 以后 可以加多个颜色  可以设置百分比
+    linear-gradient()
+
+径向渐变
+    参数1  放射半径100px at  center放射中性点 / 10px 10px
+    参数2 可以加多个颜色 可以设置百分比
+    radial-gradient()
+
+背景尺寸：
+    background-size: 可以设置固定像素 / 百分比 / cover /contain
+
+背景裁切:
+    background-clip: content-box / padding-box/ border-box 默认
+css3支持多重背景：
+    先背景图 后背景颜色 可以加多个背景
+
+
+transition:过渡属性 （类似于 flash动画中 补间动画）
+
+    transition-property: 参数1:过渡的属性 
+    transition-duration:参数2:过度的时间
+    transition-timing-function:参数3:过度的速度形式:linear ease-in ease-out
+    transition-delay:参数4：延迟
+
+
+2D:
+    transform:变换
+
+        位移
+            translate(x，y)  ==> translateX() translateY()
+        
+        旋转
+            rotate(角度deg) 顺时针正向  逆时针 负值
+        缩放：
+            scale(x,y)  scaleX()  scaleY()
+
+        斜切:   
+            skew(水平斜切，垂直斜切)
+
+3D：
+
+
+作业：
+课上全部案例 做一遍
+
+另外  用 animation做： 大海  宇宙
+    
+
+
+
+
+
+
+

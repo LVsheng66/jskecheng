@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	#box {
+		width: 400px;
+		height: 400px;
+		background-color: green;
+		position: absolute;
+		left: 100px;
+		top: 100px;
+		display: none;
+	}
+</style>
+<body>
+	<input type="button" value="显示">
+	<input type="button" value="隐藏">
+	<input type="button" value='切换'>
+	<div id="box"></div>
+</body>
+<script type="text/javascript" src="jQ.js"></script>
+<script type="text/javascript">
+	
+	//jquery提供的第一组动画  show()  hide()
+	/*show() 第一个参数：运动的过渡时间 单位毫秒 1000  
+	 				   时间可以几个常量字符串 'normal'==>400毫秒   'slow' 600ms   'fast' 200ms
+	 		 第二个参数：回调函数
+	hide() 
+	
+	toggle() 在显示和隐藏之间切换
+	*/ 
+	$('input:eq(0)').click(function () {
+		
+		$('#box').show('slow',function(){
+			alert('运动完啦');
+		});
+
+	})
+
+	$('input:eq(1)').click(function () {
+		
+		$('#box').hide('fast',function(){
+			alert('运动完啦，哈哈哈');
+		});
+
+	})
+
+	$('input:eq(2)').click(function () {
+		
+		$('#box').toggle(1500,function(){
+			alert('嘻嘻嘻');
+		});
+
+	})
+
+	// 这一组方法 它改变的是运动物体的什么属性？ 宽和高 透明度 都改变了
+
+</script>
+
+</html>

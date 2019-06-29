@@ -1,0 +1,49 @@
+//重置样式
+html,
+::after{
+    margin: 0px;
+    padding: 0px;
+    .pre(box-sizing,border-box)
+
+}
+body{
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+}
+a{
+    text-decoration: none;
+    color: black;
+   
+}
+a:hover{
+    color: black;
+}
+ul,li{
+    list-style: none;
+    // list-style-type: none;
+    // list-style-position: initial;
+    // list-style-image: initial;
+}
+input{
+    border: none;
+    outline: none;
+    resize: none;
+}
+.pre(@style,@val){
+    -webkit-@{style}:@val;
+    -ms-@{style}:@val;
+    -o-@{style}:@val;
+    -moz-@{style}:@val;
+}
+.clearfix{
+    &::after{
+        content: "";
+        display: block;
+        height: 0px;
+        font-size: 0px;
+        float: left;
+        clear: both;
+        overflow: hidden;
+    }
+}

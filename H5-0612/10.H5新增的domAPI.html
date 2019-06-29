@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>fdsfdfdfdf</p>
+    <div id="box">盒子
+        <p>拍拍拍拍拍拍拍</p>
+        <p>拍拍拍拍拍拍拍222</p>
+        <p>拍拍拍拍拍拍拍333</p>
+    </div>
+    <em class="aa p1 cc">em</em>
+    <p class="p1">ppppppp</p>
+    <span class="p1">span</span>
+    <span>dddddd</span>
+</body>
+<script>
+    // document.getElementById()
+    // document.getElementsByClassName()
+    // document.getElementsByTagName()
+    // document.getElementsByName()
+
+    // 新增的获取元素的方法1
+    var oBox = document.querySelector('#box');
+    var aP1 = document.querySelector('.p1');
+
+    var oSpan = document.querySelector('span');
+
+    var oP = document.querySelector('#box p');
+
+    console.log(oBox);
+    oBox.style.backgroundColor = "red";
+    console.log(aP1);
+    console.log(oSpan);
+
+    console.log(oP);
+
+    var aa = document.querySelectorAll('p');
+    console.log(aa);
+    for (var i = 0; i < aa.length; i++) {
+        aa[i].style.backgroundColor = 'blue';
+    }
+</script>
+
+</html>

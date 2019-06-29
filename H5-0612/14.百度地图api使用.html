@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 600px;
+            height: 400px;
+            margin: 50px auto 0;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=G2IbchzvRPXi3GGj1z6ffYO7R2piS8Hf"></script>
+<script>
+    var mp = new BMap.Map("box");
+    // 经度 113.9   纬度 22.5  
+    mp.centerAndZoom(new BMap.Point(113.9, 22.5), 16);
+    mp.enableScrollWheelZoom();
+    var top_left_control = new BMap.ScaleControl({
+        anchor: BMAP_ANCHOR_TOP_LEFT
+    }); // 左上角，添加比例尺
+
+    //创建小狐狸
+    var pt = new BMap.Point(113.9, 22.5);
+    var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300, 157));
+    var marker2 = new BMap.Marker(pt, {
+        icon: myIcon
+    }); // 创建标注
+    mp.addOverlay(marker2);
+
+
+    var opts = {
+        width: 150, // 信息窗口宽度
+        height: 80, // 信息窗口高度
+        title: "月亮湾公园", // 信息窗口标题
+        enableMessage: true, //设置允许信息窗发送短息
+        message: "亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
+    }
+    var infoWindow = new BMap.InfoWindow("地址：深圳市南山区月亮湾公园", opts); // 创建信息窗口对象 
+    marker2.addEventListener("click", function() {
+        mp.openInfoWindow(infoWindow, new BMap.Point(113.9, 22.5)); //开启信息窗口
+    });
+</script>
+
+</html>

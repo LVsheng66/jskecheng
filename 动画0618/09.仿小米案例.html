@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        main {
+            width: 1220px;
+            margin: 100px auto;
+        }
+        
+        section {
+            width: 224px;
+            overflow: hidden;
+            height: 300px;
+            float: left;
+            margin-right: 20px;
+            text-align: center;
+            position: relative;
+            top: 0;
+            left: 0;
+            transition: 0.5s;
+        }
+        
+        span {
+            width: 100%;
+            height: 80px;
+            position: absolute;
+            left: 0;
+            bottom: -80px;
+            background-color: rgb(255, 72, 0);
+            transition: 0.5s;
+        }
+        /* 鼠标移上 加上一个盒子阴影  让 span 从下往上 出现 section往上移动一下*/
+        
+        section:hover {
+            box-shadow: 0 0 10px #666;
+            top: -5px;
+        }
+        
+        section:hover span {
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section><img src="images/1.jpg" alt=""><span></span></section>
+        <section><img src="images/2.jpg" alt=""><span></span></section>
+        <section><img src="images/3.jpg" alt=""><span></span></section>
+        <section><img src="images/4.jpg" alt=""><span></span></section>
+        <section><img src="images/5.jpg" alt=""><span></span></section>
+
+    </main>
+</body>
+
+</html>

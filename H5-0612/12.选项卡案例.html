@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        nav a {
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            background-color: pink;
+            text-decoration: none;
+            color: black;
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        section {
+            width: 300px;
+            height: 280px;
+            border: 1px solid black;
+            display: none;
+        }
+        
+        nav a.active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="javascript:;" data-cont="local">国内</a>
+        <a href="javascript:;" data-cont="global">国际</a>
+        <a href="javascript:;" data-cont="sport">体育</a>
+        <a href="javascript:;" data-cont="science">科技</a>
+    </nav>
+    <section id="sport">
+        <ol>
+            <li>33333333333333</li>
+            <li>禽流感在感在广1处继续蔓延，温家宝指示</li>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广在全国暴发</li>
+            <li>禽流感在全国多处继续蔓延，温家宝指示</li>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广东群体性暴发</li>
+        </ol>
+    </section>
+    <section id="global">
+        <ol>
+            <li>222222222222222</li>
+            <li>禽流感在感在广1处继续蔓延，温家宝指示</li>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广在全国暴发</li>
+            <li>禽流感在全国多处继续蔓延，温家宝指示</li>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广东群体性暴发</li>
+        </ol>
+    </section>
+
+    <section id="local">
+        <ol>
+            <li>111111111111111</li>
+            <li>禽流感在感在广1处继续蔓延，温家宝指示</li>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广在全国暴发</li>
+            <li>禽流感在全国多处继续蔓延，温家宝指示</li>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广东群体性暴发</li>
+        </ol>
+    </section>
+    <section id="science">
+        <ol>
+            <li>444444444444444444</li>
+            <li>禽流感在感在广1处继续蔓延，温家宝指示</li>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广在全国暴发</li>
+            <li>禽流感在全国多处继续蔓延，温家宝指示</li>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广东群体性暴发</li>
+        </ol>
+    </section>
+</body>
+<script>
+    (function(idx) { // 函数的立即执行表达式  匿名函数的自调用
+        var navs = document.querySelectorAll('nav>a');
+
+        // 初始化
+        // 加类
+        navs[idx].classList.add('active');
+        var idName = navs[idx].dataset.cont;
+        document.querySelector('#' + idName).style.display = 'block';
+
+        for (var i = 0; i < navs.length; i++) {
+
+            navs[i].onclick = function() {
+
+                document.querySelector('nav a.active').classList.remove('active');
+                this.classList.add('active');
+
+                document.querySelector('#' + idName).style.display = 'none';
+                idName = this.dataset.cont;
+                document.querySelector('#' + idName).style.display = 'block';
+
+            }
+
+        }
+
+
+    })(1); // 传入一个索引进去 实现初始化
+</script>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+</body>
+<script>
+    document.getElementById('btn').onclick = function() {
+
+
+        ajax('post', '02.post.php', 'username=张三&age=23&job=fe', function(data) {
+
+            // 数据就过来了
+            console.log(data);
+        });
+
+    }
+
+    function ajax(method, url, data, success) {
+        // ajax 第一步  创建一个ajax对象
+        var xhr = null;
+        // 使用异常捕获语句进行 兼容性处理
+        try {
+            xhr = new XMLHttpRequest(); // js内置的一个ajax对象 （IE6）
+        } catch (e) {
+            xhr = new ActiveXObject('Microsoft.XMLHTTP'); //IE 6 可以识别的
+
+        }
+
+        // 判断一下请求方式  如果是get data放在url的？后面拼接 如果是post 则放在send方法里
+        if (method == 'get') {
+            url = url + "?" + data;
+        }
+
+        // 第二步 调用  open方法
+        xhr.open(method, url, true);
+
+
+        // 第三步 调用send方法
+
+        // 如果是post 方法 则需要处理的 1 设置请求头 2 把data放在send方法里面
+        if (method == 'post') {
+            //如果是post请求 需要设置请求头
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send(data);
+        } else {
+            xhr.send();
+        }
+
+
+
+
+
+        // 第四步 监听ajax工作状态码 发生改变
+        xhr.onreadystatechange = function() {
+
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    // alert(xhr.responseText);
+                    // 执行回调函数
+                    (typeof success === 'function') && success(xhr.responseText);
+                } else {
+                    alert('错了，错误信息是' + xhr.status);
+                }
+            }
+        }
+    }
+</script>
+
+</html>

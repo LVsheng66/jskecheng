@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form {
+            border: 1px solid rgb(17, 105, 238);
+            background-color: #ccc;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>介绍表单标签</legend>
+        </fieldset>
+        <!-- <input type="text">
+        <input type="password">
+        <input type="checkbox">
+        <input type="radio" name="sex">男
+        <input type="radio" name="sex">女
+        <input type="email">
+        <input type="search">
+        <input type="reset">
+        <input type="submit"> -->
+
+
+        <label for="e">  <!--<label for==>里面的input的id可以 点击文字让获取input框焦点 </label-->
+            email:<input type="email" id="e">  <!--会有正则验证 邮箱是否符合规则-->
+        </label>
+        <label for="">
+            tel:<input type="tel">  <!--在移动端 输入的时候会弹出数字键盘-->
+        </label>
+        <label for="">
+            url:<input type="url">
+        </label>
+        <label for="">
+            number:<input type="number" value="提交">  <!--移动端会弹出 数字键盘-->
+           </label>
+        <label for="">
+             <input type="submit" value="提交">
+        </label>
+        <label for="">
+           <!-- search 搜索框 (在移动端 enter/开始 键里面的文字 会变成搜索)-->
+            <input type="search">
+        </label>
+        <label for="">
+                <!-- range 范围  -->
+            <input type="range" min="0" max="10" value="8" step="2">
+        </label>
+        <label for="">
+            <!-- color 拾色器 -->
+            <input type="color" id="aa">
+        </label>
+        <label for="">
+            <!-- time -->
+            <input type="time">
+        </label>
+        <label for="">
+            <!-- date 日期 不是绝对的 （会出现日期选择器） -->
+            <input type="date">
+        </label>
+        <label for="">
+            <!-- datetime-local -->
+            <input type="datetime-local">
+        </label>
+        <label for="">
+                <!-- 几月 -->
+                <input type="month">
+            </label>
+        <label for="">
+            <!-- 星期几 -->
+            <input type="week">
+        </label>
+    </form>
+</body>
+<script>
+    console.log(aa.value);
+</script>
+
+</html>

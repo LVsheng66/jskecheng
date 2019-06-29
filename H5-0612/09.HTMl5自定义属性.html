@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box" data-abc="123" data-info="哈哈我是H5自定义属性" data-user-name="尼古拉斯赵四" data-company-fe-leader="小损样"></div>
+</body>
+<script>
+    var oBox = document.getElementById('box');
+    //alert(oBox.id);
+
+    // oBox.aaa = 'xixiix';
+    // aInp[i].index = i;
+
+    // alert(oBox.index);
+    // alert(oBox.abc); // . 只能获取js中当下设置的自定义属性 或者是页面中的常规属性  无法获取页面中设置的自定义属性
+    // getAttribute()  setAttribute()  removeAttribute()
+    //alert(oBox.getAttribute('abc'));
+
+    console.log(oBox.dataset); // 类似一个js对象 里面可以当前元素的所有 自定义属性获取到（通过data-）
+
+    console.log(oBox.dataset.userName);
+
+    oBox.dataset.hehe = "呵呵";
+</script>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            width: 900px;
+            margin: 100px auto;
+            /* perspective: 400px; */
+        }
+        
+        ul:after {
+            display: block;
+            content: "";
+            clear: both;
+        }
+        
+        ul li {
+            list-style: none;
+            width: 60px;
+            height: 40px;
+            font-size: 14px;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            float: left;
+            position: relative;
+            transition: 0.5s;
+            transform-style: preserve-3d;
+        }
+        
+        ul li span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        
+        ul li span:nth-child(1) {
+            background-color: yellow;
+            color: black;
+            transform: rotateX(90deg) translateZ(20px);
+        }
+        
+        ul li span:nth-child(2) {
+            background-color: green;
+            color: white;
+            transform: translateZ(20px);
+        }
+        
+        ul li:hover {
+            transform: rotateX(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><span>news</span><span>新闻</span></li>
+        <li><span>tech</span><span>科技</span></li>
+        <li><span>NBA</span><span>篮球</span></li>
+        <li><span>Soccer</span><span>足球</span></li>
+        <li><span>Game</span><span>游戏</span></li>
+        <li><span>news</span><span>新闻</span></li>
+        <li><span>tech</span><span>科技</span></li>
+        <li><span>NBA</span><span>篮球</span></li>
+        <li><span>Soccer</span><span>足球</span></li>
+        <li><span>Game</span><span>游戏</span></li>
+        <li><span>news</span><span>新闻</span></li>
+        <li><span>tech</span><span>科技</span></li>
+        <li><span>NBA</span><span>篮球</span></li>
+        <li><span>Soccer</span><span>足球</span></li>
+        <li><span>Game</span><span>游戏</span></li>
+    </ul>
+</body>
+
+</html>

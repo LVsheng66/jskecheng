@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            /*  添加透视距离 让用户和 目标元素之间有一定的距离 */
+            perspective: 500px;
+        }
+        
+        img {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -100px;
+            transition: 1s;
+        }
+        
+        body:hover img {
+            /* 以x轴为轴心 进行旋转 */
+            /* transform: rotateX(-90deg); */
+            /* transform: rotateY(-90deg); */
+            /* transform: rotateZ(-90deg); */
+            /* transform: translateZ(200px); */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+      
+     -->
+    <img src="img/x.jpg" alt="">
+</body>
+
+</html>

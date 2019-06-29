@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* transition: 过渡属性  类似于动画软件中 补间动画  给定一个初始状态 和 终止状态  它会自动过渡过去 */
+        /* transition-perporty 过渡属性 */
+        /* transition-duration 过渡时间 单位是秒 s */
+        /* transition-timing-function 过度速度形式： linear  ease-in  eas-out */
+        /* transition-delay:过渡延迟 秒 */
+        
+        #box {
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            border: 1px solid black;
+            margin: 100px auto 0;
+            /* transition-property: width;
+            transition-duration: 0.3s;
+            transition-timing-function: linear;
+            transition-delay: 1s; */
+            transition: all 2s ease-in;
+        }
+        
+        #box:hover {
+            width: 500px;
+            height: 300px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>

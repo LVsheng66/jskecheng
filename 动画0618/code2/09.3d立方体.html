@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+    
+    #box {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        border-radius: 50%;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        margin-left: -100px;
+        margin-top: -100px;
+        /* perspective: 600px; */
+        transform: rotateX(0deg) rotateY(0deg);
+        /* 虽然有透视 我们能够通过近大远小 来产生视觉效果 但是 它本身还是二维的平面 需要将元素置于真实的3d环境中 */
+        transform-style: preserve-3d;
+        animation: move 4s linear infinite;
+    }
+    
+    #box div {
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-align: center;
+        font: 20px/200px "微软雅黑";
+        color: white;
+        transition: 1s;
+    }
+    
+    #box #left {
+        background-color: green;
+        transform: rotateY(-90deg) translateZ(100px);
+    }
+    
+    #box #right {
+        background-color: blue;
+        transform: rotateY(90deg) translateZ(100px);
+    }
+    
+    #box #up {
+        background-color: red;
+        transform: rotateX(-90deg) translateZ(-100px);
+    }
+    
+    #box #down {
+        background-color: aqua;
+        transform: rotateX(90deg) translateZ(-100px);
+    }
+    
+    #box #front {
+        background-color: orange;
+        transform: translateZ(100px);
+    }
+    
+    #box #back {
+        background-color: purple;
+        transform: translateZ(-100px);
+    }
+    /* body:hover #box {
+        transform: rotateX(360deg) rotateY(180deg);
+    } */
+    
+    @keyframes move {
+        from {
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+        to {
+            transform: rotateX(360deg) rotateY(180deg);
+        }
+    }
+</style>
+
+<body>
+    <div id="box">
+        <div id="left">左</div>
+        <div id="right">右</div>
+        <div id="up">上</div>
+        <div id="down">下</div>
+        <div id="front">前</div>
+        <div id="back">后</div>
+    </div>
+</body>
+
+</html>

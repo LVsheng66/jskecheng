@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #wrap {
+            width: 600px;
+            margin: 50px auto 0;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        #oUl {
+            list-style: none;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<script src="json2.js"></script>
+<script src="ajax.js"></script>
+
+<body>
+    <div id="wrap">
+        <input type="text">
+        <input type="button" value="查询">
+        <h2>人员资料查询表</h2>
+        <ul id="oUl">
+            <!-- <li><strong>姓名:</strong>  <span>小花：查无此人</span> </li> -->
+
+
+            <!--  <li><strong>姓名:</strong> <span>小红</span> </li>
+            <li><strong>年龄:</strong> <span>23</span> </li>
+            <li><strong>爱好:</strong> <span>化妆</span> </li>
+            <li><strong>简介:</strong> <span>一天一个面膜，不化妆不能出门</span> </li> -->
+        </ul>
+    </div>
+
+</body>
+<script>
+    // 单击 查询按钮   将姓名 数据 发送到后端 后端查找一下是否有此人 如果有返回
+    // 后端 get 接收一个 user  ==>姓名
+    // {code:0:data：此人的数据}  {code:1，data:查无此人}
+
+    var aInp = document.getElementsByTagName('input');
+    var oUl = document.getElementById('oUl');
+
+
+    // 创建一个js对象 实现英文单词和 汉字的一一映射
+    var json = {
+        "name": "姓名",
+        "age": "年龄",
+        "hobby": "爱好",
+        "info": "简介"
+    }
+
+    aInp[1].onclick = function() {
+
+        ajax({
+            url: "ajax.php",
+            data: "user=" + aInp[0].value,
+            success: function(data) {
+                console.log(data);
+                var str = '';
+                if (data.code) { // code:1
+                    str = '<li style="color:red;"><strong>姓名:</strong>  <span>' + aInp[0].value + '：查无此人</span></li>'
+                } else { // code：0
+                    for (var k in data.data) {
+                        // k 是对象里面的键名 name age hobby info
+                        str += '<li style="color:green;"><strong>' + json[k] + ':</strong> <span>' + data.data[k] + '</span></li>';
+                    }
+                }
+
+                oUl.innerHTML = str;
+
+            },
+            dataType: "json"
+        })
+
+    }
+</script>
+
+</html>

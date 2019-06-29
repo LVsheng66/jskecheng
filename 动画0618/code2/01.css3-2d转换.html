@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transition: 1s;
+            margin: 100px auto;
+        }
+        
+        body:hover #box {
+            /* transform: translate(200px, 300px); */
+            /* transform: rotate(-360deg); */
+            /* transform: scaleY(-2); */
+            transform: scale(2, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 2D变换  是css3里面 具有颠覆性的特征之一  可以实现 元素的 位移  旋转  缩放
+        
+    transform 变换的意思:
+
+    位移： translate(x平移量，y平移量) 可以接收负值  x方向 正值 向右 负值向左  y方向 正值向下 负值向上
+    旋转： rotate(角度deg) 顺时针方向为正值  逆时针为负值  可以支持负数 
+    缩放：scale(x缩放比例，y的缩放比例) 不支持负数 现在也支持
+
+    -->
+    <div id="box">盒子</div>
+</body>
+
+</html>

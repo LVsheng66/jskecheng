@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="单击设置">
+    <input type="button" value="单击获取">
+    <input type="button" value="单击移除">
+    <input type="button" value="全部清空">
+</body>
+<script>
+    //  H5提供给我们的两个方法 用来前端存储数据    sessionStorage localStorage
+    //  特性：1 存储操作方便 直接有现成的方法供你使用 
+    //       2 存储容量 上 sessionStorage 5M localStorage 20M  MB   cookie kb
+    //       3 只能存储字符串，可以将对象JSON.stringify() 编码后存储 
+
+    //     sessionStorage 只能在一个会话窗口打开期间 生效  关闭之后 立即结束存储
+    //     localStorage  永久存储  存在磁盘上 可以在多个窗口之间共享数据
+
+
+    // setItem(key, value) 设置存储内容   // cookie的函数 setCookie  getCookie removeCookie
+    // getItem(key) 读取存储内容
+    // removeItem(key) 删除键值为key的存储内容
+    // clear() 清空所有存储内容
+    var aInp = document.querySelectorAll('input');
+    aInp[0].onclick = function() {
+        sessionStorage.setItem('name', '班禅额尔德尼');
+        var obj = {
+            "name": "zs",
+            "job": "fe",
+            "age": 33,
+            "news": ["aa", 'bb', 'cc']
+        }
+        sessionStorage.setItem('person', JSON.stringify(obj));
+        localStorage.setItem('person', JSON.stringify(obj));
+        localStorage.setItem('name1', '班禅额尔德尼111');
+    }
+    aInp[1].onclick = function() {
+        console.log(JSON.parse(sessionStorage.getItem('person')).news);
+        console.log(JSON.parse(localStorage.getItem('person')).news);
+    }
+
+    aInp[2].onclick = function() {
+        sessionStorage.removeItem('name');
+        localStorage.removeItem('name1');
+    }
+
+    aInp[3].onclick = function() {
+        sessionStorage.clear();
+        localStorage.clear();
+    }
+</script>
+
+</html>

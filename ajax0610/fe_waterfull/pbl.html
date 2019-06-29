@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: black;
+        }
+        
+        #oUl {
+            list-style: none;
+            width: 1088px;
+            margin: 50px auto 0;
+        }
+        
+        #oUl li {
+            width: 252px;
+            float: left;
+            margin: 10px;
+        }
+        
+        #oUl li div {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 5px yellow;
+            background-color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        #oUl li div img {
+            display: block;
+        }
+        
+        #oUl li div p {
+            font: 12px/20px "微软雅黑";
+            text-indent: 2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul id="oUl">
+        <li>
+            <!-- <div>
+                <img src="images/1.jpg" alt="">
+                <p><p>
+            </div> -->
+        </li>
+        <li>
+
+        </li>
+        <li>
+
+        </li>
+        <li>
+
+        </li>
+    </ul>
+
+</body>
+<script src="jq.js"></script>
+<script>
+    var $li = $('#oUl>li');
+    var page = 1;
+    var onOff = true;
+
+    // 1 打开 先请求一次 ajax数据
+
+    /*
+    
+    $.ajax({
+        url：请求地址
+        type: 请求方法 get/post
+        dataType: "json"
+        success: 成功回调函数
+        error: 失败回调函数
+        data: 传到后端的数据
+    })
+
+    后端接口 需要传入一个num  第几页
+    */
+    getPic();
+
+
+    function getPic() {
+        $.ajax({
+            url: "getPics.php",
+            dataType: "json",
+            type: "get",
+            data: "num=" + page,
+            success: function(data) {
+                console.log(typeof data);
+                console.log(data);
+                //如果数组数据没有了则 直接return 不进行渲染
+                if (!data.length) return;
+                // 处理一下数据
+                for (var i = 0; i < data.length; i++) {
+
+                    var $div = $('<div>');
+                    $div.append('<img width="230" height="' + data[i].height + '" src="' + data[i].img + '" />');
+                    $div.append('<p>' + data[i].title + '</p>');
+                    // 找到当前最矮的li 然后将图片往 这个li里面放
+                    var index = getShort();
+                    $li.eq(index).append($div);
+                }
+                // 这批数据已经加载到页面了 把开关改为true
+                onOff = true;
+            }
+        })
+
+    }
+
+
+    //当页面滚动条滚动的时候  当最短的li 露出空白的部分时候 就该请求第二批数据了
+    $(window).scroll(function() {
+        if (!onOff) {
+            return;
+        }
+        var index = getShort();
+        //最短的li的高度
+        var iShort = $li.eq(index).outerHeight();
+        //最短的li的距离浏览器顶部的距离
+        var iTop = $li.eq(index).offset().top;
+
+        if ((iShort + iTop) < ($(window).scrollTop() + $(window).outerHeight())) {
+            onOff = false;
+            //露出空白的部分时候 就该请求第二批数据了
+            page++;
+            getPic();
+        }
+        console.log($(window).scrollTop());
+
+    })
+
+
+    function getShort() {
+        // 假设 第0个li最短
+        var idx = 0;
+        var iH = $li.eq(0).outerHeight();
+        // 手动遍历每一个li
+        $li.each(function(i, ele) {
+                // 比较每一个li的高度 谁比我小 我就是谁 找最小值
+                if (iH > $li.eq(i).outerHeight()) {
+                    idx = i;
+                    iH = $li.eq(i).outerHeight()
+                }
+            })
+            //返回当前的最短的li的索引
+        return idx;
+    }
+</script>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="./myTool.js"></script>
+	<script type="text/javascript">
+	
+	// \b 是否是独立部分 （字符 字母数字下划线）    \B	非独立部分
+	
+	var str = 'onetwo';
+		
+	var re = /\Btwo\b/;  // class = "aa div acitve"
+	
+	if(re.test(str)){
+		console.log(true);
+	}else {
+		console.log(false);
+	}
+	
+	var str = '14263771234';
+	
+	if(RE.PhoneRe.test(str)){
+		console.log('是手机号');
+	}else {
+		console.log('不是手机号');
+	}
+	
+	
+	
+	
+	
+	</script>
+</html>

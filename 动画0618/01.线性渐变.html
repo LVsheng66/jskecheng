@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 渐变： 线性渐变  径向渐变  css3新的特性 建立在背景图之上的
+        线性渐变：
+        参数1 ： 方向 to right/reft /up/down  支持写度数 45deg 135deg
+        参数2: 一个颜色
+        参数3: 一个颜色
+        .....
+    */
+        
+        #box {
+            width: 300px;
+            height: 300px;
+            /* background-image: linear-gradient(
+                 to right,
+                 red,
+                 yellow,
+                  blue
+            ); */
+            /* background-image: linear-gradient( 45deg, red, yellow, blue); */
+            /* background-image: linear-gradient( 45deg, red 10%, yellow 80%, blue 95%); */
+            /* background: linear-gradient( 135deg, red 15%, orange 30%, yellow 45%, green 60%, aqua 75%, blue 90%, purple 100%); */
+            background: linear-gradient( 135deg, red 15%, orange 15%, orange 30%, yellow 30%, yellow 45%, green 45%, green 60%, aqua 60%, aqua 75%, blue 75%, blue 85%, purple 85%, purple 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>
